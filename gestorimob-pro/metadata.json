@@ -1,0 +1,8 @@
+{
+  "name": "GestorImob Pro",
+  "description": "Uma solução completa para gerenciamento de aluguéis, contratos e manutenção com inteligência artificial.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
