@@ -393,6 +393,149 @@ const Dashboard = ({ properties, payments, tenants, settings }: { properties: Pr
   );
 };
 
+// 3.5 Payment Recording Modal
+const PaymentModal = ({ 
+  properties, 
+  tenants, 
+  payments,
+  setPayments, 
+  onClose 
+}: { 
+  properties: Property[], 
+  tenants: Tenant[], 
+  payments: Payment[],
+  setPayments: React.Dispatch<React.SetStateAction<Payment[]>>, 
+  onClose: () => void 
+}) => {
+  const [selectedPropertyId, setSelectedPropertyId] = useState('');
+  const [paymentDate, setPaymentDate] = useState(new Date().toISOString().split('T')[0]);
+  const [observation, setObservation] = useState('');
+
+  const selectedProperty = properties.find(p => p.id === selectedPropertyId);
+  const tenant = selectedProperty ? tenants.find(t => t.id === selectedProperty.currentTenantId) : null;
+
+  const handleSavePayment = async () => {
+    if (!selectedPropertyId) {
+      alert('Selecione um imóvel');
+      return;
+    }
+
+    if (!selectedProperty?.currentTenantId) {
+      alert('Este imóvel não tem um inquilino ativo');
+      return;
+    }
+
+    const newPayment: Payment = {
+      id: Date.now().toString(),
+      propertyId: selectedPropertyId,
+      tenantId: selectedProperty.currentTenantId,
+      amount: selectedProperty.rentAmount,
+      date: paymentDate,
+      paid: true,
+      type: 'rent'
+    };
+
+    // Add to state
+    setPayments([...payments, newPayment]);
+
+    // TODO: Save to Supabase when payments table is created
+    // For now just local
+    
+    alert('✅ Pagamento registrado com sucesso!');
+    onClose();
+  };
+
+  const occupiedProperties = properties.filter(p => p.currentTenantId);
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
+            <DollarSign className="text-green-600" size={28} />
+            Registrar Pagamento
+          </h2>
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-600">
+            <X size={24} />
+          </button>
+        </div>
+
+        <div className="space-y-4">
+          <div>
+            <label className={LABEL_CLASS}>Imóvel</label>
+            <select
+              className={INPUT_CLASS}
+              value={selectedPropertyId}
+              onChange={(e) => setSelectedPropertyId(e.target.value)}
+            >
+              <option value="">Selecione...</option>
+              {occupiedProperties.map(p => (
+                <option key={p.id} value={p.id}>
+                  {p.nickname} - {p.address}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {selectedProperty && tenant && (
+            <>
+              <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                <p className="text-sm text-slate-600">Inquilino:</p>
+                <p className="font-semibold text-slate-800">{tenant.name}</p>
+              </div>
+
+              <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                <p className="text-sm text-green-600">Valor do Aluguel:</p>
+                <p className="text-2xl font-bold text-green-700">
+                  {selectedProperty.rentAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                </p>
+              </div>
+
+              <div>
+                <label className={LABEL_CLASS}>Data do Recebimento</label>
+                <input
+                  type="date"
+                  className={INPUT_CLASS}
+                  value={paymentDate}
+                  onChange={(e) => setPaymentDate(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className={LABEL_CLASS}>Observações (opcional)</label>
+                <textarea
+                  className={INPUT_CLASS}
+                  rows={2}
+                  value={observation}
+                  onChange={(e) => setObservation(e.target.value)}
+                  placeholder="Ex: Pagamento via PIX, com atraso..."
+                />
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className="mt-6 flex gap-3">
+          <button
+            onClick={onClose}
+            className="flex-1 px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors"
+          >
+            Cancelar
+          </button>
+          <button
+            onClick={handleSavePayment}
+            disabled={!selectedPropertyId || !selectedProperty?.currentTenantId}
+            className="flex-1 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            <CheckCircle size={18} />
+            Registrar
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // 4. Properties Manager
 const PropertiesManager = ({ 
   properties, 
@@ -1338,65 +1481,147 @@ const DocumentGenerator = ({ properties, tenants, settings, setTenants }: { prop
 
     let prompt = "";
     
+    // Helper: Format date in Portuguese extenso
+    const getDateExtenso = () => {
+      const now = new Date();
+      return now.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+    };
+
+    // Helper: Get city from owner address
+    const getLocalCidade = () => {
+      const cidade = settings.address.split(',')[0] || 'Cidade';
+      return cidade.trim();
+    };
+
     if (docType === 'contract') {
+      const localData = `${getLocalCidade()}, ${getDateExtenso()}`;
       const details = `
-        Locador: ${settings.name}, CPF: ${settings.cpf}, RG: ${settings.rg}, Profissão: ${settings.profession}, Estado Civil: ${settings.maritalStatus}, Endereço: ${settings.address}.
-        Locatário: ${tenant.name}, CPF: ${tenant.cpf}, RG: ${tenant.rg || 'N/A'}, Profissão: ${tenant.profession || 'N/A'}.
-        Imóvel: ${prop?.address || 'ENDEREÇO DO IMÓVEL AQUI'}. 
-        Características: ${prop?.details.bedrooms || 0} quartos, ${prop?.details.bathrooms || 0} banheiros, 
-        ${prop?.details.livingRooms ? prop.details.livingRooms + ' Sala(s) de Estar, ' : ''}
-        ${prop?.details.diningRooms ? prop.details.diningRooms + ' Sala(s) de Jantar, ' : ''}
+        GERE APENAS O DOCUMENTO FINAL FORMATADO. NÃO ADICIONE EXPLICAÇÕES OU COMENTÁRIOS.
+        
+        Use fonte Times New Roman.
+        Formato pronto para exportação em PDF/DOCX.
+        
+        CONTRATO DE LOCAÇÃO RESIDENCIAL
+        
+        LOCADOR (Proprietário):
+        Nome: ${settings.name}
+        CPF: ${settings.cpf}
+        RG: ${settings.rg}
+        Profissão: ${settings.profession}
+        Estado Civil: ${settings.maritalStatus}
+        Endereço: ${settings.address}
+        
+        LOCATÁRIO (Inquilino):
+        Nome: ${tenant.name}
+        CPF: ${tenant.cpf}
+        RG: ${tenant.rg || 'N/A'}
+        Profissão: ${tenant.profession || 'N/A'}
+        
+        IMÓVEL LOCADO:
+        Endereço: ${prop?.address || 'ENDEREÇO DO IMÓVEL'}
+        Características: ${prop?.details.bedrooms || 0} quartos, ${prop?.details.bathrooms || 0} banheiros
+        ${prop?.details.livingRooms ? prop.details.livingRooms + ' Sala(s), ' : ''}
         ${prop?.details.kitchens ? prop.details.kitchens + ' Cozinha(s), ' : ''}
-        ${prop?.details.laundry ? prop.details.laundry + ' Lavanderia(s), ' : ''}
-        Área: ${prop?.details.area || 0}m².
-        Mobília: ${prop?.details.furniture.join(', ') || 'Sem mobília'}.
-        Valor do Aluguel: R$ ${prop?.rentAmount || '0,00'}.
-        Taxas Extras: IPTU (R$ ${prop?.fees.iptu || '0'}), Água (R$ ${prop?.fees.water || '0'}).
-        Dia do Pagamento: ${prop?.paymentDay || '5'}.
+        ${prop?.details.laundry ? 'Lavanderia, ' : ''}
+        Área: ${prop?.details.area || 0}m²
+        Mobília: ${prop?.details.furniture.join(', ') || 'Sem mobília'}
+        
+        VALOR E CONDIÇÕES:
+        Aluguel Mensal: R$ ${prop?.rentAmount || '0,00'}
+        IPTU: R$ ${prop?.fees.iptu || '0'}
+        Água: R$ ${prop?.fees.water || '0'}
+        Dia de Vencimento: ${prop?.paymentDay || '5'}
+        
+        Local e Data: ${localData}
+        
+        Inclua cláusulas completas sobre: pagamento, multas, reajuste, vistoria, rescisão, responsabilidades e foro segundo a Lei 8.245/91.
       `;
       const content = await GeminiService.generateContract(details);
       setGeneratedContent(content);
     } else if (docType === 'proposal') {
+        const localData = `${getLocalCidade()}, ${getDateExtenso()}`;
         const task = "Ficha de Proposta de Locação";
-        prompt = `Crie uma "${task}" estruturada e profissional para ser preenchida ou assinada.
+        prompt = `GERE APENAS O DOCUMENTO FINAL FORMATADO. NÃO ADICIONE EXPLICAÇÕES.
         
-        Se houver dados abaixo, já deixe preenchido, caso contrário deixe linha para preencher:
-        Candidato: ${tenant.name}, CPF: ${tenant.cpf}, RG: ${tenant.rg}, Email: ${tenant.email}, Tel: ${tenant.phone}.
-        Profissão: ${tenant.profession}, Renda: R$ ${tenant.income}.
-        Observações já anotadas: ${tenant.observation || 'Nenhuma'}.
-        Imóvel de interesse: ${prop?.address || '_______________'}.
-
-        A ficha DEVE conter obrigatoriamente as seguintes seções detalhadas:
-
-        1. Identificação do Pretendente (Locatário)
-           - Nome, CPF, RG (emissor/data), Estado Civil (dados do cônjuge se houver), Endereço atual (se aluguel, contato do proprietário), Contatos (Tel/Email).
-
-        2. Dados Profissionais e Financeiros
-           - Profissão, Cargo, Empresa (CNPJ, contato RH), Tempo de serviço, Salário, Outras rendas comprováveis.
-
-        3. Modalidade de Garantia (Art. 37 Lei 8.245/91)
-           - Opções para assinalar: Fiador (com espaço para dados completos e renda > 3x), Caução (3 meses), Seguro Fiança.
-
-        4. Checklist de Documentos Necessários (Listar para o cliente saber o que entregar)
-           - RG/CPF (casal), Comprovante residência.
-           - Assalariados: 3 últimos holerites + CTPS.
-           - Autônomos: IR Completo + Extratos bancários (3 meses).
-
-        Formatação: Use linhas (______) para campos vazios. Tom formal e claro.
+        Use fonte Times New Roman.
+        
+        FICHA DE PROPOSTA DE LOCAÇÃO
+        
+        DADOS DO CANDIDATO:
+        Nome: ${tenant.name}
+        CPF: ${tenant.cpf}
+        RG: ${tenant.rg || '______________'}
+        Email: ${tenant.email || '______________'}
+        Telefone: ${tenant.phone || '______________'}
+        Profissão: ${tenant.profession || '______________'}
+        Renda Mensal: R$ ${tenant.income || '______________'}
+        
+        IMÓVEL DE INTERESSE:
+        Endereço: ${prop?.address || '______________'}
+        Valor do Aluguel: R$ ${prop?.rentAmount || '______________'}
+        
+        Seções obrigatórias:
+        1. Identificação Completa (incluir estado civil, endereço atual)
+        2. Dados Profissionais (empresa, tempo de serviço)
+        3. Modalidade de Garantia (Fiador/Caução/Seguro)
+        4. Checklist de Documentos Necessários
+        
+        Local e Data: ${localData}
+        
+        Use linhas para campos vazios. Tom formal.
+        `;
+        const content = await GeminiService.chat(prompt, [], []);
+        setGeneratedContent(content);
+    } else if (docType === 'receipt') {
+        const localData = `${getLocalCidade()}, ${getDateExtenso()}`;
+        const task = 'Recibo de Pagamento de Aluguel';
+        prompt = `GERE APENAS O RECIBO FINAL FORMATADO. NÃO ADICIONE EXPLICAÇÕES.
+        
+        Use fonte Times New Roman.
+        
+        RECIBO DE PAGAMENTO DE ALUGUEL
+        
+        Valor: R$ ${prop?.rentAmount || '0,00'}
+        
+        Recebi de: ${tenant.name}
+        CPF: ${tenant.cpf}
+        
+        A quantia acima referente ao aluguel do mês de _____________ de 20___
+        
+        Imóvel localizado em: ${prop?.address || 'Endereço do Imóvel'}
+        
+        Local e Data: ${localData}
+        
+        ________________________________________
+        ${settings.name}
+        CPF: ${settings.cpf}
         `;
         const content = await GeminiService.chat(prompt, [], []);
         setGeneratedContent(content);
     } else {
-      const task = docType === 'receipt' ? 'Recibo de Pagamento' : 'Laudo de Vistoria Inicial';
-      prompt = `Gere um documento de "${task}" profissional.
-        Dados:
-        Proprietário: ${settings.name}
-        Inquilino: ${tenant.name}
-        Imóvel: ${prop?.address || 'Imóvel'}
-        Valor Aluguel: R$ ${prop?.rentAmount || '0,00'}
-        Taxas (Água/IPTU): R$ ${(prop?.fees.iptu || 0) + (prop?.fees.water || 0)}
-        Mobília: ${prop?.details.furniture.join(', ') || ''}
-        Data: ${new Date().toLocaleDateString('pt-BR')}
+        const localData = `${getLocalCidade()}, ${getDateExtenso()}`;
+        const task = 'Laudo de Vistoria de Entrada';
+        prompt = `GERE APENAS O LAUDO FINAL FORMATADO. NÃO ADICIONE EXPLICAÇÕES.
+        
+        Use fonte Times New Roman.
+        
+        LAUDO DE VISTORIA DE ENTRADA
+        
+        LOCADOR: ${settings.name}
+        LOCATÁRIO: ${tenant.name}
+        
+        IMÓVEL: ${prop?.address || 'Endereço do Imóvel'}
+        
+        Cômodos: ${prop?.details.bedrooms || 0} quartos, ${prop?.details.bathrooms || 0} banheiros, ${prop?.details.livingRooms || 0} salas
+        Mobília presente: ${prop?.details.furniture.join(', ') || 'Nenhuma'}
+        Área: ${prop?.details.area || 0}m²
+        
+        Crie checklist detalhado para vistoriar cada cômodo (paredes, piso, teto, portas, janelas, instalações).
+        
+        Local e Data: ${localData}
+        
+        ________________________________________    ________________________________________
+        ${settings.name} (Locador)                ${tenant.name} (Locatário)
       `;
       const content = await GeminiService.chat(prompt, [], []);
       setGeneratedContent(content);
@@ -1921,6 +2146,7 @@ const LoginScreen = ({ onLogin }: { onLogin: () => void }) => {
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [view, setView] = useState<AppView>('dashboard');
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
   
   const [settings, setSettings] = useState<OwnerSettings>(DEFAULT_SETTINGS);
   const [properties, setProperties] = useState<Property[]>([]);
@@ -1991,6 +2217,28 @@ const App = () => {
         {view === 'documents' && <DocumentGenerator properties={properties} tenants={tenants} settings={settings} setTenants={setTenants} />}
         {view === 'settings' && <SettingsForm settings={settings} setSettings={setSettings} />}
         {view === 'ai-assistant' && <AIAssistant />}
+
+        {/* Floating Payment Button */}
+        {view === 'dashboard' && (
+          <button
+            onClick={() => setShowPaymentModal(true)}
+            className="fixed bottom-20 right-8 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all z-40 flex items-center gap-2"
+            title="Registrar Pagamento"
+          >
+            <DollarSign size={24} />
+          </button>
+        )}
+
+        {/* Payment Modal */}
+        {showPaymentModal && (
+          <PaymentModal
+            properties={properties}
+            tenants={tenants}
+            payments={payments}
+            setPayments={setPayments}
+            onClose={() => setShowPaymentModal(false)}
+          />
+        )}
 
       </main>
 

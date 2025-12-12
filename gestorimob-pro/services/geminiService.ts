@@ -1,4 +1,4 @@
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
 // Initialize the API client with hardcoded key
 // ⚠️ WARNING: API Key is exposed in code - OK for personal use, NOT for production
@@ -16,8 +16,6 @@ export const GeminiService = {
    */
   async chat(message: string, history: {role: string, parts: any[]}[], images: string[] = []): Promise<string> {
     try {
-      const model = 'gemini-3-pro-preview';
-      
       const contents = history.map(h => ({
         role: h.role,
         parts: h.parts
@@ -27,11 +25,10 @@ export const GeminiService = {
       
       // Add images if present
       for (const img of images) {
-        // Remove data url prefix if present
         const base64Data = img.split(',')[1] || img;
         userParts.push({
           inlineData: {
-            mimeType: 'image/jpeg', // Assuming jpeg/png for simplicity
+            mimeType: 'image/jpeg',
             data: base64Data
           }
         });
@@ -40,8 +37,8 @@ export const GeminiService = {
       contents.push({ role: 'user', parts: userParts });
 
       const response = await ai.models.generateContent({
-        model: model,
-        contents: contents as any, // Cast due to strict typing in SDK vs constructed object
+        model: 'gemini-pro',
+        contents: contents as any,
         config: {
           systemInstruction: SYSTEM_INSTRUCTION,
         }
@@ -62,7 +59,7 @@ export const GeminiService = {
       const base64Data = base64Image.split(',')[1] || base64Image;
       
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
+        model: 'gemini-pro-vision',
         contents: {
           parts: [
             {
@@ -83,20 +80,15 @@ export const GeminiService = {
   },
 
   /**
-   * Generates a complex document (Contract) using Thinking Mode
+   * Generates a complex document (Contract)
    */
   async generateContract(details: string): Promise<string> {
     try {
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
+        model: 'gemini-pro',
         contents: `Elabore um contrato de aluguel residencial completo e juridicamente válido segundo as leis brasileiras. 
         Utilize os seguintes dados: ${details}. 
-        Inclua cláusulas sobre pagamento, vistoria, rescisão, multa e foro.`,
-        config: {
-          thinkingConfig: {
-             thinkingBudget: 32768 // Max for gemini 3 pro for complex legal reasoning
-          }
-        }
+        Inclua cláusulas sobre pagamento, vistoria, rescisão, multa e foro.`
       });
 
       return response.text || "Erro ao gerar contrato.";
