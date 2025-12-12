@@ -37,7 +37,7 @@ export const GeminiService = {
       contents.push({ role: 'user', parts: userParts });
 
       const response = await ai.models.generateContent({
-        model: 'gemini-pro',
+        model: 'gemini-1.5-flash',
         contents: contents as any,
         config: {
           systemInstruction: SYSTEM_INSTRUCTION,
@@ -59,7 +59,7 @@ export const GeminiService = {
       const base64Data = base64Image.split(',')[1] || base64Image;
       
       const response = await ai.models.generateContent({
-        model: 'gemini-pro-vision',
+        model: 'gemini-1.5-flash',
         contents: {
           parts: [
             {
@@ -85,7 +85,7 @@ export const GeminiService = {
   async generateContract(details: string): Promise<string> {
     try {
       const response = await ai.models.generateContent({
-        model: 'gemini-pro',
+        model: 'gemini-1.5-flash',
         contents: `Elabore um contrato de aluguel residencial completo e juridicamente válido segundo as leis brasileiras. 
         Utilize os seguintes dados: ${details}. 
         Inclua cláusulas sobre pagamento, vistoria, rescisão, multa e foro.`
