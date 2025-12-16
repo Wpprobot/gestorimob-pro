@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wpprobot | Chatbot com IA para WhatsApp - Automatize e Venda Mais</title>
+    <meta name="description" content="Transforme seu WhatsApp em uma máquina de vendas 24/7 com Inteligência Artificial. Atendimento automatizado, conversas humanizadas e muito mais.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-glow"></div>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-container">
+                        <img src="logo.png" alt="Wpprobot" class="logo-icon">
+                        <span class="logo-text">Wpprobot</span>
+                        <div class="logo-badge">
+                            <span class="badge-dot"></span>
+                            <span class="badge-text">IA Ativa</span>
+                        </div>
+                    </div>
+                </a>
+                <nav class="nav">
+                    <a href="#funcionalidades" class="nav-link">
+                        <span class="nav-icon">✨</span>
+                        Funcionalidades
+                    </a>
+                    <a href="#planos" class="nav-link">
+                        <span class="nav-icon">💰</span>
+                        Planos
+                    </a>
+                    <a href="#faq" class="nav-link">
+                        <span class="nav-icon">❓</span>
+                        FAQ
+                    </a>
+                    <a href="https://wa.me/551140402331?text=Olá!%20Quero%20conhecer%20o%20Wpprobot" class="btn btn-header-cta" target="_blank" rel="noopener">
+                        <span class="btn-pulse"></span>
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span class="btn-text">Começar Agora</span>
+                        <span class="btn-shine"></span>
+                    </a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-icon">✨</span>
+                        Powered by Artificial Intelligence
+                    </div>
+                    <h1 class="hero-title">
+                        Transforme seu WhatsApp em uma
+                        <span class="gradient-text">Máquina de Vendas Inteligente</span>
+                    </h1>
+                    <p class="hero-description">
+                        Atendimento 24/7 com IA que conversa naturalmente, responde perguntas,
+                        recupera leads e fecha vendas automaticamente enquanto você dorme.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsswvEBz4wn0MrVEsawI5KoiwWm2v7Rm-2MkjjQi5fYOkwpQ/viewform" class="btn btn-primary btn-large" target="_blank" rel="noopener">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Começar Agora - Preencher Cadastro
+                        </a>
+                        <a href="https://wa.me/551140402331?text=Olá!%20Tenho%20dúvidas%20sobre%20o%20Wpprobot" class="btn btn-secondary btn-large" target="_blank" rel="noopener">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Tirar Dúvidas no WhatsApp
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">24/7</div>
+                            <div class="stat-label">Sempre Disponível</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">+500</div>
+                            <div class="stat-label">Empresas Atendendo</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">98%</div>
+                            <div class="stat-label">Satisfação</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="whatsapp-header">
+                                <div class="header-info">
+                                    <div class="avatar">🤖</div>
+                                    <div class="contact-info">
+                                        <div class="name">Wpprobot IA</div>
+                                        <div class="status">online</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-messages">
+                                <div class="message received">
+                                    <div class="bubble">Olá! Quero saber mais sobre seus produtos</div>
+                                    <span class="time">14:23</span>
+                                </div>
+                                <div class="message sent">
+                                    <div class="bubble">Olá! 👋 Seja muito bem-vindo! Ficarei feliz em te ajudar. Temos várias opções incríveis disponíveis. Qual tipo de produto você procura?</div>
+                                    <span class="time">14:23</span>
+                                </div>
+                                <div class="message received">
+                                    <div class="bubble">📱 Quais os preços?</div>
+                                    <span class="time">14:24</span>
+                                </div>
+                                <div class="message sent">
+                                    <div class="bubble">Temos planos a partir de R$ 79,90/mês com recursos completos de IA. Posso te enviar nosso catálogo completo agora! 🚀</div>
+                                    <span class="time">14:24</span>
+                                </div>
+                                <div class="typing-container">
+                                    <div class="typing-bubble">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Sectors -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="trust-text">Chatbot com IA para todos os segmentos</p>
+            <div class="sectors-grid">
+                <div class="sector-badge">
+                    <span class="sector-icon">🛒</span>
+                    <span class="sector-name">E-commerce</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">🏥</span>
+                    <span class="sector-name">Clínicas</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">📚</span>
+                    <span class="sector-name">Educação</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">🍔</span>
+                    <span class="sector-name">Delivery</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">💪</span>
+                    <span class="sector-name">Fitness</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">🏘️</span>
+                    <span class="sector-name">Imobiliárias</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">✂️</span>
+                    <span class="sector-name">Salões</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">✈️</span>
+                    <span class="sector-name">Turismo</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">⚖️</span>
+                    <span class="sector-name">Advocacia</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">📊</span>
+                    <span class="sector-name">Contabilidade</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">🏛️</span>
+                    <span class="sector-name">Arquitetura</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">📱</span>
+                    <span class="sector-name">Marketing</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">🚗</span>
+                    <span class="sector-name">Concessionárias</span>
+                </div>
+                <div class="sector-badge">
+                    <span class="sector-icon">🍽️</span>
+                    <span class="sector-name">Restaurantes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section id="funcionalidades" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Funcionalidades</span>
+                <h2 class="section-title">Tudo que você precisa para <span class="gradient-text">vender mais</span></h2>
+                <p class="section-description">Uma plataforma completa de IA para automatizar 100% do seu atendimento no WhatsApp</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Feature 1 - Large -->
+                <div class="bento-card large">
+                    <div class="card-icon">🤖</div>
+                    <h3 class="card-title">Conversas Humanizadas com IA</h3>
+                    <p class="card-description">Nossa IA foi treinada para conversar naturalmente, entender contexto, linguagem coloquial e responder como um atendente humano experiente.</p>
+                    <div class="card-visual">
+                        <div class="conversation-demo">
+                            <div class="demo-message">Como funciona a entrega?</div>
+                            <div class="demo-response">✨ Temos frete grátis para sua região!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bento-card">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Respostas Instantâneas</h3>
+                    <p class="card-description">Atenda em segundos, 24 horas por dia, sem pausas ou feriados.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bento-card">
+                    <div class="card-icon">🎙️</div>
+                    <h3 class="card-title">Entende Áudios</h3>
+                    <p class="card-description">A IA transcreve e compreende mensagens de voz dos clientes.</p>
+                </div>
+
+                <!-- Feature 4 - Store.AI Wide -->
+                <a href="https://storeai.com.br/conheca/" target="_blank" rel="noopener" class="bento-card accent wide store-ai-card">
+                    <div class="store-ai-header">
+                        <span class="store-ai-icon">🛍️</span>
+                        <div class="store-ai-title-group">
+                            <h3 class="card-title">Store.AI</h3>
+                            <p class="store-ai-subtitle">Loja Inteligente Integrada</p>
+                        </div>
+                    </div>
+                    
+                    <p class="card-description">Transforme seu WhatsApp em uma loja completa! Seus clientes visualizam catálogo, escolhem produtos e finalizam compras sem sair da conversa.</p>
+                    
+                    <div class="store-features-highlight">
+                        <div class="feature-highlight">✅ Catálogo de Produtos Ilimitado</div>
+                        <div class="feature-highlight">✅ Pedidos direto no WhatsApp</div>
+                        <div class="feature-highlight">✅ Pagamentos PIX e Cartão</div>
+                        <div class="feature-highlight">✅ Integração Total com IA</div>
+                        <div class="feature-highlight">✅ Painel de Controle Completo</div>
+                        <div class="feature-highlight">✅ Cupons de Desconto</div>
+                        <div class="feature-highlight">✅ Aplicativo PWA da Loja</div>
+                        <div class="feature-highlight">✅ QR-Code e Link Próprio</div>
+                    </div>
+                    
+                    <p class="store-more-features">...e muitas outras funcionalidades!</p>
+                    
+                    <span class="card-badge store-ai-cta">Descobrir Store.AI →</span>
+                </a>
+
+                <!-- Feature 5 -->
+                <div class="bento-card">
+                    <div class="card-icon">🔊</div>
+                    <h3 class="card-title">Respostas em Voz</h3>
+                    <p class="card-description">Envie áudios com voz humanizada da IA (Plano Avançado+).</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bento-card">
+                    <div class="card-icon">📸</div>
+                    <h3 class="card-title">Análise de Imagens</h3>
+                    <p class="card-description">Compreende fotos e PDFs enviados pelos clientes.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="bento-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Follow-up Automático</h3>
+                    <p class="card-description">Recupere leads que não converteram com mensagens automáticas.</p>
+                </div>
+
+                <!-- Feature 8 - Agendamento -->
+                <div class="bento-card accent">
+                    <div class="card-icon">📅</div>
+                    <h3 class="card-title">Agendamento Inteligente</h3>
+                    <p class="card-description">Integração com Google Calendar para marcar, confirmar e enviar lembretes de consultas e atendimentos automaticamente.</p>
+                    <div class="card-badge">Plano Premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag dark">Simplicidade</span>
+                <h2 class="section-title white">Como funciona? <span class="gradient-text">Simples assim</span></h2>
+                <p class="section-description light">Seu WhatsApp turbinado com IA em apenas 3 passos</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">💬</div>
+                    <h3 class="step-title">Você Fornece as Informações</h3>
+                    <p class="step-description">Conte-nos sobre seu negócio, produtos ou serviços. Quanto mais detalhes, mais inteligente ficará seu assistente.</p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">⚙️</div>
+                    <h3 class="step-title">Configuramos Tudo</h3>
+                    <p class="step-description">Nossa equipe treina a IA, configura fluxos e integra a Store.AI com seu catálogo de produtos.</p>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🚀</div>
+                    <h3 class="step-title">Comece a Vender</h3>
+                    <p class="step-description">Pronto! Seu bot já está atendendo clientes, respondendo dúvidas e fechando vendas 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planos" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Planos e Preços</span>
+                <h2 class="section-title">Escolha o plano <span class="gradient-text">ideal para você</span></h2>
+                <p class="section-description">Todos os planos incluem suporte dedicado e atualizações constantes</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plan 1: Essencial -->
+                <div class="price-card">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Essencial</h3>
+                        <p class="plan-intro">Atendimento automático básico</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">79</span>
+                        <span class="cents">,90</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Chatbot com IA no WhatsApp</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Atendimento 24/7 automático</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Respostas em texto</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Perguntas frequentes</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Conversa humanizada</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Atendimento simultâneo</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"></svg><path d="M20 6L9 17l-5-5"/></svg> Store.AI básica</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Catálogo de produtos</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsswvEBz4wn0MrVEsawI5KoiwWm2v7Rm-2MkjjQi5fYOkwpQ/viewform" class="btn btn-primary btn-block" target="_blank" rel="noopener">Escolher Essencial</a>
+                </div>
+
+                <!-- Plan 2: Profissional - Featured -->
+                <div class="price-card featured">
+                    <div class="popular-tag">⭐ Mais Popular</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">Profissional</h3>
+                        <p class="plan-intro">Atendimento + Vendas</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">149</span>
+                        <span class="cents">,90</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Tudo do Essencial</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Entendimento de áudios</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Conversa contextualizada</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Tom de voz personalizado</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Follow-up automático</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Foco em conversão e vendas</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Store.AI avançada</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Pedidos direto no WhatsApp</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsswvEBz4wn0MrVEsawI5KoiwWm2v7Rm-2MkjjQi5fYOkwpQ/viewform" class="btn btn-primary btn-block" target="_blank" rel="noopener">Escolher Profissional</a>
+                </div>
+
+                <!-- Plan 3: Premium -->
+                <div class="price-card">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Premium</h3>
+                        <p class="plan-intro">Solução completa</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">249</span>
+                        <span class="cents">,90</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Tudo do Profissional</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Respostas em voz humanizada</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Entende imagens e PDFs</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Agendamento automático</li>
+                        <li class="highlight"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Google Agenda integrado</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Confirmações e lembretes</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Fluxos avançados</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Store.AI completa</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsswvEBz4wn0MrVEsawI5KoiwWm2v7Rm-2MkjjQi5fYOkwpQ/viewform" class="btn btn-primary btn-block" target="_blank" rel="noopener">Escolher Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Perguntas <span class="gradient-text">Frequentes</span></h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona a integração com meu WhatsApp?</span>
+                        <svg class="faq-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A integração é simples e segura. Conectamos o Wpprobot ao seu número de WhatsApp Business através da API oficial do WhatsApp. Você mantém total controle e pode intervir a qualquer momento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Posso personalizar as respostas da IA?</span>
+                        <svg class="faq-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Você pode definir o tom de voz, personalidade, informações sobre produtos/serviços e criar fluxos de conversa customizados de acordo com seu negócio.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>O que é a Store.AI?</span>
+                        <svg class="faq-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A Store.AI é uma loja inteligente integrada que permite seus clientes visualizarem catálogo, produtos, preços e fazerem pedidos completos direto no WhatsApp sem sair da conversa.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Posso cancelar a qualquer momento?</span>
+                        <svg class="faq-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, sem multas ou taxas de cancelamento. Você pode cancelar seu plano a qualquer momento e continuará tendo acesso até o final do período pago.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quanto tempo leva para configurar?</span>
+                        <svg class="faq-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Em média, 24-48 horas após você fornecer as informações necessárias. Nossa equipe cuida de toda a configuração e treinamento da IA para você.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2 class="cta-title">Pronto para <span class="gradient-text">automatizar e vender mais?</span></h2>
+                    <p class="cta-description">Junte-se a centenas de empresas que já transformaram seu WhatsApp em uma máquina de vendas com IA</p>
+                    <div class="cta-buttons">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsswvEBz4wn0MrVEsawI5KoiwWm2v7Rm-2MkjjQi5fYOkwpQ/viewform" class="btn btn-primary btn-large" target="_blank" rel="noopener">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Começar Agora
+                        </a>
+                        <a href="https://wa.me/551140402331?text=Olá!%20Quero%20tirar%20dúvidas%20sobre%20o%20Wpprobot" class="btn btn-outline-light btn-large" target="_blank" rel="noopener">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Tirar Dúvidas
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-visual">
+                    <div class="floating-card">
+                        <div class="card-emoji">💰</div>
+                        <div class="card-text">+300% vendas</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-emoji">⚡</div>
+                        <div class="card-text">Resposta instantânea</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-emoji">🎯</div>
+                        <div class="card-text">Zero leads perdidos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Wpprobot" class="footer-logo">
+                    <p class="footer-tagline">Automatize seu WhatsApp com Inteligência Artificial</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Wpprobot. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/693ea3140740151979efebac/1jceaq1uc';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
