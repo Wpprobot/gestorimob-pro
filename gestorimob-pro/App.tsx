@@ -1779,7 +1779,7 @@ const DocumentGenerator = ({ properties, tenants, settings, setTenants }: { prop
   );
 };
 
-// 7. AI Assistant Component (Same as before)
+// 7. AI Assistant Component with Connection Test
 const AIAssistant = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     { id: '1', role: 'model', text: 'Olá! Sou sua assistente virtual de imóveis. Posso ajudar a analisar fotos de vistorias, tirar dúvidas sobre a lei do inquilinato ou redigir e-mails.' }
@@ -1787,6 +1787,8 @@ const AIAssistant = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [attachedImage, setAttachedImage] = useState<string | null>(null);
+  const [connectionStatus, setConnectionStatus] = useState<'unknown' | 'testing' | 'connected' | 'error'>('unknown');
+  const [connectionMessage, setConnectionMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -1795,6 +1797,22 @@ const AIAssistant = () => {
   };
 
   useEffect(scrollToBottom, [messages]);
+
+  const testConnection = async () => {
+    setConnectionStatus('testing');
+    setConnectionMessage('Testando conexão com IA...');
+    
+    const result = await GeminiService.testConnection();
+    
+    if (result.success) {
+      setConnectionStatus('connected');
+      setConnectionMessage(result.message);
+      setTimeout(() => setConnectionMessage(''), 3000);
+    } else {
+      setConnectionStatus('error');
+      setConnectionMessage(result.message);
+    }
+  };
 
   const handleSend = async () => {
     if ((!input.trim() && !attachedImage) || isLoading) return;
@@ -1831,8 +1849,24 @@ const AIAssistant = () => {
       };
 
       setMessages(prev => [...prev, newModelMsg]);
+      
+      // Update connection status on successful response
+      if (!responseText.startsWith('❌') && !responseText.startsWith('🔑')) {
+        setConnectionStatus('connected');
+      } else {
+        setConnectionStatus('error');
+      }
     } catch (error) {
       console.error(error);
+      setConnectionStatus('error');
+      
+      // Add error message to chat
+      const errorMsg: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        role: 'model',
+        text: '❌ Erro de conexão. Por favor, teste a conexão com o botão acima.'
+      };
+      setMessages(prev => [...prev, errorMsg]);
     } finally {
       setIsLoading(false);
     }
@@ -1850,12 +1884,65 @@ const AIAssistant = () => {
 
   return (
     <div className="flex flex-col h-[calc(100vh-6rem)] bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
-      <div className="bg-indigo-600 p-4 text-white flex items-center justify-between">
-         <div className="flex items-center gap-2">
-            <Sparkles size={20} />
-            <h2 className="font-semibold">Assistente Gemini Pro</h2>
+      <div className="bg-indigo-600 p-4 text-white">
+         <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+               <Sparkles size={20} />
+               <h2 className="font-semibold">Assistente Gemini Pro</h2>
+            </div>
+            <span className="text-xs bg-indigo-500 px-2 py-1 rounded">Versão 3.0 Preview</span>
          </div>
-         <span className="text-xs bg-indigo-500 px-2 py-1 rounded">Versão 3.0 Preview</span>
+         
+         {/* Connection Status and Test Button */}
+         <div className="flex items-center gap-2 text-xs">
+            {connectionStatus === 'unknown' && (
+              <>
+                <span className="flex items-center gap-1 text-indigo-200">
+                  <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+                  Status desconhecido
+                </span>
+                <button
+                  onClick={testConnection}
+                  className="ml-auto bg-indigo-500 hover:bg-indigo-400 px-3 py-1 rounded text-white transition-colors">
+                  Testar Conexão
+                </button>
+              </>
+            )}
+            {connectionStatus === 'testing' && (
+              <span className="flex items-center gap-1 text-indigo-200">
+                <Loader2 size={12} className="animate-spin" />
+                Testando...
+              </span>
+            )}
+            {connectionStatus === 'connected' && (
+              <>
+                <span className="flex items-center gap-1 text-green-300">
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                  Conectado
+                </span>
+                {connectionMessage && <span className="text-green-200">{connectionMessage}</span>}
+              </>
+            )}
+            {connectionStatus === 'error' && (
+              <>
+                <span className="flex items-center gap-1 text-red-300">
+                  <AlertCircle size={12} />
+                  Erro de conexão
+                </span>
+                <button
+                  onClick={testConnection}
+                  className="ml-auto bg-red-500 hover:bg-red-400 px-3 py-1 rounded text-white transition-colors">
+                  Testar Novamente
+                </button>
+              </>
+            )}
+         </div>
+         
+         {connectionMessage && connectionStatus === 'error' && (
+           <div className="mt-2 text-xs bg-red-500/20 border border-red-400/30 rounded px-2 py-1">
+             {connectionMessage}
+           </div>
+         )}
       </div>
       
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">

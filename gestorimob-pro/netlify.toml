@@ -6,6 +6,24 @@
   # Default build command
   command = "npm run build"
 
+# Netlify Functions configuration
+[functions]
+  # Directory containing serverless functions
+  directory = "netlify/functions"
+
+# Dev server configuration
+[dev]
+  # Command to start the dev server
+  command = "npm run dev"
+  # Port for the dev server (Vite)
+  targetPort = 3000
+  # Port for Netlify Dev proxy
+  port = 8888
+  # Automatically open browser
+  autoLaunch = false
+
+
+
 # Redirect all requests to index.html for SPA routing
 [[redirects]]
   from = "/*"
@@ -13,4 +31,6 @@
   status = 200
 
 # Environment variables (configure these in Netlify UI)
-# GEMINI_API_KEY - Your Gemini API Key
+# Required:
+# - GEMINI_API_KEY: Your Google Gemini API key from https://aistudio.google.com/app/apikey
+
