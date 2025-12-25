@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Home, Users, FileText, Settings, MessageSquare, 
-  Plus, Trash2, Save, Upload, Camera, DollarSign,
+  Plus, Trash2, Save, Upload, Camera, DollarSign, Eye,
   CheckCircle, AlertCircle, Loader2, Sparkles, X, File, Image as ImageIcon, Calendar, Clock, TrendingUp, ArrowUp, ArrowDown, Download, UserPlus, Check, XCircle, History, Cloud, LogOut, AlertTriangle
 } from 'lucide-react';
 import { 
@@ -71,7 +71,7 @@ const createLog = (action: string, details: string): LogEntry => ({
 // --- COMPONENTS ---
 
 // 1. Sidebar
-const Sidebar = ({ currentView, setView, onLogout }: { currentView: AppView, setView: (v: AppView) => void, onLogout: () => void }) => {
+const Sidebar = ({ currentView, setView, onLogout, connectionStatus }: { currentView: AppView, setView: (v: AppView) => void, onLogout: () => void, connectionStatus: 'connecting' | 'connected' | 'error' }) => {
   const menuItems = [
     { id: 'dashboard', label: 'Painel', icon: Home },
     { id: 'properties', label: 'Imóveis', icon: Home },
@@ -89,7 +89,15 @@ const Sidebar = ({ currentView, setView, onLogout }: { currentView: AppView, set
           GestorImob
         </h1>
         <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-green-500"></span> Conectado à Nuvem
+            {connectionStatus === 'connected' && (
+              <><span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Conectado à Nuvem</>
+            )}
+            {connectionStatus === 'connecting' && (
+              <><span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span> Conectando...</>
+            )}
+            {connectionStatus === 'error' && (
+              <><span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Erro de Conexão</>
+            )}
         </p>
       </div>
       <nav className="flex-1 p-4 space-y-2">
@@ -536,6 +544,32 @@ const PaymentModal = ({
   );
 };
 
+// 3.6 File Viewer Modal (Lightbox)
+const FileViewerModal = ({ file, onClose }: { file: { url: string, name: string, type: 'image' | 'pdf' } | null, onClose: () => void }) => {
+  if (!file) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/90 z-[60] flex flex-col p-4 animate-in fade-in duration-200">
+      <div className="flex justify-between items-center text-white mb-4">
+        <h3 className="font-semibold text-lg truncate max-w-[80%] flex items-center gap-2">
+            {file.type === 'pdf' ? <FileText size={20}/> : <ImageIcon size={20}/>}
+            {file.name}
+        </h3>
+        <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors font-bold">
+          <X size={28} />
+        </button>
+      </div>
+      <div className="flex-1 flex items-center justify-center overflow-hidden bg-black/50 rounded-lg relative">
+        {file.type === 'image' ? (
+           <img src={file.url} alt={file.name} className="max-w-full max-h-full object-contain shadow-2xl" />
+        ) : (
+           <iframe src={file.url} className="w-full h-full bg-white" title={file.name}></iframe>
+        )}
+      </div>
+    </div>
+  );
+};
+
 // 4. Properties Manager
 const PropertiesManager = ({ 
   properties, 
@@ -550,6 +584,7 @@ const PropertiesManager = ({
   const [formData, setFormData] = useState<Partial<Property>>({});
   const [furnitureText, setFurnitureText] = useState('');
   const [viewHistory, setViewHistory] = useState<string | null>(null);
+  const [viewFile, setViewFile] = useState<{ url: string, name: string, type: 'image' | 'pdf' } | null>(null);
 
   useEffect(() => {
     if (formData.details?.furniture) {
@@ -630,6 +665,13 @@ const PropertiesManager = ({
     const property = properties.find(p => p.id === propertyId);
     
     if (!property) return;
+    
+    if (!property) return;
+
+    if (property.currentTenantId) {
+        alert("⚠️ Não é possível apagar este imóvel pois ele possui um inquilino ativo.\n\nPor favor, remova ou mova o inquilino primeiro.");
+        return;
+    }
     
     const confirmMessage = `Tem certeza que deseja apagar o imóvel "${property.nickname}"?\n\nEsta ação não pode ser desfeita.`;
     
@@ -850,15 +892,18 @@ const PropertiesManager = ({
             <h3 className="font-semibold mt-4 mb-2 text-slate-700">Fotos do Imóvel</h3>
             <div className="flex flex-wrap gap-4">
                {formData.photos?.map((photo, idx) => (
-                 <div key={idx} className="w-24 h-24 relative rounded overflow-hidden border border-slate-300">
-                    <img src={photo} className="w-full h-full object-cover" />
-                    <button 
-                      onClick={() => setFormData(prev => ({...prev, photos: prev.photos?.filter((_, i) => i !== idx)}))}
-                      className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-bl"
-                    >
-                      <X size={12} />
-                    </button>
-                 </div>
+                  <div key={idx} className="w-24 h-24 relative rounded overflow-hidden border border-slate-300 group cursor-pointer" onClick={() => setViewFile({ url: photo, name: `Foto ${idx + 1}`, type: 'image' })}>
+                     <img src={photo} className="w-full h-full object-cover transition-transform group-hover:scale-110" />
+                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
+                        <Eye className="text-white opacity-0 group-hover:opacity-100" size={20} />
+                     </div>
+                     <button 
+                       onClick={(e) => { e.stopPropagation(); setFormData(prev => ({...prev, photos: prev.photos?.filter((_, i) => i !== idx)})); }}
+                       className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-bl shadow-md hover:bg-red-600 z-10"
+                     >
+                       <X size={12} />
+                     </button>
+                  </div>
                ))}
                <label className="w-24 h-24 border-2 border-dashed border-slate-300 rounded flex flex-col items-center justify-center cursor-pointer hover:bg-slate-50 text-slate-400">
                   <Plus size={24} />
@@ -915,6 +960,11 @@ const PropertiesManager = ({
                    <span className="text-sm mt-2">Sem fotos</span>
                  </div>
                )}
+               {property.photos.length > 0 && (
+                   <div className="absolute bottom-2 left-2 bg-black/60 text-white p-2 rounded-full cursor-pointer hover:bg-black/80 transition-colors" onClick={() => setViewFile({ url: property.photos[0], name: property.nickname, type: 'image' })}>
+                      <Eye size={18} />
+                   </div>
+               )}
                <label className="absolute bottom-2 right-2 bg-black/60 text-white p-2 rounded-full cursor-pointer hover:bg-black/80 transition-opacity opacity-0 group-hover:opacity-100">
                   <Camera size={18} />
                   <input type="file" className="hidden" accept="image/*" onChange={(e) => handlePhotoUpload(e, property.id)} />
@@ -960,6 +1010,7 @@ const PropertiesManager = ({
           </div>
         ))}
       </div>
+      {viewFile && <FileViewerModal file={viewFile} onClose={() => setViewFile(null)} />}
     </div>
   );
 };
@@ -980,10 +1031,22 @@ const TenantManager = ({
   const [currentTenant, setCurrentTenant] = useState<Partial<Tenant>>({});
   const [activeTab, setActiveTab] = useState<'active' | 'prospect'>('active');
   const [viewHistory, setViewHistory] = useState<string | null>(null);
+  const [viewFile, setViewFile] = useState<{ url: string, name: string, type: 'image' | 'pdf' } | null>(null);
+
+  // Confirmation State
+  const [confirmModal, setConfirmModal] = useState<{ isOpen: boolean, title: string, message: string, onConfirm: () => void, type: 'danger' | 'warning' | 'info' }>({ isOpen: false, title: '', message: '', onConfirm: () => {}, type: 'info' });
 
   const filteredTenants = tenants.filter(t => 
     activeTab === 'active' ? (t.status === 'active' || !t.status) : t.status === 'prospect'
   );
+
+  const requestConfirm = (title: string, message: string, onConfirm: () => void, type: 'danger' | 'warning' | 'info' = 'danger') => {
+      setConfirmModal({ isOpen: true, title, message, onConfirm, type });
+  };
+
+  const closeConfirm = () => {
+      setConfirmModal(prev => ({ ...prev, isOpen: false }));
+  };
 
   const handleEdit = (tenant: Tenant) => {
     setCurrentTenant(tenant);
@@ -1013,47 +1076,99 @@ const TenantManager = ({
        return;
     }
 
-    if (confirm(`Confirmar aprovação de ${candidate.name} para o imóvel ${targetProperty.nickname}?`)) {
-       const tenantLog = createLog('Aprovação', `Aprovado para o imóvel ${targetProperty.nickname}`);
-       const propLog = createLog('Ocupação', `Novo inquilino aprovado: ${candidate.name}`);
-
-       const updatedTenant: Tenant = { 
-         ...candidate, 
-         status: 'active',
-         logs: [...(candidate.logs || []), tenantLog]
-       };
-       
-       const updatedProperty: Property = { 
-         ...targetProperty, 
-         currentTenantId: candidate.id,
-         logs: [...(targetProperty.logs || []), propLog]
-       };
-
-       setTenants(prev => prev.map(t => t.id === candidate.id ? updatedTenant : t));
-       setProperties(prev => prev.map(p => p.id === targetProperty.id ? updatedProperty : p));
-       
-       const tenantResult = await SupabaseService.saveTenant(updatedTenant);
-       const propertyResult = await SupabaseService.saveProperty(updatedProperty);
-
-       if (tenantResult.success && propertyResult.success) {
-         alert("✅ Candidato aprovado com sucesso! Movido para Locatários Atuais.");
-       } else {
-         const errors = [];
-         if (!tenantResult.success) errors.push(`Inquilino: ${tenantResult.error}`);
-         if (!propertyResult.success) errors.push(`Imóvel: ${propertyResult.error}`);
-         alert(`⚠️ Aprovação realizada localmente, mas houve erro ao salvar na nuvem:\n${errors.join('\n')}`);
-         console.error('Save errors:', { tenantResult, propertyResult });
-       }
-       
-       setActiveTab('active');
-    }
+    requestConfirm(
+       'Aprovar Candidato',
+       `Confirmar aprovação de ${candidate.name} para o imóvel ${targetProperty.nickname}?`,
+       async () => {
+           const tenantLog = createLog('Aprovação', `Aprovado para o imóvel ${targetProperty.nickname}`);
+           const propLog = createLog('Ocupação', `Novo inquilino aprovado: ${candidate.name}`);
+    
+           const updatedTenant: Tenant = { 
+             ...candidate, 
+             status: 'active',
+             logs: [...(candidate.logs || []), tenantLog]
+           };
+           
+           const updatedProperty: Property = { 
+             ...targetProperty, 
+             currentTenantId: candidate.id,
+             logs: [...(targetProperty.logs || []), propLog]
+           };
+    
+           setTenants(prev => prev.map(t => t.id === candidate.id ? updatedTenant : t));
+           setProperties(prev => prev.map(p => p.id === targetProperty.id ? updatedProperty : p));
+           
+           const tenantResult = await SupabaseService.saveTenant(updatedTenant);
+           const propertyResult = await SupabaseService.saveProperty(updatedProperty);
+    
+           if (tenantResult.success && propertyResult.success) {
+             alert("✅ Candidato aprovado com sucesso! Movido para Locatários Atuais.");
+           } else {
+             const errors = [];
+             if (!tenantResult.success) errors.push(`Inquilino: ${tenantResult.error}`);
+             if (!propertyResult.success) errors.push(`Imóvel: ${propertyResult.error}`);
+             alert(`⚠️ Aprovação realizada localmente, mas houve erro ao salvar na nuvem:\n${errors.join('\n')}`);
+           }
+           setActiveTab('active');
+           closeConfirm();
+       },
+       'info'
+    );
   };
 
   const handleReject = async (candidate: Tenant) => {
-     if(confirm(`Tem certeza que deseja reprovar e remover o candidato ${candidate.name}?`)) {
-        setTenants(prev => prev.filter(t => t.id !== candidate.id));
-        await SupabaseService.deleteTenant(candidate.id);
-     }
+     requestConfirm(
+        'Reprovar Candidato',
+        `Tem certeza que deseja reprovar e remover o candidato ${candidate.name}?`,
+        async () => {
+            setTenants(prev => prev.filter(t => t.id !== candidate.id));
+            await SupabaseService.deleteTenant(candidate.id);
+            closeConfirm();
+        },
+        'danger'
+     );
+  };
+
+  const handleDeleteTenant = async (tenant: Tenant) => {
+      // 1. Validar dependências
+      const propsList = properties || [];
+      const rentingProperty = propsList.find(p => p.currentTenantId === tenant.id);
+      
+      if (rentingProperty) {
+            requestConfirm(
+                'Atenção: Imóvel Ocupado',
+                `${tenant.name} está atualmente alugando o imóvel "${rentingProperty.nickname}".\n\nSe você excluir este inquilino, o imóvel ficará marcado como VAGO. Deseja continuar?`,
+                async () => {
+                     // Se prosseguir, atualiza o imóvel primeiro
+                    const updatedProperty = { ...rentingProperty, currentTenantId: undefined };
+                    setProperties(prev => prev.map(p => p.id === updatedProperty.id ? updatedProperty : p));
+                    await SupabaseService.saveProperty(updatedProperty);
+                    
+                    // Executa a deleção
+                    executeDelete(tenant);
+                    closeConfirm();
+                },
+                'warning'
+            );
+      } else {
+            requestConfirm(
+                'Excluir Locatário',
+                `Tem certeza que deseja EXCLUIR DEFINITIVAMENTE o cadastro de "${tenant.name}"?\nEsta ação não pode ser desfeita.`,
+                () => {
+                    executeDelete(tenant);
+                    closeConfirm();
+                },
+                'danger'
+            );
+      }
+  };
+
+  const executeDelete = async (tenant: Tenant) => {
+        setTenants(prev => prev.filter(t => t.id !== tenant.id));
+        const result = await SupabaseService.deleteTenant(tenant.id);
+        if (result.error) {
+            alert(`Erro ao sincronizar delete com o banco: ${result.error}`);
+        }
   };
 
   const handleSave = async () => {
@@ -1131,8 +1246,6 @@ const TenantManager = ({
           }
        };
        reader.readAsDataURL(file);
-       
-       // Reset input value so same file can be uploaded again
        e.target.value = '';
     }
   };
@@ -1257,37 +1370,41 @@ const TenantManager = ({
            <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                   {currentTenant.documents?.map(doc => (
-                     <div key={doc.id} className="relative bg-white rounded-lg border border-slate-200 overflow-hidden group">
+                     <div key={doc.id} 
+                        className="relative bg-white rounded-lg border border-slate-200 overflow-hidden group hover:shadow-md cursor-pointer aspect-square"
+                        onClick={() => setViewFile({ url: doc.url, name: doc.name, type: doc.type })}
+                     >
                          {doc.type === 'image' ? (
-                           <div className="relative">
+                           <div className="w-full h-full relative">
                              <img 
                                src={doc.url} 
                                alt={doc.name}
-                               className="w-full h-32 object-cover"
+                               className="w-full h-full object-cover transition-transform group-hover:scale-105"
                              />
-                             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
-                               <a 
-                                 href={doc.url} 
-                                 target="_blank" 
-                                 rel="noopener noreferrer"
-                                 className="opacity-0 group-hover:opacity-100 bg-white text-slate-800 px-3 py-1 rounded text-xs font-medium"
-                               >
-                                 Ver
-                               </a>
+                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                                <Eye className="text-white opacity-0 group-hover:opacity-100 drop-shadow-lg" size={32}/>
                              </div>
                            </div>
                          ) : (
-                           <div className="h-32 bg-red-50 flex flex-col items-center justify-center">
-                             <File className="text-red-500 mb-2" size={32}/>
-                             <span className="text-xs text-red-600 font-medium">PDF</span>
+                           <div className="w-full h-full bg-red-50 flex flex-col items-center justify-center transition-colors group-hover:bg-red-100">
+                             <FileText className="text-red-500 mb-2" size={40}/>
+                             <span className="text-xs text-red-600 font-bold uppercase tracking-wider">PDF</span>
                            </div>
                          )}
-                         <div className="p-2 bg-slate-50">
-                           <span className="text-xs text-slate-700 truncate block" title={doc.name}>{doc.name}</span>
+                         
+                         <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2 pt-6">
+                           <span className="text-xs text-white font-medium truncate block shadow-sm" title={doc.name}>{doc.name}</span>
                          </div>
+                         
                          <button 
-                            onClick={() => setCurrentTenant(prev => ({...prev, documents: prev.documents?.filter(d => d.id !== doc.id)}))}
-                            className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 shadow-md hover:bg-red-600 transition-colors"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                if(confirm("Remover este documento?")) {
+                                    setCurrentTenant(prev => ({...prev, documents: prev.documents?.filter(d => d.id !== doc.id)}))
+                                }
+                            }}
+                            className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 shadow-lg transition-transform hover:scale-110 z-10"
+                            title="Remover documento"
                          >
                             <X size={14} />
                          </button>
@@ -1315,7 +1432,40 @@ const TenantManager = ({
   }
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 relative">
+      {/* Custom Confirmation Modal */}
+      {confirmModal.isOpen && (
+          <div className="fixed inset-0 bg-black/50 z-[60] flex items-center justify-center p-4 animate-in fade-in duration-200">
+              <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 transform scale-100 animate-in slide-in-from-bottom-4 duration-200">
+                  <div className="flex items-center gap-3 mb-4">
+                      {confirmModal.type === 'danger' && <div className="bg-red-100 p-2 rounded-full"><AlertTriangle className="text-red-600" size={24}/></div>}
+                      {confirmModal.type === 'warning' && <div className="bg-orange-100 p-2 rounded-full"><AlertTriangle className="text-orange-600" size={24}/></div>}
+                      {confirmModal.type === 'info' && <div className="bg-blue-100 p-2 rounded-full"><AlertCircle className="text-blue-600" size={24}/></div>}
+                      <h3 className="text-xl font-bold text-slate-800">{confirmModal.title}</h3>
+                  </div>
+                  <p className="text-slate-600 mb-8 whitespace-pre-wrap">{confirmModal.message}</p>
+                  <div className="flex justify-end gap-3">
+                      <button 
+                          onClick={closeConfirm}
+                          className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
+                      >
+                          Cancelar
+                      </button>
+                      <button 
+                          onClick={confirmModal.onConfirm}
+                          className={`px-6 py-2 text-white rounded-lg font-bold shadow-sm transition-colors ${
+                              confirmModal.type === 'danger' ? 'bg-red-600 hover:bg-red-700' :
+                              confirmModal.type === 'warning' ? 'bg-orange-600 hover:bg-orange-700' :
+                              'bg-blue-600 hover:bg-blue-700'
+                          }`}
+                      >
+                          Confirmar
+                      </button>
+                  </div>
+              </div>
+          </div>
+      )}
+
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <h2 className="text-2xl font-bold text-slate-800">
            {activeTab === 'active' ? 'Locatários Atuais' : 'Candidatos em Análise'}
@@ -1426,13 +1576,9 @@ const TenantManager = ({
                         </button>
                         {activeTab === 'active' && (
                            <button 
-                           onClick={async () => { 
-                             if(confirm('Excluir este locatário?')) {
-                               setTenants(tenants.filter(x => x.id !== t.id));
-                               await SupabaseService.deleteTenant(t.id);
-                             } 
-                           }} 
-                           className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg"
+                           onClick={() => handleDeleteTenant(t)} 
+                           className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                           title="Excluir Inquilino"
                            >
                            <Trash2 size={18} />
                            </button>
@@ -1453,6 +1599,7 @@ const TenantManager = ({
           </div>
         )}
       </div>
+      {viewFile && <FileViewerModal file={viewFile} onClose={() => setViewFile(null)} />}
     </div>
   );
 };
@@ -1771,8 +1918,8 @@ const DocumentGenerator = ({ properties, tenants, settings, setTenants }: { prop
             )}
           </div>
         </div>
-        <div className="flex-1 bg-white p-4 rounded-lg border border-slate-300 overflow-y-auto font-mono text-sm whitespace-pre-wrap text-slate-800">
-          {generatedContent || <span className="text-slate-400 italic">O documento gerado aparecerá aqui...</span>}
+        <div className="flex-1 bg-white p-6 rounded-lg border border-slate-300 overflow-y-auto font-serif-elegant font-medium text-sm whitespace-pre-wrap text-slate-800 leading-relaxed shadow-inner">
+          {generatedContent || <span className="text-slate-400 italic font-sans">O documento gerado aparecerá aqui...</span>}
         </div>
       </div>
     </div>
@@ -1956,7 +2103,7 @@ const AIAssistant = () => {
               {msg.images && msg.images.map((img, i) => (
                 <img key={i} src={img} alt="Attachment" className="max-w-full h-auto rounded mb-2 border border-white/20" />
               ))}
-              <div className="whitespace-pre-wrap text-sm leading-relaxed">{msg.text}</div>
+              <div className="whitespace-pre-wrap text-sm leading-relaxed font-serif-elegant tracking-wide text-[15px]">{msg.text}</div>
             </div>
           </div>
         ))}
@@ -2234,6 +2381,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [view, setView] = useState<AppView>('dashboard');
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<'connecting' | 'connected' | 'error'>('connecting');
   
   const [settings, setSettings] = useState<OwnerSettings>(DEFAULT_SETTINGS);
   const [properties, setProperties] = useState<Property[]>([]);
@@ -2242,12 +2390,32 @@ const App = () => {
 
   // AUTO-INITIALIZE SUPABASE AND LOGIN
   useEffect(() => {
-     // Initialize Supabase with credentials
-     SupabaseService.initialize(SUPABASE_URL, SUPABASE_KEY);
+     const initializeApp = async () => {
+       try {
+         // Initialize Supabase with credentials
+         SupabaseService.initialize(SUPABASE_URL, SUPABASE_KEY);
+         
+         // Test connection
+         const testResult = await SupabaseService.testConnection();
+         
+         if (testResult.success) {
+           setConnectionStatus('connected');
+           console.log('✅ Supabase conectado com sucesso');
+         } else {
+           setConnectionStatus('error');
+           console.error('❌ Erro ao conectar com Supabase:', testResult.message);
+         }
+       } catch (error) {
+         setConnectionStatus('error');
+         console.error('❌ Erro ao inicializar Supabase:', error);
+       }
+       
+       // Check if user was previously authenticated
+       const wasAuthenticated = localStorage.getItem('gestorimob_auth') === 'true';
+       setIsAuthenticated(wasAuthenticated);
+     };
      
-     // Check if user was previously authenticated
-     const wasAuthenticated = localStorage.getItem('gestorimob_auth') === 'true';
-     setIsAuthenticated(wasAuthenticated);
+     initializeApp();
   }, []);
 
   // Fetch Data on Auth
@@ -2288,7 +2456,7 @@ const App = () => {
 
   return (
     <div className="flex min-h-screen bg-slate-50 relative">
-      <Sidebar currentView={view} setView={setView} onLogout={handleLogout} />
+      <Sidebar currentView={view} setView={setView} onLogout={handleLogout} connectionStatus={connectionStatus} />
       
       <main className="flex-1 md:ml-64 p-4 md:p-8 overflow-x-hidden mb-10">
         {/* Mobile Header */}

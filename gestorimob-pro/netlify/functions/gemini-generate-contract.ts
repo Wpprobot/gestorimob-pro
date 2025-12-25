@@ -1,8 +1,8 @@
 import { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const API_URL = "https://generativelanguage.googleapis.com/v1/models";
-const MODEL = "gemini-1.5-flash";
+const API_URL = "https://generativelanguage.googleapis.com/v1beta/models";
+const MODEL = "gemini-2.0-flash";
 
 interface GenerateContractRequestBody {
   details: string;
