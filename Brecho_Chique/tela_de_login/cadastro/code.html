@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brechó Chic - Login e Cadastro</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e21258",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221016",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #e6dbdf;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #d1c4c9;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181113] font-display min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f4f0f2] px-6 py-4 bg-white sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#181113] max-w-[960px] mx-auto w-full">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clippath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-[#181113] text-xl font-bold leading-tight tracking-[-0.015em]">Brechó Chic</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f4f0f2] hover:bg-[#e6dbdf] transition-colors text-[#181113] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Ajuda</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex justify-center py-10 px-4 md:px-10">
+<div class="layout-content-container flex flex-col max-w-6xl w-full">
+<!-- Hero Title Section -->
+<div class="mb-10 text-center">
+<h1 class="text-[#181113] text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-3">
+                    Bem-vindo de volta
+                </h1>
+<p class="text-[#89616f] text-base md:text-lg font-normal max-w-2xl mx-auto">
+                    Entre para acessar suas peças favoritas ou crie uma conta para começar a garimpar moda circular de luxo.
+                </p>
+</div>
+<!-- Auth Grid Container -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+<!-- Login Column -->
+<div class="bg-white rounded-xl p-6 md:p-10 shadow-sm border border-[#e6dbdf]">
+<div class="border-b border-[#f4f0f2] pb-6 mb-6">
+<h2 class="text-[#181113] text-2xl font-bold leading-tight mb-2">Login</h2>
+<p class="text-[#89616f] text-sm">Acesse sua conta com suas credenciais.</p>
+</div>
+<!-- Social Login -->
+<div class="flex gap-4 mb-8">
+<button class="flex-1 flex items-center justify-center gap-2 h-12 rounded-lg border border-[#e6dbdf] hover:bg-[#f8f6f6] transition-colors text-[#181113] font-bold text-sm">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                            Google
+                        </button>
+<button class="flex-1 flex items-center justify-center gap-2 h-12 rounded-lg border border-[#e6dbdf] hover:bg-[#f8f6f6] transition-colors text-[#181113] font-bold text-sm">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"></path>
+</svg>
+                            Facebook
+                        </button>
+</div>
+<div class="relative flex py-2 items-center mb-8">
+<div class="flex-grow border-t border-[#e6dbdf]"></div>
+<span class="flex-shrink-0 mx-4 text-[#89616f] text-sm font-medium">ou continue com email</span>
+<div class="flex-grow border-t border-[#e6dbdf]"></div>
+</div>
+<!-- Login Fields -->
+<div class="flex flex-col gap-6">
+<label class="flex flex-col w-full">
+<p class="text-[#181113] text-base font-medium leading-normal pb-2">Email</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181113] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#e6dbdf] bg-white focus:border-primary h-12 placeholder:text-[#89616f] px-4 text-base font-normal leading-normal transition-all" placeholder="seu@email.com" type="email"/>
+</label>
+<label class="flex flex-col w-full">
+<div class="flex justify-between items-baseline pb-2">
+<p class="text-[#181113] text-base font-medium leading-normal">Senha</p>
+<a class="text-primary text-sm font-bold hover:underline" href="#">Esqueci minha senha</a>
+</div>
+<div class="relative flex w-full flex-1 items-stretch rounded-lg">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181113] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#e6dbdf] bg-white focus:border-primary h-12 placeholder:text-[#89616f] px-4 pr-12 text-base font-normal leading-normal transition-all" placeholder="********" type="password"/>
+<div class="absolute right-0 top-0 h-full flex items-center pr-4 text-[#89616f] cursor-pointer hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</div>
+</div>
+</label>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary hover:bg-primary/90 transition-colors text-white text-base font-bold leading-normal tracking-[0.015em] shadow-sm">
+<span class="truncate">Entrar</span>
+</button>
+</div>
+</div>
+<!-- Signup Column -->
+<div class="bg-[#fcfafb] rounded-xl p-6 md:p-10 border border-[#e6dbdf]/50 relative overflow-hidden group">
+<!-- Decorative abstract background pattern -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-10 -mt-10 blur-2xl"></div>
+<div class="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-full -ml-8 -mb-8 blur-xl"></div>
+<div class="relative z-10">
+<div class="border-b border-[#e6dbdf] pb-6 mb-6">
+<h2 class="text-[#181113] text-2xl font-bold leading-tight mb-2">Criar Conta</h2>
+<p class="text-[#89616f] text-sm">Novo por aqui? Cadastre-se para comprar e vender.</p>
+</div>
+<!-- Signup Fields -->
+<div class="flex flex-col gap-5">
+<label class="flex flex-col w-full">
+<p class="text-[#181113] text-base font-medium leading-normal pb-2">Nome Completo</p>
+<div class="relative flex w-full flex-1 items-stretch rounded-lg">
+<div class="absolute left-0 top-0 h-full flex items-center pl-4 text-[#89616f] pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181113] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#e6dbdf] bg-white focus:border-primary h-12 placeholder:text-[#89616f] pl-11 px-4 text-base font-normal leading-normal transition-all" placeholder="Maria Silva" type="text"/>
+</div>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-[#181113] text-base font-medium leading-normal pb-2">Email</p>
+<div class="relative flex w-full flex-1 items-stretch rounded-lg">
+<div class="absolute left-0 top-0 h-full flex items-center pl-4 text-[#89616f] pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181113] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#e6dbdf] bg-white focus:border-primary h-12 placeholder:text-[#89616f] pl-11 px-4 text-base font-normal leading-normal transition-all" placeholder="seu@email.com" type="email"/>
+</div>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-[#181113] text-base font-medium leading-normal pb-2">Senha</p>
+<div class="relative flex w-full flex-1 items-stretch rounded-lg">
+<div class="absolute left-0 top-0 h-full flex items-center pl-4 text-[#89616f] pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181113] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#e6dbdf] bg-white focus:border-primary h-12 placeholder:text-[#89616f] pl-11 px-4 pr-12 text-base font-normal leading-normal transition-all" placeholder="Crie uma senha forte" type="password"/>
+</div>
+<p class="text-[#89616f] text-xs mt-2 ml-1">Mínimo de 8 caracteres</p>
+</label>
+<div class="flex items-start gap-3 mt-1">
+<div class="flex items-center h-5">
+<input class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary/20" id="terms" type="checkbox"/>
+</div>
+<label class="text-sm text-[#89616f]" for="terms">
+                                    Li e concordo com os <a class="text-primary font-bold hover:underline" href="#">Termos de Uso</a> e <a class="text-primary font-bold hover:underline" href="#">Política de Privacidade</a>.
+                                </label>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-transparent border-2 border-primary hover:bg-primary hover:text-white transition-colors text-primary text-base font-bold leading-normal tracking-[0.015em] mt-2">
+<span class="truncate">Cadastrar</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Informational Banner / Trust Signals -->
+<div class="mt-16 bg-[#fcfafb] rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 border border-[#f4f0f2]">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">checkroom</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-[#181113]">Curadoria Exclusiva</h3>
+<p class="text-[#89616f] text-sm">Peças selecionadas e verificadas.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-[#181113]">Compra Segura</h3>
+<p class="text-[#89616f] text-sm">Proteção total ao comprador.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">recycling</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-[#181113]">Moda Circular</h3>
+<p class="text-[#89616f] text-sm">Sustentabilidade com estilo.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="mt-auto py-8 bg-white border-t border-[#f4f0f2] text-center">
+<p class="text-[#89616f] text-sm">© 2023 Brechó Chic. Todos os direitos reservados.</p>
+</footer>
+</body></html>

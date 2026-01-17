@@ -1,0 +1,116 @@
+// Prisma Schema para plataforma de geração de livros com IA
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  projects Project[]
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Briefing inicial
+  tema          String
+  publicoAlvo   String
+  idioma        String   @default("pt-BR")
+  tamanho       String   // 'curto', 'medio', 'longo'
+  tomDeVoz      String
+  tipo          String   // 'ficcao', 'nao-ficcao'
+
+  // Dados do livro escolhido
+  titulo        String?
+  subtitulo     String?
+  sinopse       String?  @db.Text
+  
+  // Metadados
+  status        String   @default("briefing") // 'briefing', 'ideias', 'gerando', 'revisando', 'concluido'
+  totalWords    Int      @default(0)
+  targetWords   Int      @default(0)
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  chapters      Chapter[]
+  languages     Language[]
+  files         GeneratedFile[]
+  coverImage    CoverImage?
+}
+
+model Chapter {
+  id          String   @id @default(uuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  order       Int
+  titulo      String
+  descricao   String?  @db.Text
+  conteudo    String?  @db.Text
+  wordCount   Int      @default(0)
+  status      String   @default("pending") // 'pending', 'generating', 'completed', 'reviewing', 'revised'
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([projectId, order])
+}
+
+model Language {
+  id          String   @id @default(uuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  languageCode String  // 'en', 'es', 'fr', etc.
+  titulo       String
+  subtitulo    String?
+  conteudo     String  @db.Text
+  status       String  @default("translating") // 'translating', 'completed'
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([projectId, languageCode])
+}
+
+model GeneratedFile {
+  id          String   @id @default(uuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  fileName    String
+  fileType    String   // 'docx', 'epub', 'pdf'
+  filePath    String
+  fileSize    Int      // em bytes
+  languageCode String  @default("pt-BR")
+
+  createdAt   DateTime @default(now())
+}
+
+model CoverImage {
+  id          String   @id @default(uuid())
+  projectId   String   @unique
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  prompt      String   @db.Text
+  imageUrl    String?
+  imagePath   String?
+  status      String   @default("generating") // 'generating', 'completed', 'failed'
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

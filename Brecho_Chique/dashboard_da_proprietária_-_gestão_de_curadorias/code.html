@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brechó Chic - Dashboard Curadoria</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#e21258",
+              "background-light": "#f8f6f6",
+              "background-dark": "#221016",
+              "surface-light": "#ffffff",
+              "surface-dark": "#2d1b22",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem", 
+              "lg": "0.5rem", 
+              "xl": "0.75rem", 
+              "2xl": "1rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181113] dark:text-gray-100 min-h-screen flex overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-surface-light dark:bg-surface-dark border-r border-[#e6dbdf] dark:border-[#4a2e36] flex flex-col h-screen shrink-0 sticky top-0 z-20 hidden lg:flex">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-sm border border-[#e6dbdf]" data-alt="Logotipo minimalista rosa e preto de um cabide estilizado" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRcttScXUPE9G2lMTrftIk58LO5QmKcGgNHmniYUEmMn5l44wYAnZrTdTPwZQI0X-k1ykBLATeeB8XfzakgmlGUP_4kxWhJgsHitOTn6lh5hI1cegtZmg-JibgcZG9uxtUtNlYslGK3eTW0rLqZsu85XHkMcm1NMO2GvHpJuxnymm33tcZPGuT8UUf8fLjU16q6OwFHlChvgwg7uh279fIhIDMpjzVGUVWBAQ0KkUjGekY7cK1vzXPcXJrPPmVHn-5gFac4uDpiVrs");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#181113] dark:text-white text-base font-bold leading-normal">Brechó Chic</h1>
+<p class="text-[#89616f] dark:text-gray-400 text-xs font-normal leading-normal">Painel Admin</p>
+</div>
+</div>
+<nav class="flex-1 px-4 flex flex-col gap-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-[#f4f0f2] dark:hover:bg-[#3d252e] group transition-colors" href="#">
+<span class="material-symbols-outlined text-[#89616f] group-hover:text-primary dark:text-gray-400">dashboard</span>
+<p class="text-[#181113] dark:text-gray-200 text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 dark:bg-primary/20 group transition-colors" href="#">
+<span class="material-symbols-outlined text-primary icon-fill">content_paste</span>
+<p class="text-primary font-bold text-sm">Curadoria</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-[#f4f0f2] dark:hover:bg-[#3d252e] group transition-colors" href="#">
+<span class="material-symbols-outlined text-[#89616f] group-hover:text-primary dark:text-gray-400">inventory_2</span>
+<p class="text-[#181113] dark:text-gray-200 text-sm font-medium">Inventário</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-[#f4f0f2] dark:hover:bg-[#3d252e] group transition-colors" href="#">
+<span class="material-symbols-outlined text-[#89616f] group-hover:text-primary dark:text-gray-400">group</span>
+<p class="text-[#181113] dark:text-gray-200 text-sm font-medium">Clientes</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-[#f4f0f2] dark:hover:bg-[#3d252e] group transition-colors" href="#">
+<span class="material-symbols-outlined text-[#89616f] group-hover:text-primary dark:text-gray-400">account_balance_wallet</span>
+<p class="text-[#181113] dark:text-gray-200 text-sm font-medium">Financeiro</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-[#f4f0f2] dark:hover:bg-[#3d252e] group transition-colors" href="#">
+<span class="material-symbols-outlined text-[#89616f] group-hover:text-primary dark:text-gray-400">settings</span>
+<p class="text-[#181113] dark:text-gray-200 text-sm font-medium">Configurações</p>
+</a>
+</nav>
+<div class="p-4 border-t border-[#e6dbdf] dark:border-[#4a2e36]">
+<div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-[#f8f6f6] dark:bg-[#3d252e]">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8" data-alt="Foto de perfil de mulher sorrindo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMUwHqp8KOUaj1IWUOExs3bWMdtgknsLMW9oFqNyFX7HMD_zHwdMTAwdWql9g_D2XWA6dzpndT53Op-CZaqr6xkNcX2fiMhQilCumr_iaEzh-ACt_kbA3mrTW1lE9cUS53ICISfnKnsDQEDnD_mL9bOWZe-XG0GUd983QPcTJineAQfY6yRlruOTEyLkcbrDtw5JG6R2vGUQpYB8k_KRbqO6ffkEUgPGdjmHKXaVrttXPSZDNyXmnNnRjWDzIrC2f4w_d3cgQ0y6aB");'></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-[#181113] dark:text-white text-sm font-bold truncate">Maria Clara</p>
+<p class="text-[#89616f] dark:text-gray-400 text-xs truncate">Proprietária</p>
+</div>
+<button class="ml-auto text-gray-400 hover:text-primary">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto scroll-smooth">
+<!-- Header Section -->
+<header class="bg-surface-light dark:bg-surface-dark sticky top-0 z-10 border-b border-[#e6dbdf] dark:border-[#4a2e36] px-6 py-5 md:px-10">
+<div class="max-w-[1200px] mx-auto w-full">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h1 class="text-[#181113] dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">Gestão de Curadorias</h1>
+<p class="text-[#89616f] dark:text-gray-400 text-base font-normal mt-1">Gerencie itens recebidos, avalie preços e aprove peças para venda.</p>
+</div>
+<button class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg hover:bg-red-600 transition-colors font-bold text-sm shadow-md hover:shadow-lg">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        Nova Entrada
+                    </button>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-[#e6dbdf] dark:border-[#4a2e36] bg-white dark:bg-[#3d252e] shadow-sm">
+<div class="flex items-center justify-between">
+<p class="text-[#89616f] dark:text-gray-400 text-sm font-bold uppercase tracking-wider">Em Avaliação</p>
+<span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">Pendentes</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#181113] dark:text-white text-3xl font-black">12</p>
+<p class="text-[#078859] text-sm font-bold">+2 hoje</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-[#e6dbdf] dark:border-[#4a2e36] bg-white dark:bg-[#3d252e] shadow-sm">
+<div class="flex items-center justify-between">
+<p class="text-[#89616f] dark:text-gray-400 text-sm font-bold uppercase tracking-wider">Aprovadas</p>
+<span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full">Hoje</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#181113] dark:text-white text-3xl font-black">45</p>
+<p class="text-[#078859] text-sm font-bold">+15% vs ontem</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 border border-[#e6dbdf] dark:border-[#4a2e36] bg-white dark:bg-[#3d252e] shadow-sm">
+<div class="flex items-center justify-between">
+<p class="text-[#89616f] dark:text-gray-400 text-sm font-bold uppercase tracking-wider">Reprovadas</p>
+<span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded-full">Hoje</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-[#181113] dark:text-white text-3xl font-black">8</p>
+<p class="text-[#89616f] text-sm font-medium">Motivo princ: Estado</p>
+</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex gap-8 mt-6 overflow-x-auto border-b border-[#e6dbdf] dark:border-[#4a2e36]">
+<a class="flex items-center gap-2 border-b-[3px] border-primary text-primary pb-3 px-1" href="#">
+<span class="material-symbols-outlined text-[20px] icon-fill">hourglass_top</span>
+<p class="text-sm font-bold tracking-[0.015em] whitespace-nowrap">Em Avaliação (12)</p>
+</a>
+<a class="flex items-center gap-2 border-b-[3px] border-transparent text-[#89616f] dark:text-gray-400 hover:text-[#181113] dark:hover:text-white pb-3 px-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<p class="text-sm font-bold tracking-[0.015em] whitespace-nowrap">Aprovadas</p>
+</a>
+<a class="flex items-center gap-2 border-b-[3px] border-transparent text-[#89616f] dark:text-gray-400 hover:text-[#181113] dark:hover:text-white pb-3 px-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+<p class="text-sm font-bold tracking-[0.015em] whitespace-nowrap">Reprovadas</p>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<div class="flex-1 px-6 md:px-10 py-6 max-w-[1200px] mx-auto w-full">
+<!-- Toolbar -->
+<div class="flex flex-col sm:flex-row justify-between gap-4 mb-6">
+<div class="relative flex-1 max-w-[480px]">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-[#e6dbdf] dark:border-[#4a2e36] rounded-lg leading-5 bg-white dark:bg-[#3d252e] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm text-[#181113] dark:text-white shadow-sm" placeholder="Buscar por item, marca ou cliente..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#3d252e] border border-[#e6dbdf] dark:border-[#4a2e36] rounded-lg text-[#181113] dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-[#4a2e36]">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                        Filtros
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#3d252e] border border-[#e6dbdf] dark:border-[#4a2e36] rounded-lg text-[#181113] dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-[#4a2e36]">
+<span class="material-symbols-outlined text-[20px]">sort</span>
+                        Ordenar
+                    </button>
+</div>
+</div>
+<!-- List of Items -->
+<div class="flex flex-col gap-4 pb-10">
+<!-- Item 1 -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-[#e6dbdf] dark:border-[#4a2e36] p-4 flex flex-col lg:flex-row gap-6 group hover:shadow-md transition-shadow">
+<!-- Image -->
+<div class="shrink-0 relative">
+<div class="w-full lg:w-48 aspect-[4/5] lg:aspect-square rounded-lg bg-gray-100 overflow-hidden relative group-hover:opacity-90 transition-opacity">
+<img alt="Item Image" class="object-cover w-full h-full" data-alt="Vestido preto de veludo em um manequim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUGLQCzkyL1xURNudJzDrT7dQp0mwyrMVK0t_U5-O9hztB6OciiDCtKHbX2HVtWI65PM3Zx1zxRjlZrRquUjCFoye9mkx5ikFF53wd5_B-PqwQ1SeDJQ1AhoDrr2IMQLDOufpHB21t1QD660NaBJh6c6yBUT0h5V3aYZSduCEsdgAnE2SCsbL7xoyG01uVMSe3u6lkVkWw-UU0bktzUaZO_mLyjm6x_-pMVI9pQX6jWve1AZ5zIl1_a9pKAZPfSudc57YbB6lmMxMp"/>
+<div class="absolute top-2 left-2 bg-white/90 dark:bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold shadow-sm">
+                                Recebido hoje
+                            </div>
+</div>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between py-1 gap-4">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-purple-100 text-purple-700 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Vestidos</span>
+<span class="bg-gray-100 text-gray-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Zara</span>
+</div>
+<h3 class="text-xl font-bold text-[#181113] dark:text-white">Vestido Veludo Preto</h3>
+<div class="flex items-center gap-3 mt-1 text-sm text-[#89616f] dark:text-gray-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">straighten</span> Tam: M</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">verified</span> Estado: Excelente</span>
+</div>
+</div>
+<!-- Client Profile Mini -->
+<div class="flex items-center gap-3 bg-background-light dark:bg-background-dark p-2 rounded-lg border border-transparent hover:border-[#e6dbdf] dark:hover:border-[#4a2e36] cursor-pointer transition-colors">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Foto da cliente Ana Julia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfYZPdzre9o3IB8TfpeXfjqQ0n9Q-5ozFWQ-PZFoWyoDJzyJQnjeTOHFH10w4MNzm824FjDX7HbeRR51vf2aztk9WXMRydPndyou5Q3nZh6UdGRGnTDxQloNSFNHx9R_JlXsqY9UJMQxsN25lCJ3zWMkZRiki8lzI2XuYSI60KfDKnu7nMQ5XY-ZetiyhlxKSkHjIux0a3HZSsY48rjs7BhCgUXY49xH-_yGsTXrJ9lrJH2pVTz17-wDvbyxnVDGufASjKGUArsCt4")'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Ana Julia</p>
+<div class="flex items-center gap-1 text-[#078859] text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span>
+                                        R$ 156,00
+                                    </div>
+</div>
+</div>
+</div>
+<div class="h-px bg-[#e6dbdf] dark:bg-[#4a2e36] w-full"></div>
+<!-- Pricing & Actions -->
+<div class="flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
+<div class="flex flex-wrap gap-8 w-full md:w-auto">
+<div>
+<p class="text-xs font-bold text-[#89616f] dark:text-gray-500 uppercase mb-1">Sugestão IA</p>
+<div class="flex items-baseline gap-1 text-gray-400 font-medium">
+<span class="text-sm">R$</span>
+<span class="text-lg decoration-dotted underline" title="Baseado em itens similares">180,00</span>
+</div>
+</div>
+<div>
+<label class="text-xs font-bold text-primary uppercase mb-1 block">Venda Final</label>
+<div class="flex items-center relative">
+<span class="absolute left-3 text-[#181113] dark:text-white font-bold text-sm">R$</span>
+<input class="pl-9 pr-3 py-1.5 w-32 border border-[#e6dbdf] dark:border-[#4a2e36] rounded-lg font-bold text-[#181113] focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-white dark:bg-[#3d252e] dark:text-white" type="text" value="195,00"/>
+</div>
+</div>
+<div class="hidden lg:block border-l border-[#e6dbdf] dark:border-[#4a2e36] h-10 mx-2"></div>
+<div>
+<p class="text-xs font-bold text-[#89616f] dark:text-gray-500 uppercase mb-1">Comissão Cliente (40%)</p>
+<div class="flex items-baseline gap-1 text-[#078859] font-bold">
+<span class="text-sm">+ R$</span>
+<span class="text-lg">78,00</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto mt-2 md:mt-0">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 border border-red-200 bg-red-50 text-red-600 rounded-lg font-bold text-sm hover:bg-red-100 transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+<span class="md:hidden lg:inline">Reprovar</span>
+</button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-2 bg-primary text-white rounded-lg font-bold text-sm hover:bg-red-600 shadow-md hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">check</span>
+                                    Aprovar Item
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-[#e6dbdf] dark:border-[#4a2e36] p-4 flex flex-col lg:flex-row gap-6 group hover:shadow-md transition-shadow">
+<!-- Image -->
+<div class="shrink-0 relative">
+<div class="w-full lg:w-48 aspect-[4/5] lg:aspect-square rounded-lg bg-gray-100 overflow-hidden relative group-hover:opacity-90 transition-opacity">
+<img alt="Item Image" class="object-cover w-full h-full" data-alt="Jaqueta jeans vintage dobrada" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Wa_1yoILdUkc8Jo1j9PJy16Qazx9KyjbBlzxFg8Y6j9CTW3fVGefAJq3ODVTgt1yRn3aotUdfadX5TLlSA3_P9MS9wJrApft8ZaABtDKujOb9xhEBlaoy7k20BEtGcQTgx9Y5XOSVw1vmGwOkeTX5eyJZZNmIAB7S-UO_tn5ZZKa2hRAsDpJiDocyw43QrL0utZlqeb_HocL5By8ct1EyZFCP40rEOE_zYTADkofyOjqrM_JAQNk-E4UcwrgmVZ_W8xWmYeFsUV4"/>
+<div class="absolute top-2 left-2 bg-white/90 dark:bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold shadow-sm">
+                                Há 2 dias
+                            </div>
+</div>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between py-1 gap-4">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Casacos</span>
+<span class="bg-gray-100 text-gray-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Levi's</span>
+</div>
+<h3 class="text-xl font-bold text-[#181113] dark:text-white">Jaqueta Jeans Vintage</h3>
+<div class="flex items-center gap-3 mt-1 text-sm text-[#89616f] dark:text-gray-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">straighten</span> Tam: G</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">info</span> Detalhe: Mancha manga</span>
+</div>
+<div class="mt-2 flex items-center gap-1 text-xs text-orange-600 bg-orange-50 w-fit px-2 py-1 rounded border border-orange-100">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                                    Cliente recusou oferta inicial de R$ 80
+                                </div>
+</div>
+<!-- Client Profile Mini -->
+<div class="flex items-center gap-3 bg-background-light dark:bg-background-dark p-2 rounded-lg border border-transparent hover:border-[#e6dbdf] dark:hover:border-[#4a2e36] cursor-pointer transition-colors">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Foto do cliente Felipe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDh8LWD5uKed9p0W53xeOVjpGifDUFyXeKzBKoqzQnv8m3d-nAdnVSVNsq9QXFViJ465ND6Q2_bcUOSZo219cfZsu2ld2Q4_KLqbT7y6Ah14cDD8Ux6qMJgiNpZh0fVw_ihEpRKJ-6nZvQJUD09zf_Y-zK620COcncrbzHSMypfwE8NpeuOiIl5heAEBUlrDFce7tzshS5ay7ypT-KywxQe9UXrdCt7jjJxljJ6N1pRubSOwEqC5nnxSjLrx0gyGbAeEIO0Ey9rReBk")'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Felipe Santos</p>
+<div class="flex items-center gap-1 text-[#078859] text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span>
+                                        R$ 42,00
+                                    </div>
+</div>
+</div>
+</div>
+<div class="h-px bg-[#e6dbdf] dark:bg-[#4a2e36] w-full"></div>
+<!-- Pricing & Actions -->
+<div class="flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
+<div class="flex flex-wrap gap-8 w-full md:w-auto">
+<div>
+<p class="text-xs font-bold text-[#89616f] dark:text-gray-500 uppercase mb-1">Sugestão IA</p>
+<div class="flex items-baseline gap-1 text-gray-400 font-medium">
+<span class="text-sm">R$</span>
+<span class="text-lg decoration-dotted underline">120,00</span>
+</div>
+</div>
+<div>
+<label class="text-xs font-bold text-primary uppercase mb-1 block">Venda Final</label>
+<div class="flex items-center relative">
+<span class="absolute left-3 text-[#181113] dark:text-white font-bold text-sm">R$</span>
+<input class="pl-9 pr-3 py-1.5 w-32 border border-[#e6dbdf] dark:border-[#4a2e36] rounded-lg font-bold text-[#181113] focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-white dark:bg-[#3d252e] dark:text-white" type="text" value="110,00"/>
+</div>
+</div>
+<div class="hidden lg:block border-l border-[#e6dbdf] dark:border-[#4a2e36] h-10 mx-2"></div>
+<div>
+<p class="text-xs font-bold text-[#89616f] dark:text-gray-500 uppercase mb-1">Comissão Cliente (40%)</p>
+<div class="flex items-baseline gap-1 text-[#078859] font-bold">
+<span class="text-sm">+ R$</span>
+<span class="text-lg">44,00</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto mt-2 md:mt-0">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 border border-red-200 bg-red-50 text-red-600 rounded-lg font-bold text-sm hover:bg-red-100 transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+<span class="md:hidden lg:inline">Reprovar</span>
+</button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-2 bg-primary text-white rounded-lg font-bold text-sm hover:bg-red-600 shadow-md hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">check</span>
+                                    Aprovar Item
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-[#e6dbdf] dark:border-[#4a2e36] p-4 flex flex-col lg:flex-row gap-6 group hover:shadow-md transition-shadow opacity-95">
+<!-- Image -->
+<div class="shrink-0 relative">
+<div class="w-full lg:w-48 aspect-[4/5] lg:aspect-square rounded-lg bg-gray-100 overflow-hidden relative group-hover:opacity-90 transition-opacity">
+<img alt="Item Image" class="object-cover w-full h-full" data-alt="Sapato de salto alto azul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd4cUNtpfvivZ14GaeBB1Rodtw_QdFA6Ra6FERbPxkuyIiyd_nLX2p8C5zsMKHpT-JOMK7le0DYk4tK7xhiPM_cm4r6xO9trRc-ZxEBsRw8_bgYgmQceKMVlbwyPfwEafhbpP3v6L69rGD0NA5oxAlUBOyG2L3PAV3VPkQJd0gL1WPvjwUbEFFxF8NQ26tpRNNVbNhaC14Xla9yQBStqjPxosFnmWDQE4Gm7ceXQDFjMj3RXEuYUVIolo_T1sIOH2EkvSWpwST6zry"/>
+<div class="absolute top-2 left-2 bg-white/90 dark:bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold shadow-sm">
+                                Ontem
+                            </div>
+</div>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between py-1 gap-4">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-pink-100 text-pink-700 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Sapatos</span>
+<span class="bg-gray-100 text-gray-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Schutz</span>
+</div>
+<h3 class="text-xl font-bold text-[#181113] dark:text-white">Salto Alto Azul Royal</h3>
+<div class="flex items-center gap-3 mt-1 text-sm text-[#89616f] dark:text-gray-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">straighten</span> Tam: 37</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">verified</span> Estado: Bom</span>
+</div>
+</div>
+<!-- Client Profile Mini -->
+<div class="flex items-center gap-3 bg-background-light dark:bg-background-dark p-2 rounded-lg border border-transparent hover:border-[#e6dbdf] dark:hover:border-[#4a2e36] cursor-pointer transition-colors">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Foto da cliente Beatriz" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqYKEFCPd5d3CHl5xYwU9UQYZs66NdzxpVbRuUtwP9aAxQ6RVTdVs2Eur5RDPGUEgQHm80onfQVul6QjoJKaczN2caA427nW5kcuTilh7Xm_i7qwMGForKnyseGVC7L5DGsrIDJXLsupizUnKgc9jaN-NnBgiXs1e0XqClzyumWf0s0lY6JPQPXqpNz5jXwIzX7lfHHQeKz2Ia9wrK0Fy-z-zgiPOJjCvhEmy2U4yeDYLq_A_wM7SvfGDRHPi7Pk7NMJGSrDYTEwpo")'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Beatriz Lima</p>
+<div class="flex items-center gap-1 text-[#078859] text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span>
+                                        R$ 210,00
+                                    </div>
+</div>
+</div>
+</div>
+<div class="h-px bg-[#e6dbdf] dark:bg-[#4a2e36] w-full"></div>
+<!-- Pricing & Actions -->
+<div class="flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
+<div class="flex flex-wrap gap-8 w-full md:w-auto">
+<div>
+<p class="text-xs font-bold text-[#89616f] dark:text-gray-500 uppercase mb-1">Sugestão IA</p>
+<div class="flex items-baseline gap-1 text-gray-400 font-medium">
+<span class="text-sm">R$</span>
+<span class="text-lg decoration-dotted underline">85,00</span>
+</div>
+</div>
+<div>
+<label class="text-xs font-bold text-primary uppercase mb-1 block">Venda Final</label>
+<div class="flex items-center relative">
+<span class="absolute left-3 text-[#181113] dark:text-white font-bold text-sm">R$</span>
+<input class="pl-9 pr-3 py-1.5 w-32 border border-[#e6dbdf] dark:border-[#4a2e36] rounded-lg font-bold text-[#181113] focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-white dark:bg-[#3d252e] dark:text-white" placeholder="0,00" type="text"/>
+</div>
+</div>
+<div class="hidden lg:block border-l border-[#e6dbdf] dark:border-[#4a2e36] h-10 mx-2"></div>
+<div>
+<p class="text-xs font-bold text-[#89616f] dark:text-gray-500 uppercase mb-1">Comissão Cliente (40%)</p>
+<div class="flex items-baseline gap-1 text-gray-400 font-bold">
+<span class="text-sm">+ R$</span>
+<span class="text-lg">-</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto mt-2 md:mt-0">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 border border-red-200 bg-red-50 text-red-600 rounded-lg font-bold text-sm hover:bg-red-100 transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+<span class="md:hidden lg:inline">Reprovar</span>
+</button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-2 bg-primary text-white rounded-lg font-bold text-sm hover:bg-red-600 shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+<span class="material-symbols-outlined text-[20px]">check</span>
+                                    Aprovar Item
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Overlay/Backdrop for Mobile Menu (Hidden) -->
+<div class="fixed inset-0 bg-black/50 z-30 hidden"></div>
+</body></html>

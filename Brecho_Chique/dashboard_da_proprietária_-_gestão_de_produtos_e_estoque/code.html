@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brechó Chic - Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e21258",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221016",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181113] dark:text-white h-screen overflow-hidden flex">
+<!-- Sidebar -->
+<aside class="w-64 h-full bg-white dark:bg-[#1a0c10] border-r border-[#e6dbdf] dark:border-[#3a1d25] flex flex-col shrink-0 transition-all duration-300">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shadow-sm" data-alt="Abstract chic pattern in pink and white" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBo7EBK9xy5yJcKuxqncc8ku-jzhHqShNkUwELFBLcD3nAFk0cHD2yPZ25kJRjolElX44sPW6zMgAPH080tbyraecTKZvrcwcinbyhZSXrSxE2aqg62WaSncsNX-KG3WHdA7JirdAM8-nDnCz4JQAoMTLeE2-DkxIhXbXbGCJ0gsfwBWpM24YS1eovhJ1CU-SCWH2_Q3RPwFMOYDaYai0BOV4YB-TXOGn-x6a_ojkz3eWdLsNb9SgbNBShpW-Hztqr8NGTO00IhhpnW");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#181113] dark:text-white text-lg font-bold leading-tight">Brechó Chic</h1>
+<p class="text-[#89616f] dark:text-[#cc8fa3] text-xs font-medium uppercase tracking-wider">Admin Panel</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 flex flex-col gap-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#5e4a51] dark:text-[#cc8fa3] hover:bg-background-light dark:hover:bg-[#2d151c] group transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 text-primary dark:text-[#ff4d8a]" href="#">
+<span class="material-symbols-outlined filled">checkroom</span>
+<span class="text-sm font-bold">Produtos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#5e4a51] dark:text-[#cc8fa3] hover:bg-background-light dark:hover:bg-[#2d151c] group transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">shopping_bag</span>
+<span class="text-sm font-medium">Pedidos</span>
+<span class="ml-auto bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#5e4a51] dark:text-[#cc8fa3] hover:bg-background-light dark:hover:bg-[#2d151c] group transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">group</span>
+<span class="text-sm font-medium">Clientes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#5e4a51] dark:text-[#cc8fa3] hover:bg-background-light dark:hover:bg-[#2d151c] group transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">bar_chart</span>
+<span class="text-sm font-medium">Relatórios</span>
+</a>
+</nav>
+<div class="p-4 border-t border-[#e6dbdf] dark:border-[#3a1d25]">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#5e4a51] dark:text-[#cc8fa3] hover:bg-background-light dark:hover:bg-[#2d151c] group transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Configurações</span>
+</a>
+<div class="flex items-center gap-3 mt-4 px-3">
+<div class="size-8 rounded-full bg-gray-200 overflow-hidden" data-alt="Profile picture of the owner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcX91GcbbeJ8ggu6q2zArWJSjN6pmOJ6ybJxaLQcWC7_YI5e_4r0atKz30T9Yxib33pSXHBRYcaP6x0RP4_r1o-Wvs9hDlwD44DaAFhno1GZs-AgjuIt99r9HODJg-ODKnEvgf3ICYTHDQrPPkKDJ8IGWLFnMQU73HkwupbTvYImu4ZCEmly0j0RhOM_m3uooDKcp9Zaj0KTr-D6VIj7vDFDIxbB0qfXGMXpH-hhC21eo0IH4uMO50mR7K5Cdp0loBCkv8EB6FRV4R"); background-size: cover;'></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-[#181113] dark:text-white">Maria Silva</p>
+<p class="text-xs text-[#89616f] dark:text-[#cc8fa3]">Proprietária</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Header Area -->
+<header class="w-full bg-white dark:bg-[#1a0c10] border-b border-[#e6dbdf] dark:border-[#3a1d25] px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
+<div class="flex flex-col gap-1">
+<h2 class="text-[#181113] dark:text-white text-3xl font-black tracking-tight">Gestão de Produtos</h2>
+<p class="text-[#89616f] dark:text-[#cc8fa3] text-base font-normal">Gerencie o inventário e o catálogo da loja</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center gap-2 h-10 px-5 bg-white border border-[#e6dbdf] hover:bg-gray-50 text-[#181113] text-sm font-bold rounded-lg transition-colors shadow-sm dark:bg-[#2d151c] dark:border-[#3a1d25] dark:text-white dark:hover:bg-[#3d1d26]">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Exportar</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-[#c90f4d] text-white text-sm font-bold rounded-lg transition-colors shadow-sm shadow-primary/20">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>Adicionar Novo Produto</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-8">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-6">
+<!-- Filters & Search Toolbar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-[#1a0c10] p-4 rounded-xl border border-[#e6dbdf] dark:border-[#3a1d25] shadow-sm">
+<!-- Search -->
+<div class="flex items-center w-full md:max-w-md bg-[#f4f0f2] dark:bg-[#2d151c] rounded-lg px-3 h-10 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-[#89616f] dark:text-[#cc8fa3]">search</span>
+<input class="w-full bg-transparent border-none text-sm text-[#181113] dark:text-white placeholder-[#89616f] dark:placeholder-[#cc8fa3] focus:ring-0 ml-2" placeholder="Buscar por nome, SKU ou marca..." type="text"/>
+</div>
+<!-- Filters -->
+<div class="flex items-center gap-3 overflow-x-auto pb-2 md:pb-0">
+<button class="flex items-center gap-2 px-3 h-9 rounded-lg border border-[#e6dbdf] dark:border-[#3a1d25] bg-white dark:bg-[#1a0c10] text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#2d151c] whitespace-nowrap dark:text-white">
+<span class="material-symbols-outlined text-lg">category</span>
+                            Categoria
+                            <span class="material-symbols-outlined text-lg">arrow_drop_down</span>
+</button>
+<button class="flex items-center gap-2 px-3 h-9 rounded-lg border border-[#e6dbdf] dark:border-[#3a1d25] bg-white dark:bg-[#1a0c10] text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#2d151c] whitespace-nowrap dark:text-white">
+<span class="material-symbols-outlined text-lg">sell</span>
+                            Preço
+                            <span class="material-symbols-outlined text-lg">arrow_drop_down</span>
+</button>
+<button class="flex items-center gap-2 px-3 h-9 rounded-lg border border-[#e6dbdf] dark:border-[#3a1d25] bg-white dark:bg-[#1a0c10] text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#2d151c] whitespace-nowrap dark:text-white">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+                            Status
+                            <span class="material-symbols-outlined text-lg">arrow_drop_down</span>
+</button>
+<div class="h-6 w-px bg-[#e6dbdf] dark:bg-[#3a1d25] mx-1"></div>
+<button class="flex items-center justify-center size-9 rounded-lg border border-dashed border-[#89616f] text-[#89616f] hover:bg-primary/5 hover:border-primary hover:text-primary transition-colors" title="Clear filters">
+<span class="material-symbols-outlined text-lg">filter_alt_off</span>
+</button>
+</div>
+</div>
+<!-- Product Table -->
+<div class="bg-white dark:bg-[#1a0c10] rounded-xl border border-[#e6dbdf] dark:border-[#3a1d25] shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#fcfbfc] dark:bg-[#220f14] border-b border-[#e6dbdf] dark:border-[#3a1d25]">
+<th class="py-4 px-6 text-xs font-semibold text-[#89616f] dark:text-[#cc8fa3] uppercase tracking-wider w-16 text-center">
+<div class="flex items-center justify-center">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20 bg-gray-50" type="checkbox"/>
+</div>
+</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#89616f] dark:text-[#cc8fa3] uppercase tracking-wider">Produto</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#89616f] dark:text-[#cc8fa3] uppercase tracking-wider">Categoria &amp; Descrição</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#89616f] dark:text-[#cc8fa3] uppercase tracking-wider">Preço</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#89616f] dark:text-[#cc8fa3] uppercase tracking-wider">Estoque</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#89616f] dark:text-[#cc8fa3] uppercase tracking-wider">Status</th>
+<th class="py-4 px-6 text-xs font-semibold text-[#89616f] dark:text-[#cc8fa3] uppercase tracking-wider text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#e6dbdf] dark:divide-[#3a1d25]">
+<!-- Row 1 -->
+<tr class="group hover:bg-[#fff5f8] dark:hover:bg-[#2d151c] transition-colors">
+<td class="py-4 px-6 text-center">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20 bg-gray-50" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center shrink-0 border border-gray-200 dark:border-gray-700" data-alt="Vintage Dior dress in black silk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAn1UUQXjRV-rFfWOoRnV7sj0HeSx6mAWVLLX3rBPKJmJXqjqcO-FYP1e0e6HnbEphijexowPvKeW85TCuCfFHb9m-JE1oQqeUdyYtvJDXd1dSvMZrJeDQl3X13hIyg4tanDRzQngqisQ8iQBu-tK-TEYlzvmzPbJjMn97fagFqJzbtMO6geBOUJ4Oac7ztEmXVA9OYco2Y8YJ8TM-C0GIkuJMVCSaK6ZIKx88cmcxZonSX3cdU8Y8tAyavTsEuy0OSvFjyZYg3IDl2");'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Vestido Vintage Dior</p>
+<p class="text-xs text-[#89616f] dark:text-[#cc8fa3]">SKU: DR-9021</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<span class="inline-flex w-fit items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
+                                                Vestidos
+                                            </span>
+<p class="text-sm text-[#5e4a51] dark:text-[#cc8fa3] truncate max-w-[200px]">Seda pura, coleção anos 90, perfeito estado.</p>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-bold text-[#181113] dark:text-white">R$ 450,00</p>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-medium text-[#181113] dark:text-white">1 un.</p>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800">
+<div class="size-1.5 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-semibold">Ativo</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Excluir">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-[#fff5f8] dark:hover:bg-[#2d151c] transition-colors">
+<td class="py-4 px-6 text-center">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20 bg-gray-50" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center shrink-0 border border-gray-200 dark:border-gray-700" data-alt="Black Chanel quilted handbag" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA71GP84svXYgz0ZLsEl7D6_SRnqwM5_qxTKFqS6QWKMeo8DfeqFilwMIJv9liDAQ8xV7M4xvMcY7di9raqhY3l6n9Cp9m1_8s-1HFLZoKYya2Jl5gfjrbLISX9DJicHV9c2DYx0ah7tda5IRQPlxQPsh4eV58QiraccNxtp3KmCgFFY4qltrXcxyfvRo6-vGcAnfZSD9u16vKrPul4hmnZ-I-dA-5Hq_dbxWO_z4wpcq3PgEZ8PFE0TH0w4iqz0suRT6WFDPhJPNV9");'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Bolsa Chanel Classic</p>
+<p class="text-xs text-[#89616f] dark:text-[#cc8fa3]">SKU: BG-2204</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<span class="inline-flex w-fit items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                                                Acessórios
+                                            </span>
+<p class="text-sm text-[#5e4a51] dark:text-[#cc8fa3] truncate max-w-[200px]">Couro matelassê preto, corrente dourada.</p>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-bold text-[#181113] dark:text-white">R$ 2.500,00</p>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-medium text-[#181113] dark:text-white">1 un.</p>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800">
+<div class="size-1.5 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-semibold">Ativo</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Excluir">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-[#fff5f8] dark:hover:bg-[#2d151c] transition-colors">
+<td class="py-4 px-6 text-center">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20 bg-gray-50" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center shrink-0 border border-gray-200 dark:border-gray-700" data-alt="Red sole high heel shoes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsqt-JrGP0ipBcLy8j1u0Eg7w4xf31_JeFa6CI4tJC7bcP-izG9fl-z4b7L-cx90t-M791qynieCi1VnyQAyCS06GS2nMiRnohngWuKxF8MiNnjsOWn1iLTIWw4QxTbJbapP9ZwfYqh-I0SUB9rzSUXqiBvDhP76ojX6RPrzQVRaBmRuJAiPdhQabz2yWTfJybZMdvjD-MX3MO4W-ZGcR-Y_dfyP5uPRNnyPvRRU7E6K5jWx-GdNAxgcLfBTYGqytehummuVyipIJr");'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Scarpin Louboutin</p>
+<p class="text-xs text-[#89616f] dark:text-[#cc8fa3]">SKU: SH-1102</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<span class="inline-flex w-fit items-center px-2 py-0.5 rounded text-xs font-medium bg-pink-50 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300">
+                                                Sapatos
+                                            </span>
+<p class="text-sm text-[#5e4a51] dark:text-[#cc8fa3] truncate max-w-[200px]">Salto 10cm, sola vermelha clássica, tam 37.</p>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-bold text-[#181113] dark:text-white">R$ 1.200,00</p>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-medium text-red-600 dark:text-red-400">0 un.</p>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700">
+<div class="size-1.5 rounded-full bg-gray-500"></div>
+<span class="text-xs font-semibold">Esgotado</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Excluir">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-[#fff5f8] dark:hover:bg-[#2d151c] transition-colors">
+<td class="py-4 px-6 text-center">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20 bg-gray-50" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center shrink-0 border border-gray-200 dark:border-gray-700" data-alt="Black oversized blazer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCApOOQE1bodIS2s7aUEXbmuGe0Bp1Ntg4qra6U3Sh_2QoqQR3poAWqgFtrUQQ5vV4S1ZBm5K4MRz4Terji_Znl_yq_cgqmb4BLIwWIF5izQEzJBKb8Renut501Kw8uXLKyImv3xdfSewrrcxYdlUMfVHt2yX1_x81sBH3tks3pRwJDl6MN7RijS01AEhEc1XCL4zjJJO-c5-KFvpgiBS9I_C8w9YeMqZDedVeOl_n2tfMP_xmT1UuZ_w-35jdLPAfQKyhO8zSUa9Ah");'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Blazer YSL</p>
+<p class="text-xs text-[#89616f] dark:text-[#cc8fa3]">SKU: CO-3301</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<span class="inline-flex w-fit items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">
+                                                Casacos
+                                            </span>
+<p class="text-sm text-[#5e4a51] dark:text-[#cc8fa3] truncate max-w-[200px]">Lã fria, corte masculino, botões dourados.</p>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-bold text-[#181113] dark:text-white">R$ 890,00</p>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-medium text-[#181113] dark:text-white">2 un.</p>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border border-amber-100 dark:border-amber-800">
+<div class="size-1.5 rounded-full bg-amber-500"></div>
+<span class="text-xs font-semibold">Inativo</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Excluir">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-[#fff5f8] dark:hover:bg-[#2d151c] transition-colors">
+<td class="py-4 px-6 text-center">
+<input class="rounded border-gray-300 text-primary focus:ring-primary/20 bg-gray-50" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-gray-100 dark:bg-gray-800 bg-cover bg-center shrink-0 border border-gray-200 dark:border-gray-700" data-alt="Gucci leather belt with gold buckle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJwOJdMI3nKRy7p7sp7u8ABzMtltj4ZOxPEfgVrznlE_UxiJO8_xBEsOiIGmZKJrKbOdG3jaTgTo7ynv851doiIJXOq3hJnfEVSePiBHA26U3rUKfT7wU_kVq5etkzLMkqd4koJTA-Ix2S7HzB62r4fsMiCILGhAYlzVG-sHOfnnC_dHKDIOrJYRDRe9ilyAguCPRQtmM5y1pKmJ2zxy5stRGZMBS_CQLgbF_Q3uYZLSVD-kZRLM3BHRLOnxeJnCihhXeBRmcZHl7U");'></div>
+<div>
+<p class="text-sm font-bold text-[#181113] dark:text-white">Cinto GG Marmont</p>
+<p class="text-xs text-[#89616f] dark:text-[#cc8fa3]">SKU: AC-5592</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<span class="inline-flex w-fit items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                                                Acessórios
+                                            </span>
+<p class="text-sm text-[#5e4a51] dark:text-[#cc8fa3] truncate max-w-[200px]">Couro preto, fivela dourada envelhecida.</p>
+</div>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-bold text-[#181113] dark:text-white">R$ 1.800,00</p>
+</td>
+<td class="py-4 px-6">
+<p class="text-sm font-medium text-[#181113] dark:text-white">1 un.</p>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800">
+<div class="size-1.5 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-semibold">Ativo</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-[#5e4a51] dark:text-[#cc8fa3] hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Excluir">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between px-6 py-4 border-t border-[#e6dbdf] dark:border-[#3a1d25] bg-gray-50/50 dark:bg-[#2d151c]/30">
+<p class="text-sm text-[#89616f] dark:text-[#cc8fa3]">
+                            Mostrando <span class="font-bold text-[#181113] dark:text-white">1-5</span> de <span class="font-bold text-[#181113] dark:text-white">48</span> produtos
+                        </p>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-8 rounded-lg border border-[#e6dbdf] dark:border-[#3a1d25] bg-white dark:bg-[#1a0c10] text-[#89616f] dark:text-[#cc8fa3] hover:bg-gray-50 dark:hover:bg-[#2d151c] disabled:opacity-50">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="flex items-center justify-center size-8 rounded-lg bg-primary text-white font-bold text-sm shadow-sm shadow-primary/20">1</button>
+<button class="flex items-center justify-center size-8 rounded-lg border border-[#e6dbdf] dark:border-[#3a1d25] bg-white dark:bg-[#1a0c10] text-[#5e4a51] dark:text-[#cc8fa3] hover:bg-gray-50 dark:hover:bg-[#2d151c] font-medium text-sm">2</button>
+<button class="flex items-center justify-center size-8 rounded-lg border border-[#e6dbdf] dark:border-[#3a1d25] bg-white dark:bg-[#1a0c10] text-[#5e4a51] dark:text-[#cc8fa3] hover:bg-gray-50 dark:hover:bg-[#2d151c] font-medium text-sm">3</button>
+<span class="text-[#89616f] dark:text-[#cc8fa3]">...</span>
+<button class="flex items-center justify-center size-8 rounded-lg border border-[#e6dbdf] dark:border-[#3a1d25] bg-white dark:bg-[#1a0c10] text-[#89616f] dark:text-[#cc8fa3] hover:bg-gray-50 dark:hover:bg-[#2d151c]">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

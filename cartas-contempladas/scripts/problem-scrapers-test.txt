@@ -1,0 +1,3788 @@
+
+­ƒöì Testando 8 scrapers problem├íticos...
+
+======================================================================
+
+[Cotas Premium] Testando...
+[Cotas Premium] Im├│veis (p├ígina 1): 0 cartas
+[Cotas Premium] Im├│veis (p├ígina 2): 0 cartas
+[Cotas Premium] Ve├¡culos: 0 cartas
+[Cotas Premium] Total: 0 cartas coletadas
+ÔØî [Cotas Premium] 0 cartas - AINDA COM PROBLEMA
+
+[Play Contempladas] Testando...
+[Play Contempladas] Extra├¡das 0 cartas
+ÔØî [Play Contempladas] 0 cartas - AINDA COM PROBLEMA
+
+[iCons├│rcios] Testando...
+[iCons├│rcios] Erro ao buscar /cartas-contempladas-imoveis/: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at Unzip.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at Unzip.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async IconsorciosScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async IconsorciosScraper.scrapeCategoria (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:22:20)
+    at async IconsorciosScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:11:27)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://iconsorcios.com.br',
+    method: 'get',
+    url: '/cartas-contempladas-imoveis/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /cartas-contempladas-imoveis HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: iconsorcios.com.br\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 2,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/cartas-contempladas-imoveis',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: false,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://iconsorcios.com.br/cartas-contempladas-imoveis',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'iconsorcios.com.br',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://iconsorcios.com.br/cartas-contempladas-imoveis',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'iconsorcios.com.br',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'iconsorcios.com.br',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 4000,
+      parser: null,
+      _httpMessage: null,
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 4000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 16684,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 604,
+        Symbol(triggerId): 602,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      date: 'Fri, 16 Jan 2026 22:55:43 GMT',
+      server: 'Apache',
+      upgrade: 'h2,h2c',
+      connection: 'Upgrade, Keep-Alive',
+      'last-modified': 'Thu, 29 Sep 2022 21:52:20 GMT',
+      'accept-ranges': 'bytes',
+      vary: 'Accept-Encoding',
+      'content-length': '836',
+      'keep-alive': 'timeout=5, max=75',
+      'content-type': 'text/html'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://iconsorcios.com.br',
+      method: 'get',
+      url: '/cartas-contempladas-imoveis/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /cartas-contempladas-imoveis HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: iconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/cartas-contempladas-imoveis',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'iconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html>\r\n' +
+      '<html lang="pt-BR">\r\n' +
+      '  <head>\r\n' +
+      '    <meta charset="UTF-8">\r\n' +
+      '    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n' +
+      '    <meta name="format-detection" content="telephone=no">\r\n' +
+      '    <meta name="robots" content="noindex">\r\n' +
+      '    <title>Hospedagem de Site com Dom├¡nio Gr├ítis - HostGator</title>\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon.ico">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-32.png" sizes="32x32">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-57.png" sizes="57x57">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-76.png" sizes="76x76">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-96.png" sizes="96x96">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-128.png" sizes="128x128">\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon-192.png" sizes="192x192">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-120.png" sizes="120x120">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-152.png" sizes="152x152">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-180.png" sizes="180x180">\r\n' +
+      '    <link href="/cgi-sys/css/bootstrap.min.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/fonts.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/custom_404.css" rel="stylesheet">\r\n' +
+      '  </head>\r\n' +
+      '  <body>\r\n' +
+      '    <div class="container space">\r\n' +
+      '      <div class="row">\r\n' +
+      '        <div class="col-xs-12 col-sm-5">\r\n' +
+      '          <h3>Erro 404</h3>\r\n' +
+      '          <h1><strong>Ops,</strong><br>N├úo encontramos<br>essa p├ígina!</h1>\r\n' +
+      '          <p>Parece que a p├ígina que voc├¬ est├í procurando foi movida ou nunca existiu, certifique-se que digitou o endere├ºo corretamente ou seguiu um link v├ílido.</p>\r\n' +
+      '          <a href="https://www.hostgator.com.br" title="HostGator">Conhe├ºa-nos!</a>\r\n' +
+      '          <div class="logo">\r\n' +
+      '            <img src="/cgi-sys/images/logo-hostgator.svg" alt="HostGator">\r\n' +
+      '          </div>\r\n' +
+      '        </div>\r\n' +
+      '        <div class="hidden-xs col-sm-1"></div>\r\n' +
+      '        <div class="hidden-xs col-sm-6">\r\n' +
+      '          <img src="/cgi-sys/images/illustration-404.svg" class="hidden-xs img-responsive " alt="illustration">\r\n' +
+      '        </div>\r\n' +
+      '      </div>\r\n' +
+      '    </div>\r\n' +
+      '  </body>\r\n' +
+      '</html>\r\n'
+  },
+  status: 404
+}
+[iCons├│rcios] Erro no scraping de /cartas-contempladas-imoveis/: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at Unzip.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at Unzip.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async IconsorciosScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async IconsorciosScraper.scrapeCategoria (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:22:20)
+    at async IconsorciosScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:11:27)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://iconsorcios.com.br',
+    method: 'get',
+    url: '/cartas-contempladas-imoveis/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /cartas-contempladas-imoveis HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: iconsorcios.com.br\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 2,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/cartas-contempladas-imoveis',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: false,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://iconsorcios.com.br/cartas-contempladas-imoveis',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'iconsorcios.com.br',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://iconsorcios.com.br/cartas-contempladas-imoveis',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'iconsorcios.com.br',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'iconsorcios.com.br',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 4000,
+      parser: null,
+      _httpMessage: null,
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 4000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 16684,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 604,
+        Symbol(triggerId): 602,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      date: 'Fri, 16 Jan 2026 22:55:43 GMT',
+      server: 'Apache',
+      upgrade: 'h2,h2c',
+      connection: 'Upgrade, Keep-Alive',
+      'last-modified': 'Thu, 29 Sep 2022 21:52:20 GMT',
+      'accept-ranges': 'bytes',
+      vary: 'Accept-Encoding',
+      'content-length': '836',
+      'keep-alive': 'timeout=5, max=75',
+      'content-type': 'text/html'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://iconsorcios.com.br',
+      method: 'get',
+      url: '/cartas-contempladas-imoveis/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /cartas-contempladas-imoveis HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: iconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/cartas-contempladas-imoveis',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'iconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html>\r\n' +
+      '<html lang="pt-BR">\r\n' +
+      '  <head>\r\n' +
+      '    <meta charset="UTF-8">\r\n' +
+      '    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n' +
+      '    <meta name="format-detection" content="telephone=no">\r\n' +
+      '    <meta name="robots" content="noindex">\r\n' +
+      '    <title>Hospedagem de Site com Dom├¡nio Gr├ítis - HostGator</title>\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon.ico">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-32.png" sizes="32x32">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-57.png" sizes="57x57">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-76.png" sizes="76x76">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-96.png" sizes="96x96">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-128.png" sizes="128x128">\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon-192.png" sizes="192x192">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-120.png" sizes="120x120">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-152.png" sizes="152x152">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-180.png" sizes="180x180">\r\n' +
+      '    <link href="/cgi-sys/css/bootstrap.min.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/fonts.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/custom_404.css" rel="stylesheet">\r\n' +
+      '  </head>\r\n' +
+      '  <body>\r\n' +
+      '    <div class="container space">\r\n' +
+      '      <div class="row">\r\n' +
+      '        <div class="col-xs-12 col-sm-5">\r\n' +
+      '          <h3>Erro 404</h3>\r\n' +
+      '          <h1><strong>Ops,</strong><br>N├úo encontramos<br>essa p├ígina!</h1>\r\n' +
+      '          <p>Parece que a p├ígina que voc├¬ est├í procurando foi movida ou nunca existiu, certifique-se que digitou o endere├ºo corretamente ou seguiu um link v├ílido.</p>\r\n' +
+      '          <a href="https://www.hostgator.com.br" title="HostGator">Conhe├ºa-nos!</a>\r\n' +
+      '          <div class="logo">\r\n' +
+      '            <img src="/cgi-sys/images/logo-hostgator.svg" alt="HostGator">\r\n' +
+      '          </div>\r\n' +
+      '        </div>\r\n' +
+      '        <div class="hidden-xs col-sm-1"></div>\r\n' +
+      '        <div class="hidden-xs col-sm-6">\r\n' +
+      '          <img src="/cgi-sys/images/illustration-404.svg" class="hidden-xs img-responsive " alt="illustration">\r\n' +
+      '        </div>\r\n' +
+      '      </div>\r\n' +
+      '    </div>\r\n' +
+      '  </body>\r\n' +
+      '</html>\r\n'
+  },
+  status: 404
+}
+[iCons├│rcios] Erro ao buscar /cartas-contempladas-veiculos/: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at Unzip.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at Unzip.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async IconsorciosScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async IconsorciosScraper.scrapeCategoria (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:22:20)
+    at async IconsorciosScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:12:28)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://iconsorcios.com.br',
+    method: 'get',
+    url: '/cartas-contempladas-veiculos/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /cartas-contempladas-veiculos HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: iconsorcios.com.br\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/cartas-contempladas-veiculos',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: false,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://iconsorcios.com.br/cartas-contempladas-veiculos',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'iconsorcios.com.br',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://iconsorcios.com.br/cartas-contempladas-veiculos',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'iconsorcios.com.br',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'iconsorcios.com.br',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 4000,
+      parser: null,
+      _httpMessage: null,
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 4000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 19032,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 659,
+        Symbol(triggerId): 657,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      date: 'Fri, 16 Jan 2026 22:55:45 GMT',
+      server: 'Apache',
+      upgrade: 'h2,h2c',
+      connection: 'Upgrade, Keep-Alive',
+      'last-modified': 'Thu, 29 Sep 2022 21:52:20 GMT',
+      'accept-ranges': 'bytes',
+      vary: 'Accept-Encoding',
+      'content-length': '836',
+      'keep-alive': 'timeout=5, max=75',
+      'content-type': 'text/html'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://iconsorcios.com.br',
+      method: 'get',
+      url: '/cartas-contempladas-veiculos/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /cartas-contempladas-veiculos HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: iconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/cartas-contempladas-veiculos',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'iconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html>\r\n' +
+      '<html lang="pt-BR">\r\n' +
+      '  <head>\r\n' +
+      '    <meta charset="UTF-8">\r\n' +
+      '    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n' +
+      '    <meta name="format-detection" content="telephone=no">\r\n' +
+      '    <meta name="robots" content="noindex">\r\n' +
+      '    <title>Hospedagem de Site com Dom├¡nio Gr├ítis - HostGator</title>\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon.ico">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-32.png" sizes="32x32">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-57.png" sizes="57x57">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-76.png" sizes="76x76">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-96.png" sizes="96x96">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-128.png" sizes="128x128">\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon-192.png" sizes="192x192">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-120.png" sizes="120x120">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-152.png" sizes="152x152">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-180.png" sizes="180x180">\r\n' +
+      '    <link href="/cgi-sys/css/bootstrap.min.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/fonts.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/custom_404.css" rel="stylesheet">\r\n' +
+      '  </head>\r\n' +
+      '  <body>\r\n' +
+      '    <div class="container space">\r\n' +
+      '      <div class="row">\r\n' +
+      '        <div class="col-xs-12 col-sm-5">\r\n' +
+      '          <h3>Erro 404</h3>\r\n' +
+      '          <h1><strong>Ops,</strong><br>N├úo encontramos<br>essa p├ígina!</h1>\r\n' +
+      '          <p>Parece que a p├ígina que voc├¬ est├í procurando foi movida ou nunca existiu, certifique-se que digitou o endere├ºo corretamente ou seguiu um link v├ílido.</p>\r\n' +
+      '          <a href="https://www.hostgator.com.br" title="HostGator">Conhe├ºa-nos!</a>\r\n' +
+      '          <div class="logo">\r\n' +
+      '            <img src="/cgi-sys/images/logo-hostgator.svg" alt="HostGator">\r\n' +
+      '          </div>\r\n' +
+      '        </div>\r\n' +
+      '        <div class="hidden-xs col-sm-1"></div>\r\n' +
+      '        <div class="hidden-xs col-sm-6">\r\n' +
+      '          <img src="/cgi-sys/images/illustration-404.svg" class="hidden-xs img-responsive " alt="illustration">\r\n' +
+      '        </div>\r\n' +
+      '      </div>\r\n' +
+      '    </div>\r\n' +
+      '  </body>\r\n' +
+      '</html>\r\n'
+  },
+  status: 404
+}
+[iCons├│rcios] Erro no scraping de /cartas-contempladas-veiculos/: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at Unzip.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at Unzip.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async IconsorciosScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async IconsorciosScraper.scrapeCategoria (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:22:20)
+    at async IconsorciosScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\iconsorcios.ts:12:28)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://iconsorcios.com.br',
+    method: 'get',
+    url: '/cartas-contempladas-veiculos/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /cartas-contempladas-veiculos HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: iconsorcios.com.br\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/cartas-contempladas-veiculos',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: false,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://iconsorcios.com.br/cartas-contempladas-veiculos',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 22,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'iconsorcios.com.br',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://iconsorcios.com.br/cartas-contempladas-veiculos',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'iconsorcios.com.br',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'iconsorcios.com.br',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 4000,
+      parser: null,
+      _httpMessage: null,
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 4000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 19032,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 659,
+        Symbol(triggerId): 657,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      date: 'Fri, 16 Jan 2026 22:55:45 GMT',
+      server: 'Apache',
+      upgrade: 'h2,h2c',
+      connection: 'Upgrade, Keep-Alive',
+      'last-modified': 'Thu, 29 Sep 2022 21:52:20 GMT',
+      'accept-ranges': 'bytes',
+      vary: 'Accept-Encoding',
+      'content-length': '836',
+      'keep-alive': 'timeout=5, max=75',
+      'content-type': 'text/html'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://iconsorcios.com.br',
+      method: 'get',
+      url: '/cartas-contempladas-veiculos/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /cartas-contempladas-veiculos HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: iconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/cartas-contempladas-veiculos',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'iconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html>\r\n' +
+      '<html lang="pt-BR">\r\n' +
+      '  <head>\r\n' +
+      '    <meta charset="UTF-8">\r\n' +
+      '    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n' +
+      '    <meta name="format-detection" content="telephone=no">\r\n' +
+      '    <meta name="robots" content="noindex">\r\n' +
+      '    <title>Hospedagem de Site com Dom├¡nio Gr├ítis - HostGator</title>\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon.ico">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-32.png" sizes="32x32">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-57.png" sizes="57x57">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-76.png" sizes="76x76">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-96.png" sizes="96x96">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-128.png" sizes="128x128">\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon-192.png" sizes="192x192">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-120.png" sizes="120x120">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-152.png" sizes="152x152">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-180.png" sizes="180x180">\r\n' +
+      '    <link href="/cgi-sys/css/bootstrap.min.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/fonts.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/custom_404.css" rel="stylesheet">\r\n' +
+      '  </head>\r\n' +
+      '  <body>\r\n' +
+      '    <div class="container space">\r\n' +
+      '      <div class="row">\r\n' +
+      '        <div class="col-xs-12 col-sm-5">\r\n' +
+      '          <h3>Erro 404</h3>\r\n' +
+      '          <h1><strong>Ops,</strong><br>N├úo encontramos<br>essa p├ígina!</h1>\r\n' +
+      '          <p>Parece que a p├ígina que voc├¬ est├í procurando foi movida ou nunca existiu, certifique-se que digitou o endere├ºo corretamente ou seguiu um link v├ílido.</p>\r\n' +
+      '          <a href="https://www.hostgator.com.br" title="HostGator">Conhe├ºa-nos!</a>\r\n' +
+      '          <div class="logo">\r\n' +
+      '            <img src="/cgi-sys/images/logo-hostgator.svg" alt="HostGator">\r\n' +
+      '          </div>\r\n' +
+      '        </div>\r\n' +
+      '        <div class="hidden-xs col-sm-1"></div>\r\n' +
+      '        <div class="hidden-xs col-sm-6">\r\n' +
+      '          <img src="/cgi-sys/images/illustration-404.svg" class="hidden-xs img-responsive " alt="illustration">\r\n' +
+      '        </div>\r\n' +
+      '      </div>\r\n' +
+      '    </div>\r\n' +
+      '  </body>\r\n' +
+      '</html>\r\n'
+  },
+  status: 404
+}
+[iCons├│rcios] Extra├¡das 0 cartas (0 im├│veis, 0 ve├¡culos)
+ÔØî [iCons├│rcios] 0 cartas - AINDA COM PROBLEMA
+
+[Tramontana Cons├│rcios] Testando...
+[Tramontana Cons├│rcios] Erro ao buscar /cartas-contempladas/: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at BrotliDecompress.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at BrotliDecompress.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TramontanaScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async TramontanaScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\tramontana.ts:12:20)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://tramontanaconsorcios.com.br',
+    method: 'get',
+    url: '/cartas-contempladas/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /cartas-contempladas/ HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: www.tramontanaconsorcios.com.br\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 2,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/cartas-contempladas/',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://www.tramontanaconsorcios.com.br/cartas-contempladas/',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 30,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'www.tramontanaconsorcios.com.br',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://www.tramontanaconsorcios.com.br/cartas-contempladas/',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'www.tramontanaconsorcios.com.br',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'www.tramontanaconsorcios.com.br',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 22785,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 715,
+        Symbol(triggerId): 713,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      date: 'Fri, 16 Jan 2026 22:55:49 GMT',
+      'content-type': 'text/html',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'last-modified': 'Thu, 29 Sep 2022 13:31:42 GMT',
+      'server-timing': 'cfCacheStatus;desc="DYNAMIC", cfEdge;dur=10,cfOrigin;dur=387',
+      vary: 'Accept-Encoding',
+      'report-to': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=26UO8bk2CWKbwcvn1%2FxGfkB6vUPEBuzltk7hi9yrLEYczaoo3X9SWaqNI6KMdMYVaNICaZU3GxjBJjtlU7Zb4IR8k8x22kR9CCzO0LWW2dDQ9CyD%2FmwW%2F0P3LXx%2FKYbEvNj3mYF%2BYk7T"}]}',
+      server: 'cloudflare',
+      'cf-cache-status': 'DYNAMIC',
+      nel: '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}',
+      'cf-ray': '9bf133dcc8080107-GRU',
+      'alt-svc': 'h3=":443"; ma=86400'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://tramontanaconsorcios.com.br',
+      method: 'get',
+      url: '/cartas-contempladas/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /cartas-contempladas/ HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: www.tramontanaconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/cartas-contempladas/',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'www.tramontanaconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html>\r\n' +
+      '<html lang="pt-BR">\r\n' +
+      '  <head>\r\n' +
+      '    <meta charset="UTF-8">\r\n' +
+      '    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n' +
+      '    <meta name="format-detection" content="telephone=no">\r\n' +
+      '    <meta name="robots" content="noindex">\r\n' +
+      '    <title>Hospedagem de Site com Dom├¡nio Gr├ítis - HostGator</title>\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon.ico">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-32.png" sizes="32x32">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-57.png" sizes="57x57">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-76.png" sizes="76x76">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-96.png" sizes="96x96">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-128.png" sizes="128x128">\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon-192.png" sizes="192x192">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-120.png" sizes="120x120">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-152.png" sizes="152x152">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-180.png" sizes="180x180">\r\n' +
+      '    <link href="/cgi-sys/css/bootstrap.min.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/fonts.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/custom_404.css" rel="stylesheet">\r\n' +
+      '  </head>\r\n' +
+      '  <body>\r\n' +
+      '    <div class="container space">\r\n' +
+      '      <div class="row">\r\n' +
+      '        <div class="col-xs-12 col-sm-5">\r\n' +
+      '          <h3>Erro 404</h3>\r\n' +
+      '          <h1><strong>Ops,</strong><br>N├úo encontramos<br>essa p├ígina!</h1>\r\n' +
+      '          <p>Parece que a p├ígina que voc├¬ est├í procurando foi movida ou nunca existiu, certifique-se que digitou o endere├ºo corretamente ou seguiu um link v├ílido.</p>\r\n' +
+      '          <a href="https://www.hostgator.com.br" title="HostGator">Conhe├ºa-nos!</a>\r\n' +
+      '          <div class="logo">\r\n' +
+      '            <img src="/cgi-sys/images/logo-hostgator.svg" alt="HostGator">\r\n' +
+      '          </div>\r\n' +
+      '        </div>\r\n' +
+      '        <div class="hidden-xs col-sm-1"></div>\r\n' +
+      '        <div class="hidden-xs col-sm-6">\r\n' +
+      '          <img src="/cgi-sys/images/illustration-404.svg" class="hidden-xs img-responsive " alt="illustration">\r\n' +
+      '        </div>\r\n' +
+      '      </div>\r\n' +
+      '    </div>\r\n' +
+      `  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"6f30da73b7ec4fca9bc094cc344e5ded","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>\n` +
+      '</body>\r\n' +
+      '</html>\r\n'
+  },
+  status: 404
+}
+[Tramontana Cons├│rcios] Erro no scraping: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at BrotliDecompress.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at BrotliDecompress.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async TramontanaScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async TramontanaScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\tramontana.ts:12:20)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://tramontanaconsorcios.com.br',
+    method: 'get',
+    url: '/cartas-contempladas/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /cartas-contempladas/ HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: www.tramontanaconsorcios.com.br\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 2,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/cartas-contempladas/',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://www.tramontanaconsorcios.com.br/cartas-contempladas/',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 30,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'www.tramontanaconsorcios.com.br',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://www.tramontanaconsorcios.com.br/cartas-contempladas/',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'www.tramontanaconsorcios.com.br',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'www.tramontanaconsorcios.com.br',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 22785,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 715,
+        Symbol(triggerId): 713,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      date: 'Fri, 16 Jan 2026 22:55:49 GMT',
+      'content-type': 'text/html',
+      'transfer-encoding': 'chunked',
+      connection: 'keep-alive',
+      'last-modified': 'Thu, 29 Sep 2022 13:31:42 GMT',
+      'server-timing': 'cfCacheStatus;desc="DYNAMIC", cfEdge;dur=10,cfOrigin;dur=387',
+      vary: 'Accept-Encoding',
+      'report-to': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=26UO8bk2CWKbwcvn1%2FxGfkB6vUPEBuzltk7hi9yrLEYczaoo3X9SWaqNI6KMdMYVaNICaZU3GxjBJjtlU7Zb4IR8k8x22kR9CCzO0LWW2dDQ9CyD%2FmwW%2F0P3LXx%2FKYbEvNj3mYF%2BYk7T"}]}',
+      server: 'cloudflare',
+      'cf-cache-status': 'DYNAMIC',
+      nel: '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}',
+      'cf-ray': '9bf133dcc8080107-GRU',
+      'alt-svc': 'h3=":443"; ma=86400'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://tramontanaconsorcios.com.br',
+      method: 'get',
+      url: '/cartas-contempladas/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /cartas-contempladas/ HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: www.tramontanaconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/cartas-contempladas/',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'www.tramontanaconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html>\r\n' +
+      '<html lang="pt-BR">\r\n' +
+      '  <head>\r\n' +
+      '    <meta charset="UTF-8">\r\n' +
+      '    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n' +
+      '    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n' +
+      '    <meta name="format-detection" content="telephone=no">\r\n' +
+      '    <meta name="robots" content="noindex">\r\n' +
+      '    <title>Hospedagem de Site com Dom├¡nio Gr├ítis - HostGator</title>\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon.ico">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-32.png" sizes="32x32">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-57.png" sizes="57x57">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-76.png" sizes="76x76">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-96.png" sizes="96x96">\r\n' +
+      '    <link rel="icon" href="/cgi-sys/images/favicons/favicon-128.png" sizes="128x128">\r\n' +
+      '    <link rel="shortcut icon" href="/cgi-sys/images/favicons/favicon-192.png" sizes="192x192">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-120.png" sizes="120x120">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-152.png" sizes="152x152">\r\n' +
+      '    <link rel="apple-touch-icon" href="/cgi-sys/images/favicons/favicon-180.png" sizes="180x180">\r\n' +
+      '    <link href="/cgi-sys/css/bootstrap.min.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/fonts.css" rel="stylesheet">\r\n' +
+      '    <link href="/cgi-sys/css/custom_404.css" rel="stylesheet">\r\n' +
+      '  </head>\r\n' +
+      '  <body>\r\n' +
+      '    <div class="container space">\r\n' +
+      '      <div class="row">\r\n' +
+      '        <div class="col-xs-12 col-sm-5">\r\n' +
+      '          <h3>Erro 404</h3>\r\n' +
+      '          <h1><strong>Ops,</strong><br>N├úo encontramos<br>essa p├ígina!</h1>\r\n' +
+      '          <p>Parece que a p├ígina que voc├¬ est├í procurando foi movida ou nunca existiu, certifique-se que digitou o endere├ºo corretamente ou seguiu um link v├ílido.</p>\r\n' +
+      '          <a href="https://www.hostgator.com.br" title="HostGator">Conhe├ºa-nos!</a>\r\n' +
+      '          <div class="logo">\r\n' +
+      '            <img src="/cgi-sys/images/logo-hostgator.svg" alt="HostGator">\r\n' +
+      '          </div>\r\n' +
+      '        </div>\r\n' +
+      '        <div class="hidden-xs col-sm-1"></div>\r\n' +
+      '        <div class="hidden-xs col-sm-6">\r\n' +
+      '          <img src="/cgi-sys/images/illustration-404.svg" class="hidden-xs img-responsive " alt="illustration">\r\n' +
+      '        </div>\r\n' +
+      '      </div>\r\n' +
+      '    </div>\r\n' +
+      `  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"6f30da73b7ec4fca9bc094cc344e5ded","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>\n` +
+      '</body>\r\n' +
+      '</html>\r\n'
+  },
+  status: 404
+}
+ÔØî [Tramontana Cons├│rcios] 0 cartas - AINDA COM PROBLEMA
+
+[LuME Cons├│rcios] Testando...
+[LuME Cons├│rcios] Erro ao buscar /contemplados/: AxiosError: Hostname/IP does not match certificate's altnames: Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net
+    at AxiosError.AxiosError.from (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\AxiosError.js:96:14)
+    at RedirectableRequest.handleRequestError (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:817:25)
+    at RedirectableRequest.emit (node:events:519:35)
+    at eventHandlers.<computed> (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\follow-redirects\index.js:49:24)
+    at ClientRequest.emit (node:events:507:28)
+    at emitErrorEvent (node:_http_client:104:11)
+    at TLSSocket.socketErrorListener (node:_http_client:518:5)
+    at TLSSocket.emit (node:events:507:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async LumeScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async LumeScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\lume.ts:12:20)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  cert: {
+    subject: [Object: null prototype] { CN: '*.kinghost.net' },
+    issuer: [Object: null prototype] {
+      C: 'BE',
+      O: 'GlobalSign nv-sa',
+      CN: 'GlobalSign GCC R6 AlphaSSL CA 2025'
+    },
+    subjectaltname: 'DNS:*.kinghost.net, DNS:kinghost.net',
+    infoAccess: [Object: null prototype] {
+      'CA Issuers - URI': [Array],
+      'OCSP - URI': [Array]
+    },
+    ca: false,
+    modulus: 'A311A48F098A4F97AE40D31C8AAD14AFF9E50DDE9017038925750B3300CFA006EF55FF91A16DBEE470871B74983991A08C2985B5E01A20474C1452CBD36D4135D8A73081729D5C173DC39726278160BC8A2D5FF77CBAABC3D0F8F359290328DBA9A5013A2823D181A94556801B0556C0BAEE873C5C36765DF3B0D8BF89E22C79D2444EB149789933B524FABA2BEE7197F8514D3A38994A9BE2E130C5774C900DE89FB9E6DFFAF873F8EB26222985DC95063B7206B01D86763617C18C7BAEF1DBA8A630C388D16989935A0E21B25E0D478957E6B9ED65CA3F349D8F37D56963434EA20F894A01C8EF4A562513076881AF6B7F7A929F013FA55670D2CA58F176E9',
+    bits: 2048,
+    exponent: '0x10001',
+    pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 a3 11 a4 8f 09 8a 4f 97 ae 40 d3 1c 8a ad 14 af f9 ... 244 more bytes>,
+    valid_from: 'Sep  3 13:12:47 2025 GMT',
+    valid_to: 'Oct  5 13:12:46 2026 GMT',
+    fingerprint: '8F:1B:E2:62:67:25:51:F3:2A:09:8A:AB:06:BA:D3:95:38:A9:24:1A',
+    fingerprint256: 'E3:B1:D8:CA:BA:F3:30:47:D8:B6:78:14:00:D4:03:01:9B:C0:A4:DD:0A:4D:E2:3D:7B:50:D3:F2:C2:40:96:A5',
+    fingerprint512: '32:6C:AA:15:A2:0D:6D:69:4B:72:ED:D3:E3:D2:57:C5:C0:E6:BC:01:21:47:9A:05:90:92:F6:C6:5D:03:30:8E:05:1F:C1:09:66:6F:D2:53:10:DF:6E:EA:1C:6C:44:A9:94:D5:E8:F6:C6:25:78:F9:E8:59:E2:67:08:34:77:F4',
+    ext_key_usage: [ '1.3.6.1.5.5.7.3.1', '1.3.6.1.5.5.7.3.2' ],
+    serialNumber: '1749BCC5892B3338FBB5CB8B',
+    raw: <Buffer 30 82 06 5d 30 82 05 45 a0 03 02 01 02 02 0c 17 49 bc c5 89 2b 33 38 fb b5 cb 8b 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 55 31 0b 30 09 06 03 ... 1583 more bytes>,
+    issuerCertificate: {
+      subject: [Object: null prototype],
+      issuer: [Object: null prototype],
+      infoAccess: [Object: null prototype],
+      ca: true,
+      modulus: '9FE88AED01BE2AB9D945040036C55A682EDEB0BB28348CA28ACB37559DD3731C1B767568FEF50E53C2137DFCDFCAFBD837EE8F933D2D77E240B26902EE8CC0D13198A3B3A2D870E31D3319FE68058CAB08C1A6DDF0692CF69FC1843731C8413963136DFF37ACA50F2C7E3C28227432753C19497CA00FC9F35C08BDB6CA3EE36B15FEA1BC90DC723CDCE0DCB12F3DC0F3DCE3576839C210A0E4ED2EF585F867193D247B9CFCBBE594E24EE3068060B8DB581264CF7AD5DEDB354A64989C9AA6C914C88D7C10811BE1118AAD0DB46C92DD16ECCE9C3F00B37B719304DD941CDA4790CB3762657192EEBC23468E427E7EBB3FFF7C344E3F7CF567FEC800FB5E46D1',
+      bits: 2048,
+      exponent: '0x10001',
+      pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 9f e8 8a ed 01 be 2a b9 d9 45 04 00 36 c5 5a 68 2e ... 244 more bytes>,
+      valid_from: 'May 21 02:36:52 2025 GMT',
+      valid_to: 'May 21 00:00:00 2027 GMT',
+      fingerprint: '43:19:55:E6:E5:DA:BE:85:7F:13:36:C0:23:68:E5:49:5F:14:3E:ED',
+      fingerprint256: 'A8:83:55:92:31:F8:38:8D:AF:35:CE:41:C8:10:10:40:AE:8F:D9:B6:56:43:42:47:B9:47:5A:F5:92:CC:08:CA',
+      fingerprint512: '0D:92:62:4D:4C:0F:B7:12:07:EC:10:61:F6:82:98:11:CA:E2:47:4C:24:78:55:E9:C5:B8:7F:F2:96:E4:42:1C:4E:2D:BC:FA:C6:42:5A:60:85:94:56:9B:15:66:0F:D7:B1:34:39:4C:0C:C8:F3:7C:8A:9E:87:88:E5:99:4F:40',
+      ext_key_usage: [Array],
+      serialNumber: '837D4EB89E912FE72CAD3BC7692DDC20',
+      raw: <Buffer 30 82 05 8d 30 82 03 75 a0 03 02 01 02 02 11 00 83 7d 4e b8 9e 91 2f e7 2c ad 3b c7 69 2d dc 20 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 4c 31 ... 1375 more bytes>,
+      issuerCertificate: [Object]
+    }
+  },
+  host: 'lumeconsorcios.com.br',
+  reason: "Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net",
+  code: 'ERR_TLS_CERT_ALTNAME_INVALID',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://lumeconsorcios.com.br',
+    method: 'get',
+    url: '/contemplados/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> Writable {
+    _events: {
+      close: undefined,
+      error: [Function: handleRequestError],
+      prefinish: undefined,
+      finish: undefined,
+      drain: undefined,
+      response: [Function: handleResponse],
+      socket: [Array],
+      timeout: undefined,
+      abort: undefined
+    },
+    _writableState: WritableState {
+      highWaterMark: 16384,
+      length: 0,
+      corked: 0,
+      onwrite: [Function: bound onwrite],
+      writelen: 0,
+      bufferedIndex: 0,
+      pendingcb: 0,
+      Symbol(kState): 17580812,
+      Symbol(kBufferedValue): null
+    },
+    _maxListeners: undefined,
+    _options: {
+      maxRedirects: 21,
+      maxBodyLength: Infinity,
+      protocol: 'https:',
+      path: '/contemplados/',
+      method: 'GET',
+      headers: [Object: null prototype],
+      agents: [Object],
+      auth: undefined,
+      family: undefined,
+      beforeRedirect: [Function: dispatchBeforeRedirect],
+      beforeRedirects: [Object],
+      http2Options: undefined,
+      hostname: 'lumeconsorcios.com.br',
+      port: '',
+      agent: undefined,
+      nativeProtocols: [Object],
+      pathname: '/contemplados/'
+    },
+    _ended: true,
+    _ending: true,
+    _redirectCount: 0,
+    _redirects: [],
+    _requestBodyLength: 0,
+    _requestBodyBuffers: [],
+    _eventsCount: 3,
+    _onNativeResponse: [Function (anonymous)],
+    _currentRequest: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      _header: 'GET /contemplados/ HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: lumeconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/contemplados/',
+      _ended: false,
+      res: null,
+      aborted: false,
+      timeoutCb: [Function: emitRequestTimeout],
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'lumeconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Circular *1],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    _currentUrl: 'https://lumeconsorcios.com.br/contemplados/',
+    _timeout: null,
+    Symbol(shapeMode): true,
+    Symbol(kCapture): false
+  },
+  [cause]: Error [ERR_TLS_CERT_ALTNAME_INVALID]: Hostname/IP does not match certificate's altnames: Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net
+      at Object.checkServerIdentity (node:tls:385:12)
+      at TLSSocket.onConnectSecure (node:_tls_wrap:1641:27)
+      at TLSSocket.emit (node:events:507:28)
+      at TLSSocket._finishInit (node:_tls_wrap:1077:8)
+      at ssl.onhandshakedone (node:_tls_wrap:863:12) {
+    code: 'ERR_TLS_CERT_ALTNAME_INVALID',
+    reason: "Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net",
+    host: 'lumeconsorcios.com.br',
+    cert: {
+      subject: [Object: null prototype],
+      issuer: [Object: null prototype],
+      subjectaltname: 'DNS:*.kinghost.net, DNS:kinghost.net',
+      infoAccess: [Object: null prototype],
+      ca: false,
+      modulus: 'A311A48F098A4F97AE40D31C8AAD14AFF9E50DDE9017038925750B3300CFA006EF55FF91A16DBEE470871B74983991A08C2985B5E01A20474C1452CBD36D4135D8A73081729D5C173DC39726278160BC8A2D5FF77CBAABC3D0F8F359290328DBA9A5013A2823D181A94556801B0556C0BAEE873C5C36765DF3B0D8BF89E22C79D2444EB149789933B524FABA2BEE7197F8514D3A38994A9BE2E130C5774C900DE89FB9E6DFFAF873F8EB26222985DC95063B7206B01D86763617C18C7BAEF1DBA8A630C388D16989935A0E21B25E0D478957E6B9ED65CA3F349D8F37D56963434EA20F894A01C8EF4A562513076881AF6B7F7A929F013FA55670D2CA58F176E9',
+      bits: 2048,
+      exponent: '0x10001',
+      pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 a3 11 a4 8f 09 8a 4f 97 ae 40 d3 1c 8a ad 14 af f9 ... 244 more bytes>,
+      valid_from: 'Sep  3 13:12:47 2025 GMT',
+      valid_to: 'Oct  5 13:12:46 2026 GMT',
+      fingerprint: '8F:1B:E2:62:67:25:51:F3:2A:09:8A:AB:06:BA:D3:95:38:A9:24:1A',
+      fingerprint256: 'E3:B1:D8:CA:BA:F3:30:47:D8:B6:78:14:00:D4:03:01:9B:C0:A4:DD:0A:4D:E2:3D:7B:50:D3:F2:C2:40:96:A5',
+      fingerprint512: '32:6C:AA:15:A2:0D:6D:69:4B:72:ED:D3:E3:D2:57:C5:C0:E6:BC:01:21:47:9A:05:90:92:F6:C6:5D:03:30:8E:05:1F:C1:09:66:6F:D2:53:10:DF:6E:EA:1C:6C:44:A9:94:D5:E8:F6:C6:25:78:F9:E8:59:E2:67:08:34:77:F4',
+      ext_key_usage: [Array],
+      serialNumber: '1749BCC5892B3338FBB5CB8B',
+      raw: <Buffer 30 82 06 5d 30 82 05 45 a0 03 02 01 02 02 0c 17 49 bc c5 89 2b 33 38 fb b5 cb 8b 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 55 31 0b 30 09 06 03 ... 1583 more bytes>,
+      issuerCertificate: [Object]
+    }
+  }
+}
+[LuME Cons├│rcios] Erro no scraping: AxiosError: Hostname/IP does not match certificate's altnames: Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net
+    at AxiosError.AxiosError.from (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\AxiosError.js:96:14)
+    at RedirectableRequest.handleRequestError (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:817:25)
+    at RedirectableRequest.emit (node:events:519:35)
+    at eventHandlers.<computed> (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\follow-redirects\index.js:49:24)
+    at ClientRequest.emit (node:events:507:28)
+    at emitErrorEvent (node:_http_client:104:11)
+    at TLSSocket.socketErrorListener (node:_http_client:518:5)
+    at TLSSocket.emit (node:events:507:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async LumeScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async LumeScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\lume.ts:12:20)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  cert: {
+    subject: [Object: null prototype] { CN: '*.kinghost.net' },
+    issuer: [Object: null prototype] {
+      C: 'BE',
+      O: 'GlobalSign nv-sa',
+      CN: 'GlobalSign GCC R6 AlphaSSL CA 2025'
+    },
+    subjectaltname: 'DNS:*.kinghost.net, DNS:kinghost.net',
+    infoAccess: [Object: null prototype] {
+      'CA Issuers - URI': [Array],
+      'OCSP - URI': [Array]
+    },
+    ca: false,
+    modulus: 'A311A48F098A4F97AE40D31C8AAD14AFF9E50DDE9017038925750B3300CFA006EF55FF91A16DBEE470871B74983991A08C2985B5E01A20474C1452CBD36D4135D8A73081729D5C173DC39726278160BC8A2D5FF77CBAABC3D0F8F359290328DBA9A5013A2823D181A94556801B0556C0BAEE873C5C36765DF3B0D8BF89E22C79D2444EB149789933B524FABA2BEE7197F8514D3A38994A9BE2E130C5774C900DE89FB9E6DFFAF873F8EB26222985DC95063B7206B01D86763617C18C7BAEF1DBA8A630C388D16989935A0E21B25E0D478957E6B9ED65CA3F349D8F37D56963434EA20F894A01C8EF4A562513076881AF6B7F7A929F013FA55670D2CA58F176E9',
+    bits: 2048,
+    exponent: '0x10001',
+    pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 a3 11 a4 8f 09 8a 4f 97 ae 40 d3 1c 8a ad 14 af f9 ... 244 more bytes>,
+    valid_from: 'Sep  3 13:12:47 2025 GMT',
+    valid_to: 'Oct  5 13:12:46 2026 GMT',
+    fingerprint: '8F:1B:E2:62:67:25:51:F3:2A:09:8A:AB:06:BA:D3:95:38:A9:24:1A',
+    fingerprint256: 'E3:B1:D8:CA:BA:F3:30:47:D8:B6:78:14:00:D4:03:01:9B:C0:A4:DD:0A:4D:E2:3D:7B:50:D3:F2:C2:40:96:A5',
+    fingerprint512: '32:6C:AA:15:A2:0D:6D:69:4B:72:ED:D3:E3:D2:57:C5:C0:E6:BC:01:21:47:9A:05:90:92:F6:C6:5D:03:30:8E:05:1F:C1:09:66:6F:D2:53:10:DF:6E:EA:1C:6C:44:A9:94:D5:E8:F6:C6:25:78:F9:E8:59:E2:67:08:34:77:F4',
+    ext_key_usage: [ '1.3.6.1.5.5.7.3.1', '1.3.6.1.5.5.7.3.2' ],
+    serialNumber: '1749BCC5892B3338FBB5CB8B',
+    raw: <Buffer 30 82 06 5d 30 82 05 45 a0 03 02 01 02 02 0c 17 49 bc c5 89 2b 33 38 fb b5 cb 8b 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 55 31 0b 30 09 06 03 ... 1583 more bytes>,
+    issuerCertificate: {
+      subject: [Object: null prototype],
+      issuer: [Object: null prototype],
+      infoAccess: [Object: null prototype],
+      ca: true,
+      modulus: '9FE88AED01BE2AB9D945040036C55A682EDEB0BB28348CA28ACB37559DD3731C1B767568FEF50E53C2137DFCDFCAFBD837EE8F933D2D77E240B26902EE8CC0D13198A3B3A2D870E31D3319FE68058CAB08C1A6DDF0692CF69FC1843731C8413963136DFF37ACA50F2C7E3C28227432753C19497CA00FC9F35C08BDB6CA3EE36B15FEA1BC90DC723CDCE0DCB12F3DC0F3DCE3576839C210A0E4ED2EF585F867193D247B9CFCBBE594E24EE3068060B8DB581264CF7AD5DEDB354A64989C9AA6C914C88D7C10811BE1118AAD0DB46C92DD16ECCE9C3F00B37B719304DD941CDA4790CB3762657192EEBC23468E427E7EBB3FFF7C344E3F7CF567FEC800FB5E46D1',
+      bits: 2048,
+      exponent: '0x10001',
+      pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 9f e8 8a ed 01 be 2a b9 d9 45 04 00 36 c5 5a 68 2e ... 244 more bytes>,
+      valid_from: 'May 21 02:36:52 2025 GMT',
+      valid_to: 'May 21 00:00:00 2027 GMT',
+      fingerprint: '43:19:55:E6:E5:DA:BE:85:7F:13:36:C0:23:68:E5:49:5F:14:3E:ED',
+      fingerprint256: 'A8:83:55:92:31:F8:38:8D:AF:35:CE:41:C8:10:10:40:AE:8F:D9:B6:56:43:42:47:B9:47:5A:F5:92:CC:08:CA',
+      fingerprint512: '0D:92:62:4D:4C:0F:B7:12:07:EC:10:61:F6:82:98:11:CA:E2:47:4C:24:78:55:E9:C5:B8:7F:F2:96:E4:42:1C:4E:2D:BC:FA:C6:42:5A:60:85:94:56:9B:15:66:0F:D7:B1:34:39:4C:0C:C8:F3:7C:8A:9E:87:88:E5:99:4F:40',
+      ext_key_usage: [Array],
+      serialNumber: '837D4EB89E912FE72CAD3BC7692DDC20',
+      raw: <Buffer 30 82 05 8d 30 82 03 75 a0 03 02 01 02 02 11 00 83 7d 4e b8 9e 91 2f e7 2c ad 3b c7 69 2d dc 20 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 4c 31 ... 1375 more bytes>,
+      issuerCertificate: [Object]
+    }
+  },
+  host: 'lumeconsorcios.com.br',
+  reason: "Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net",
+  code: 'ERR_TLS_CERT_ALTNAME_INVALID',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://lumeconsorcios.com.br',
+    method: 'get',
+    url: '/contemplados/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> Writable {
+    _events: {
+      close: undefined,
+      error: [Function: handleRequestError],
+      prefinish: undefined,
+      finish: undefined,
+      drain: undefined,
+      response: [Function: handleResponse],
+      socket: [Array],
+      timeout: undefined,
+      abort: undefined
+    },
+    _writableState: WritableState {
+      highWaterMark: 16384,
+      length: 0,
+      corked: 0,
+      onwrite: [Function: bound onwrite],
+      writelen: 0,
+      bufferedIndex: 0,
+      pendingcb: 0,
+      Symbol(kState): 17580812,
+      Symbol(kBufferedValue): null
+    },
+    _maxListeners: undefined,
+    _options: {
+      maxRedirects: 21,
+      maxBodyLength: Infinity,
+      protocol: 'https:',
+      path: '/contemplados/',
+      method: 'GET',
+      headers: [Object: null prototype],
+      agents: [Object],
+      auth: undefined,
+      family: undefined,
+      beforeRedirect: [Function: dispatchBeforeRedirect],
+      beforeRedirects: [Object],
+      http2Options: undefined,
+      hostname: 'lumeconsorcios.com.br',
+      port: '',
+      agent: undefined,
+      nativeProtocols: [Object],
+      pathname: '/contemplados/'
+    },
+    _ended: true,
+    _ending: true,
+    _redirectCount: 0,
+    _redirects: [],
+    _requestBodyLength: 0,
+    _requestBodyBuffers: [],
+    _eventsCount: 3,
+    _onNativeResponse: [Function (anonymous)],
+    _currentRequest: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      _header: 'GET /contemplados/ HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: lumeconsorcios.com.br\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/contemplados/',
+      _ended: false,
+      res: null,
+      aborted: false,
+      timeoutCb: [Function: emitRequestTimeout],
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'lumeconsorcios.com.br',
+      protocol: 'https:',
+      _redirectable: [Circular *1],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    _currentUrl: 'https://lumeconsorcios.com.br/contemplados/',
+    _timeout: null,
+    Symbol(shapeMode): true,
+    Symbol(kCapture): false
+  },
+  [cause]: Error [ERR_TLS_CERT_ALTNAME_INVALID]: Hostname/IP does not match certificate's altnames: Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net
+      at Object.checkServerIdentity (node:tls:385:12)
+      at TLSSocket.onConnectSecure (node:_tls_wrap:1641:27)
+      at TLSSocket.emit (node:events:507:28)
+      at TLSSocket._finishInit (node:_tls_wrap:1077:8)
+      at ssl.onhandshakedone (node:_tls_wrap:863:12) {
+    code: 'ERR_TLS_CERT_ALTNAME_INVALID',
+    reason: "Host: lumeconsorcios.com.br. is not in the cert's altnames: DNS:*.kinghost.net, DNS:kinghost.net",
+    host: 'lumeconsorcios.com.br',
+    cert: {
+      subject: [Object: null prototype],
+      issuer: [Object: null prototype],
+      subjectaltname: 'DNS:*.kinghost.net, DNS:kinghost.net',
+      infoAccess: [Object: null prototype],
+      ca: false,
+      modulus: 'A311A48F098A4F97AE40D31C8AAD14AFF9E50DDE9017038925750B3300CFA006EF55FF91A16DBEE470871B74983991A08C2985B5E01A20474C1452CBD36D4135D8A73081729D5C173DC39726278160BC8A2D5FF77CBAABC3D0F8F359290328DBA9A5013A2823D181A94556801B0556C0BAEE873C5C36765DF3B0D8BF89E22C79D2444EB149789933B524FABA2BEE7197F8514D3A38994A9BE2E130C5774C900DE89FB9E6DFFAF873F8EB26222985DC95063B7206B01D86763617C18C7BAEF1DBA8A630C388D16989935A0E21B25E0D478957E6B9ED65CA3F349D8F37D56963434EA20F894A01C8EF4A562513076881AF6B7F7A929F013FA55670D2CA58F176E9',
+      bits: 2048,
+      exponent: '0x10001',
+      pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 a3 11 a4 8f 09 8a 4f 97 ae 40 d3 1c 8a ad 14 af f9 ... 244 more bytes>,
+      valid_from: 'Sep  3 13:12:47 2025 GMT',
+      valid_to: 'Oct  5 13:12:46 2026 GMT',
+      fingerprint: '8F:1B:E2:62:67:25:51:F3:2A:09:8A:AB:06:BA:D3:95:38:A9:24:1A',
+      fingerprint256: 'E3:B1:D8:CA:BA:F3:30:47:D8:B6:78:14:00:D4:03:01:9B:C0:A4:DD:0A:4D:E2:3D:7B:50:D3:F2:C2:40:96:A5',
+      fingerprint512: '32:6C:AA:15:A2:0D:6D:69:4B:72:ED:D3:E3:D2:57:C5:C0:E6:BC:01:21:47:9A:05:90:92:F6:C6:5D:03:30:8E:05:1F:C1:09:66:6F:D2:53:10:DF:6E:EA:1C:6C:44:A9:94:D5:E8:F6:C6:25:78:F9:E8:59:E2:67:08:34:77:F4',
+      ext_key_usage: [Array],
+      serialNumber: '1749BCC5892B3338FBB5CB8B',
+      raw: <Buffer 30 82 06 5d 30 82 05 45 a0 03 02 01 02 02 0c 17 49 bc c5 89 2b 33 38 fb b5 cb 8b 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 55 31 0b 30 09 06 03 ... 1583 more bytes>,
+      issuerCertificate: [Object]
+    }
+  }
+}
+ÔØî [LuME Cons├│rcios] 0 cartas - AINDA COM PROBLEMA
+
+[ConsorcioCred] Testando...
+[ConsorcioCred] Erro ao buscar /contempladas/: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at BrotliDecompress.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at BrotliDecompress.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ConsorciocredScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async ConsorciocredScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\consorciocred.ts:12:20)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://consorciocred.com.br',
+    method: 'get',
+    url: '/contempladas/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /contempladas/ HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: www.consorciocred.com\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 2,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/contempladas/',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://www.consorciocred.com/contempladas/',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 28,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'www.consorciocred.com',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://www.consorciocred.com/contempladas/',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'www.consorciocred.com',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'www.consorciocred.com',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [Timeout],
+        _idleStart: 26567,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 800,
+        Symbol(triggerId): 798,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      age: '82',
+      'cache-control': 'public, max-age=0, must-revalidate',
+      'content-type': 'text/html; charset=utf-8',
+      date: 'Fri, 16 Jan 2026 22:43:56 GMT',
+      etag: 'W/"10v39vl5wsfj85"',
+      server: 'Vercel',
+      'strict-transport-security': 'max-age=63072000',
+      vary: 'RSC, Next-Router-State-Tree, Next-Router-Prefetch',
+      'x-matched-path': '/[slug]',
+      'x-powered-by': 'Next.js',
+      'x-vercel-cache': 'STALE',
+      'x-vercel-id': 'gru1::gru1::jvktb-1768604153374-5c7da84f351e',
+      'transfer-encoding': 'chunked'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://consorciocred.com.br',
+      method: 'get',
+      url: '/contempladas/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /contempladas/ HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: www.consorciocred.com\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/contempladas/',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'www.consorciocred.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html><html id="__next_error__"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-3ba58e1855ad53db.js"/><script src="/_next/static/chunks/fd9d1056-4287be806937164a.js" async=""></script><script src="/_next/static/chunks/2117-df7b9e714b9decc5.js" async=""></script><script src="/_next/static/chunks/main-app-be3d940aef6bd3eb.js" async=""></script><meta name="robots" content="noindex"/><title>P├ígina n├úo encontrada | Consorciocred</title><meta name="robots" content="no-index, no-follow"/><meta name="next-size-adjust"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><script src="/_next/static/chunks/webpack-3ba58e1855ad53db.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\\"/_next/static/media/904be59b21bd51cb-s.p.woff2\\",\\"font\\",{\\"crossOrigin\\":\\"\\",\\"type\\":\\"font/woff2\\"}]\\n2:HL[\\"/_next/static/css/62b7edb21724d5bc.css\\",\\"style\\"]\\n"])</script><script>self.__next_f.push([1,"3:I[12846,[],\\"\\"]\\n6:I[4707,[],\\"\\"]\\n8:I[36423,[],\\"\\"]\\n9:I[88003,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"\\"]\\na:I[27572,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"Header\\"]\\nb:I[65878,[\\"2502\\",\\"static/chunks/a63740d3-4a2d454d9dd41f4d.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"5878\\",\\"static/chunks/5878-1608735cbe2d750a.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"1806\\",\\"static/chunks/1806-39a88e30db0cf11f.js\\",\\"8206\\",\\"static/chunks/8206-2da75e06ec96874b.js\\",\\"6042\\",\\"static/chunks/app/%5Bslug%5D/page-d17aa5f18e9e9fe8.js\\"],\\"Image\\"]\\nc:I[72972,[\\"2502\\",\\"static/chunks/a63740d3-4a2d454d9dd41f4d.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"5878\\",\\"static/chunks/5878-1608735cbe2d750a.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"1806\\",\\"static/chunks/1806-39a88e30db0cf11f.js\\",\\"8206\\",\\"static/chunks/8206-2da75e06ec96874b.js\\",\\"6042\\",\\"static/chunks/app/%5Bslug%5D/page-d17aa5f18e9e9fe8.js\\"],\\"\\"]\\nd:I[2582,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"Toaster\\"]\\n10:I[5592"])</script><script>self.__next_f.push([1,"9,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"Newsletter\\"]\\n11:I[96750,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"default\\"]\\n13:I[61060,[],\\"\\"]\\n7:[\\"slug\\",\\"contempladas\\",\\"d\\"]\\ne:T10ad,"])</script><script>self.__next_f.push([1,"m58.14 19.713-1.799 1.91a4.314 4.314 0 0 0-3.074-1.32c-2.15-.001-3.79 1.685-3.79 4.103 0 2.418 1.64 4.105 3.79 4.105a4.693 4.693 0 0 0 3.154-1.337l1.72 1.925a6.39 6.39 0 0 1-2.166 1.56c-.828.35-1.72.524-2.628.493a6.822 6.822 0 0 1-4.778-1.973 6.779 6.779 0 0 1-1.975-4.773c0-1.782.716-3.5 1.975-4.772a6.766 6.766 0 0 1 4.778-1.973c.908-.032 1.8.143 2.628.493.812.35 1.56.89 2.166 1.56ZM72.284 24.406a6.984 6.984 0 0 1-1.083 3.882 6.735 6.735 0 0 1-3.074 2.61c-1.258.54-2.66.7-3.998.46a7.003 7.003 0 0 1-3.583-1.845 6.875 6.875 0 0 1-1.943-3.532 6.784 6.784 0 0 1 .366-4.009 6.847 6.847 0 0 1 2.532-3.118 6.955 6.955 0 0 1 3.855-1.177c.907-.032 1.8.111 2.644.445a6.546 6.546 0 0 1 2.261 1.448 6.481 6.481 0 0 1 1.497 2.211c.367.828.526 1.719.526 2.625Zm-10.942 0a4.016 4.016 0 0 0 2.548 3.659c.733.287 1.545.35 2.326.191a3.942 3.942 0 0 0 2.038-1.13 4.133 4.133 0 0 0 1.083-2.067 4.082 4.082 0 0 0-.239-2.307 3.954 3.954 0 0 0-1.48-1.782 3.985 3.985 0 0 0-2.23-.668 3.803 3.803 0 0 0-1.577.286c-.494.207-.956.51-1.322.891a3.772 3.772 0 0 0-.86 1.352 3.592 3.592 0 0 0-.287 1.575ZM86.078 22.768v8.05H83.26V23.69c0-2.147-1.115-3.357-2.994-3.357a3.06 3.06 0 0 0-1.306.223 3.23 3.23 0 0 0-1.115.732c-.319.318-.557.7-.717 1.114a3.1 3.1 0 0 0-.19 1.32v7.111h-2.82V18.012h2.787v1.559a4.445 4.445 0 0 1 1.72-1.448 4.61 4.61 0 0 1 2.214-.445 5.051 5.051 0 0 1 2.007.302c.637.239 1.227.62 1.72 1.098a4.84 4.84 0 0 1 1.131 1.686 4.59 4.59 0 0 1 .382 2.005ZM97.468 21.209a8.252 8.252 0 0 0-3.966-1.098c-1.529 0-2.42.62-2.42 1.527 0 .891.939 1.146 2.117 1.32l1.322.207c2.803.398 4.46 1.591 4.46 3.787 0 2.466-2.15 4.184-5.845 4.184a9.574 9.574 0 0 1-5.511-1.639l1.306-2.1a6.426 6.426 0 0 0 4.237 1.305c1.91 0 2.914-.605 2.914-1.56 0-.731-.7-1.208-2.23-1.415l-1.337-.175c-2.835-.382-4.349-1.703-4.349-3.755 0-2.545 2.04-4.104 5.304-4.104a9.715 9.715 0 0 1 5.192 1.352l-1.194 2.164ZM113.549 24.406a6.98 6.98 0 0 1-1.083 3.882 6.775 6.775 0 0 1-3.058 2.61c-1.258.54-2.66.7-3.997.46a7.002 7.002 0 0 1-3.584-1.845 6.88 6.88 0 0 1-1.943-3.532 6.774 6.774 0 0 1 .366-4.009 6.85 6.85 0 0 1 2.533-3.118 6.951 6.951 0 0 1 3.854-1.177c.908-.032 1.8.111 2.644.445a6.545 6.545 0 0 1 2.261 1.448 6.49 6.49 0 0 1 1.498 2.211c.35.828.525 1.719.509 2.625Zm-10.926 0a4.016 4.016 0 0 0 2.549 3.659c.732.287 1.545.35 2.325.191a3.947 3.947 0 0 0 2.039-1.13 4.142 4.142 0 0 0 1.083-2.067 4.09 4.09 0 0 0-.239-2.307 3.957 3.957 0 0 0-1.481-1.782 3.987 3.987 0 0 0-2.23-.668 3.803 3.803 0 0 0-1.577.286 3.95 3.95 0 0 0-1.322.891 3.774 3.774 0 0 0-.86 1.352 3.188 3.188 0 0 0-.287 1.575ZM124.063 18.027l-.669 2.768a4.739 4.739 0 0 0-2.134-.461c-1.784 0-3.058 1.256-3.058 3.436v7.048h-2.804V17.995h2.772v1.448a4.283 4.283 0 0 1 1.64-1.369 4.308 4.308 0 0 1 2.087-.413 5.854 5.854 0 0 1 2.166.366ZM135.398 19.713l-1.799 1.91a4.316 4.316 0 0 0-3.074-1.32c-2.151-.001-3.791 1.685-3.791 4.103 0 2.418 1.64 4.105 3.791 4.105a4.693 4.693 0 0 0 3.153-1.337l1.736 1.925a6.39 6.39 0 0 1-2.166 1.56c-.828.35-1.72.524-2.628.493a6.821 6.821 0 0 1-4.778-1.973 6.78 6.78 0 0 1-1.975-4.773c0-1.782.717-3.5 1.975-4.772a6.765 6.765 0 0 1 4.778-1.973c.908-.032 1.8.143 2.628.493.796.35 1.545.89 2.15 1.56ZM140.294 13.572c0 .255-.048.525-.144.764a1.73 1.73 0 0 1-.43.636 2.04 2.04 0 0 1-1.417.557c-.255 0-.51-.048-.749-.143a1.733 1.733 0 0 1-.637-.43 2.15 2.15 0 0 1-.43-.636 2.024 2.024 0 0 1-.143-.748c0-.254.048-.525.143-.763.096-.239.239-.462.43-.653.175-.19.398-.334.637-.43.239-.095.494-.142.765-.142.255 0 .525.047.764.143.239.095.462.238.653.43.191.19.335.397.43.652.08.238.128.493.128.763Zm-.558 17.246h-2.819V17.995h2.819v12.823ZM155.409 24.406a6.997 6.997 0 0 1-1.083 3.882 6.738 6.738 0 0 1-3.074 2.61c-1.259.54-2.66.7-3.998.46a6.896 6.896 0 0 1-3.568-1.845 6.88 6.88 0 0 1-1.943-3.532 6.786 6.786 0 0 1 .367-4.009 6.841 6.841 0 0 1 2.532-3.118 6.917 6.917 0 0 1 3.854-1.177c.908-.032 1.8.111 2.644.445a6.549 6.549 0 0 1 2.262 1.448 6.488 6.488 0 0 1 1.497 2.211c.35.828.525 1.719.51 2.625Zm-10.926 0a4.016 4.016 0 0 0 2.548 3.659c.733.287 1.545.35 2.325.191a3.939 3.939 0 0 0 2.039-1.13 4.134 4.134 0 0 0 1.083-2.067 3.953 3.953 0 0 0-.255-2.307 3.95 3.95 0 0 0-1.481-1.782 3.947 3.947 0 0 0-2.23-.668 3.854 3.854 0 0 0-1.577.286c-.493.207-.955.51-1.321.891a3.776 3.776 0 0 0-.861 1.352 3.577 3.577 0 0 0-.27 1.575Z"])</script><script>self.__next_f.push([1,"f:T684,m168.214 19.952-2.517 2.1a3.465 3.465 0 0 0-1.242-.955 3.629 3.629 0 0 0-1.529-.334c-1.816 0-3.249 1.416-3.249 3.58 0 2.163 1.433 3.58 3.249 3.58.541 0 1.067-.128 1.561-.35a3.792 3.792 0 0 0 1.274-.955l2.484 2.132a6.308 6.308 0 0 1-2.309 1.829c-.908.43-1.895.62-2.899.604a6.85 6.85 0 0 1-2.644-.493 6.647 6.647 0 0 1-2.245-1.48c-.637-.636-1.163-1.383-1.497-2.227a6.843 6.843 0 0 1-.526-2.64c0-.907.175-1.798.526-2.641.35-.828.86-1.591 1.497-2.228a7.247 7.247 0 0 1 2.245-1.48 6.847 6.847 0 0 1 2.644-.492 6.291 6.291 0 0 1 2.899.604 6.715 6.715 0 0 1 2.278 1.846ZM178.535 17.788l-.525 3.468a5.646 5.646 0 0 0-2.119-.413c-1.624 0-2.739.986-2.739 2.911v7.064h-3.488V17.852h3.392v1.416a4.018 4.018 0 0 1 1.593-1.369 4.2 4.2 0 0 1 2.071-.397 4.99 4.99 0 0 1 1.815.286ZM191.478 24.31c0 .399-.016.78-.063 1.178h-9.206c.111.78.51 1.511 1.131 2.005a3.134 3.134 0 0 0 2.198.684 5.239 5.239 0 0 0 3.281-1.241l2.054 2.243a7.937 7.937 0 0 1-5.527 1.973c-3.981 0-6.737-2.705-6.737-6.778 0-4.072 2.676-6.872 6.562-6.872 3.727 0 6.291 2.768 6.307 6.809Zm-9.253-1.192h5.749c-.318-1.655-1.322-2.594-2.835-2.594-1.64-.015-2.612.97-2.914 2.594ZM202.551 19.204v-7.652h3.488v19.266h-3.425v-1.432a4.753 4.753 0 0 1-1.736 1.336 4.948 4.948 0 0 1-2.'... 14923 more characters
+  },
+  status: 404
+}
+[ConsorcioCred] Erro no scraping: AxiosError: Request failed with status code 404
+    at settle (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\settle.js:19:12)
+    at BrotliDecompress.handleStreamEnd (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\adapters\http.js:793:11)
+    at BrotliDecompress.emit (node:events:507:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (E:\ANTHIGRAVITY\cartas-contempladas\node_modules\axios\lib\core\Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ConsorciocredScraper.fetchHTML (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\base.ts:39:24)
+    at async ConsorciocredScraper.scrape (E:\ANTHIGRAVITY\cartas-contempladas\lib\scrapers\consorciocred.ts:12:20)
+    at async testProblemScrapers (E:\ANTHIGRAVITY\cartas-contempladas\scripts\test-problem-scrapers.ts:31:22) {
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
+      'Cache-Control': 'max-age=0'
+    },
+    baseURL: 'https://consorciocred.com.br',
+    method: 'get',
+    url: '/contempladas/',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /contempladas/ HTTP/1.1\r\n' +
+      'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+      'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+      'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+      'Accept-Encoding: gzip, deflate, br\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Cache-Control: max-age=0\r\n' +
+      'Host: www.consorciocred.com\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 2,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/contempladas/',
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 404,
+      statusMessage: 'Not Found',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://www.consorciocred.com/contempladas/',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 28,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'www.consorciocred.com',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 1,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://www.consorciocred.com/contempladas/',
+      _timeout: null,
+      _isRedirect: true,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'www.consorciocred.com',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'www.consorciocred.com',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [Timeout],
+        _idleStart: 26567,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 800,
+        Symbol(triggerId): 798,
+        Symbol(kAsyncContextFrame): undefined
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): false,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-language': [Array],
+      'accept-encoding': [Array],
+      connection: [Array],
+      'cache-control': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 16384,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 404,
+    statusText: 'Not Found',
+    headers: Object [AxiosHeaders] {
+      age: '82',
+      'cache-control': 'public, max-age=0, must-revalidate',
+      'content-type': 'text/html; charset=utf-8',
+      date: 'Fri, 16 Jan 2026 22:43:56 GMT',
+      etag: 'W/"10v39vl5wsfj85"',
+      server: 'Vercel',
+      'strict-transport-security': 'max-age=63072000',
+      vary: 'RSC, Next-Router-State-Tree, Next-Router-Prefetch',
+      'x-matched-path': '/[slug]',
+      'x-powered-by': 'Next.js',
+      'x-vercel-cache': 'STALE',
+      'x-vercel-id': 'gru1::gru1::jvktb-1768604153374-5c7da84f351e',
+      'transfer-encoding': 'chunked'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      baseURL: 'https://consorciocred.com.br',
+      method: 'get',
+      url: '/contempladas/',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /contempladas/ HTTP/1.1\r\n' +
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\r\n' +
+        'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7\r\n' +
+        'Accept-Encoding: gzip, deflate, br\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Cache-Control: max-age=0\r\n' +
+        'Host: www.consorciocred.com\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/contempladas/',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'www.consorciocred.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 16384,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kUniqueHeaders): null
+    },
+    data: '<!DOCTYPE html><html id="__next_error__"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-3ba58e1855ad53db.js"/><script src="/_next/static/chunks/fd9d1056-4287be806937164a.js" async=""></script><script src="/_next/static/chunks/2117-df7b9e714b9decc5.js" async=""></script><script src="/_next/static/chunks/main-app-be3d940aef6bd3eb.js" async=""></script><meta name="robots" content="noindex"/><title>P├ígina n├úo encontrada | Consorciocred</title><meta name="robots" content="no-index, no-follow"/><meta name="next-size-adjust"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><script src="/_next/static/chunks/webpack-3ba58e1855ad53db.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\\"/_next/static/media/904be59b21bd51cb-s.p.woff2\\",\\"font\\",{\\"crossOrigin\\":\\"\\",\\"type\\":\\"font/woff2\\"}]\\n2:HL[\\"/_next/static/css/62b7edb21724d5bc.css\\",\\"style\\"]\\n"])</script><script>self.__next_f.push([1,"3:I[12846,[],\\"\\"]\\n6:I[4707,[],\\"\\"]\\n8:I[36423,[],\\"\\"]\\n9:I[88003,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"\\"]\\na:I[27572,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"Header\\"]\\nb:I[65878,[\\"2502\\",\\"static/chunks/a63740d3-4a2d454d9dd41f4d.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"5878\\",\\"static/chunks/5878-1608735cbe2d750a.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"1806\\",\\"static/chunks/1806-39a88e30db0cf11f.js\\",\\"8206\\",\\"static/chunks/8206-2da75e06ec96874b.js\\",\\"6042\\",\\"static/chunks/app/%5Bslug%5D/page-d17aa5f18e9e9fe8.js\\"],\\"Image\\"]\\nc:I[72972,[\\"2502\\",\\"static/chunks/a63740d3-4a2d454d9dd41f4d.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"5878\\",\\"static/chunks/5878-1608735cbe2d750a.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"1806\\",\\"static/chunks/1806-39a88e30db0cf11f.js\\",\\"8206\\",\\"static/chunks/8206-2da75e06ec96874b.js\\",\\"6042\\",\\"static/chunks/app/%5Bslug%5D/page-d17aa5f18e9e9fe8.js\\"],\\"\\"]\\nd:I[2582,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"Toaster\\"]\\n10:I[5592"])</script><script>self.__next_f.push([1,"9,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"Newsletter\\"]\\n11:I[96750,[\\"2420\\",\\"static/chunks/9081a741-81d2c0599d8db02b.js\\",\\"2972\\",\\"static/chunks/2972-a993436c8d94c6e4.js\\",\\"2505\\",\\"static/chunks/2505-7b53913236bad6f0.js\\",\\"7317\\",\\"static/chunks/7317-114d25d3c316cc0d.js\\",\\"6627\\",\\"static/chunks/6627-6fba87d48e968b5c.js\\",\\"1739\\",\\"static/chunks/1739-b360735f47cbceb0.js\\",\\"6678\\",\\"static/chunks/6678-b6338490fdd7ee85.js\\",\\"3185\\",\\"static/chunks/app/layout-ff1a2fb159e67ef0.js\\"],\\"default\\"]\\n13:I[61060,[],\\"\\"]\\n7:[\\"slug\\",\\"contempladas\\",\\"d\\"]\\ne:T10ad,"])</script><script>self.__next_f.push([1,"m58.14 19.713-1.799 1.91a4.314 4.314 0 0 0-3.074-1.32c-2.15-.001-3.79 1.685-3.79 4.103 0 2.418 1.64 4.105 3.79 4.105a4.693 4.693 0 0 0 3.154-1.337l1.72 1.925a6.39 6.39 0 0 1-2.166 1.56c-.828.35-1.72.524-2.628.493a6.822 6.822 0 0 1-4.778-1.973 6.779 6.779 0 0 1-1.975-4.773c0-1.782.716-3.5 1.975-4.772a6.766 6.766 0 0 1 4.778-1.973c.908-.032 1.8.143 2.628.493.812.35 1.56.89 2.166 1.56ZM72.284 24.406a6.984 6.984 0 0 1-1.083 3.882 6.735 6.735 0 0 1-3.074 2.61c-1.258.54-2.66.7-3.998.46a7.003 7.003 0 0 1-3.583-1.845 6.875 6.875 0 0 1-1.943-3.532 6.784 6.784 0 0 1 .366-4.009 6.847 6.847 0 0 1 2.532-3.118 6.955 6.955 0 0 1 3.855-1.177c.907-.032 1.8.111 2.644.445a6.546 6.546 0 0 1 2.261 1.448 6.481 6.481 0 0 1 1.497 2.211c.367.828.526 1.719.526 2.625Zm-10.942 0a4.016 4.016 0 0 0 2.548 3.659c.733.287 1.545.35 2.326.191a3.942 3.942 0 0 0 2.038-1.13 4.133 4.133 0 0 0 1.083-2.067 4.082 4.082 0 0 0-.239-2.307 3.954 3.954 0 0 0-1.48-1.782 3.985 3.985 0 0 0-2.23-.668 3.803 3.803 0 0 0-1.577.286c-.494.207-.956.51-1.322.891a3.772 3.772 0 0 0-.86 1.352 3.592 3.592 0 0 0-.287 1.575ZM86.078 22.768v8.05H83.26V23.69c0-2.147-1.115-3.357-2.994-3.357a3.06 3.06 0 0 0-1.306.223 3.23 3.23 0 0 0-1.115.732c-.319.318-.557.7-.717 1.114a3.1 3.1 0 0 0-.19 1.32v7.111h-2.82V18.012h2.787v1.559a4.445 4.445 0 0 1 1.72-1.448 4.61 4.61 0 0 1 2.214-.445 5.051 5.051 0 0 1 2.007.302c.637.239 1.227.62 1.72 1.098a4.84 4.84 0 0 1 1.131 1.686 4.59 4.59 0 0 1 .382 2.005ZM97.468 21.209a8.252 8.252 0 0 0-3.966-1.098c-1.529 0-2.42.62-2.42 1.527 0 .891.939 1.146 2.117 1.32l1.322.207c2.803.398 4.46 1.591 4.46 3.787 0 2.466-2.15 4.184-5.845 4.184a9.574 9.574 0 0 1-5.511-1.639l1.306-2.1a6.426 6.426 0 0 0 4.237 1.305c1.91 0 2.914-.605 2.914-1.56 0-.731-.7-1.208-2.23-1.415l-1.337-.175c-2.835-.382-4.349-1.703-4.349-3.755 0-2.545 2.04-4.104 5.304-4.104a9.715 9.715 0 0 1 5.192 1.352l-1.194 2.164ZM113.549 24.406a6.98 6.98 0 0 1-1.083 3.882 6.775 6.775 0 0 1-3.058 2.61c-1.258.54-2.66.7-3.997.46a7.002 7.002 0 0 1-3.584-1.845 6.88 6.88 0 0 1-1.943-3.532 6.774 6.774 0 0 1 .366-4.009 6.85 6.85 0 0 1 2.533-3.118 6.951 6.951 0 0 1 3.854-1.177c.908-.032 1.8.111 2.644.445a6.545 6.545 0 0 1 2.261 1.448 6.49 6.49 0 0 1 1.498 2.211c.35.828.525 1.719.509 2.625Zm-10.926 0a4.016 4.016 0 0 0 2.549 3.659c.732.287 1.545.35 2.325.191a3.947 3.947 0 0 0 2.039-1.13 4.142 4.142 0 0 0 1.083-2.067 4.09 4.09 0 0 0-.239-2.307 3.957 3.957 0 0 0-1.481-1.782 3.987 3.987 0 0 0-2.23-.668 3.803 3.803 0 0 0-1.577.286 3.95 3.95 0 0 0-1.322.891 3.774 3.774 0 0 0-.86 1.352 3.188 3.188 0 0 0-.287 1.575ZM124.063 18.027l-.669 2.768a4.739 4.739 0 0 0-2.134-.461c-1.784 0-3.058 1.256-3.058 3.436v7.048h-2.804V17.995h2.772v1.448a4.283 4.283 0 0 1 1.64-1.369 4.308 4.308 0 0 1 2.087-.413 5.854 5.854 0 0 1 2.166.366ZM135.398 19.713l-1.799 1.91a4.316 4.316 0 0 0-3.074-1.32c-2.151-.001-3.791 1.685-3.791 4.103 0 2.418 1.64 4.105 3.791 4.105a4.693 4.693 0 0 0 3.153-1.337l1.736 1.925a6.39 6.39 0 0 1-2.166 1.56c-.828.35-1.72.524-2.628.493a6.821 6.821 0 0 1-4.778-1.973 6.78 6.78 0 0 1-1.975-4.773c0-1.782.717-3.5 1.975-4.772a6.765 6.765 0 0 1 4.778-1.973c.908-.032 1.8.143 2.628.493.796.35 1.545.89 2.15 1.56ZM140.294 13.572c0 .255-.048.525-.144.764a1.73 1.73 0 0 1-.43.636 2.04 2.04 0 0 1-1.417.557c-.255 0-.51-.048-.749-.143a1.733 1.733 0 0 1-.637-.43 2.15 2.15 0 0 1-.43-.636 2.024 2.024 0 0 1-.143-.748c0-.254.048-.525.143-.763.096-.239.239-.462.43-.653.175-.19.398-.334.637-.43.239-.095.494-.142.765-.142.255 0 .525.047.764.143.239.095.462.238.653.43.191.19.335.397.43.652.08.238.128.493.128.763Zm-.558 17.246h-2.819V17.995h2.819v12.823ZM155.409 24.406a6.997 6.997 0 0 1-1.083 3.882 6.738 6.738 0 0 1-3.074 2.61c-1.259.54-2.66.7-3.998.46a6.896 6.896 0 0 1-3.568-1.845 6.88 6.88 0 0 1-1.943-3.532 6.786 6.786 0 0 1 .367-4.009 6.841 6.841 0 0 1 2.532-3.118 6.917 6.917 0 0 1 3.854-1.177c.908-.032 1.8.111 2.644.445a6.549 6.549 0 0 1 2.262 1.448 6.488 6.488 0 0 1 1.497 2.211c.35.828.525 1.719.51 2.625Zm-10.926 0a4.016 4.016 0 0 0 2.548 3.659c.733.287 1.545.35 2.325.191a3.939 3.939 0 0 0 2.039-1.13 4.134 4.134 0 0 0 1.083-2.067 3.953 3.953 0 0 0-.255-2.307 3.95 3.95 0 0 0-1.481-1.782 3.947 3.947 0 0 0-2.23-.668 3.854 3.854 0 0 0-1.577.286c-.493.207-.955.51-1.321.891a3.776 3.776 0 0 0-.861 1.352 3.577 3.577 0 0 0-.27 1.575Z"])</script><script>self.__next_f.push([1,"f:T684,m168.214 19.952-2.517 2.1a3.465 3.465 0 0 0-1.242-.955 3.629 3.629 0 0 0-1.529-.334c-1.816 0-3.249 1.416-3.249 3.58 0 2.163 1.433 3.58 3.249 3.58.541 0 1.067-.128 1.561-.35a3.792 3.792 0 0 0 1.274-.955l2.484 2.132a6.308 6.308 0 0 1-2.309 1.829c-.908.43-1.895.62-2.899.604a6.85 6.85 0 0 1-2.644-.493 6.647 6.647 0 0 1-2.245-1.48c-.637-.636-1.163-1.383-1.497-2.227a6.843 6.843 0 0 1-.526-2.64c0-.907.175-1.798.526-2.641.35-.828.86-1.591 1.497-2.228a7.247 7.247 0 0 1 2.245-1.48 6.847 6.847 0 0 1 2.644-.492 6.291 6.291 0 0 1 2.899.604 6.715 6.715 0 0 1 2.278 1.846ZM178.535 17.788l-.525 3.468a5.646 5.646 0 0 0-2.119-.413c-1.624 0-2.739.986-2.739 2.911v7.064h-3.488V17.852h3.392v1.416a4.018 4.018 0 0 1 1.593-1.369 4.2 4.2 0 0 1 2.071-.397 4.99 4.99 0 0 1 1.815.286ZM191.478 24.31c0 .399-.016.78-.063 1.178h-9.206c.111.78.51 1.511 1.131 2.005a3.134 3.134 0 0 0 2.198.684 5.239 5.239 0 0 0 3.281-1.241l2.054 2.243a7.937 7.937 0 0 1-5.527 1.973c-3.981 0-6.737-2.705-6.737-6.778 0-4.072 2.676-6.872 6.562-6.872 3.727 0 6.291 2.768 6.307 6.809Zm-9.253-1.192h5.749c-.318-1.655-1.322-2.594-2.835-2.594-1.64-.015-2.612.97-2.914 2.594ZM202.551 19.204v-7.652h3.488v19.266h-3.425v-1.432a4.753 4.753 0 0 1-1.736 1.336 4.948 4.948 0 0 1-2.'... 14923 more characters
+  },
+  status: 404
+}
+ÔØî [ConsorcioCred] 0 cartas - AINDA COM PROBLEMA
+
+[Cons├│rcio Market] Testando...
+[Cons├│rcio Market] Extra├¡das 0 cartas
+ÔØî [Cons├│rcio Market] 0 cartas - AINDA COM PROBLEMA
+
+[Prime Cotas Contempladas] Testando...
+[Prime Cotas Contempladas] Extra├¡das 0 cartas
+ÔØî [Prime Cotas Contempladas] 0 cartas - AINDA COM PROBLEMA
+
+======================================================================

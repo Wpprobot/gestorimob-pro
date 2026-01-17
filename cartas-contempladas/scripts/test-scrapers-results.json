@@ -1,0 +1,124 @@
+{
+  "dataExecucao": "2026-01-16T22:48:03.510Z",
+  "totalScrapers": 19,
+  "totalCartas": 5348,
+  "sucesso": 11,
+  "vazio": 8,
+  "erro": 0,
+  "detalhes": [
+    {
+      "nome": "Cotas Premium",
+      "url": "https://cotaspremium.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "Bolsa do Consórcio",
+      "url": "https://www.bolsadoconsorcio.com.br",
+      "status": "sucesso",
+      "cartas": 1718
+    },
+    {
+      "nome": "Unicontemplados",
+      "url": "https://unicontemplados.com.br",
+      "status": "sucesso",
+      "cartas": 266
+    },
+    {
+      "nome": "DF Contemplados",
+      "url": "https://dfcontemplados.com.br",
+      "status": "sucesso",
+      "cartas": 38
+    },
+    {
+      "nome": "Quero Contemplada",
+      "url": "https://contempladas.querocontemplada.com.br",
+      "status": "sucesso",
+      "cartas": 875
+    },
+    {
+      "nome": "Toco Consórcios",
+      "url": "https://tococonsorcios.com.br",
+      "status": "sucesso",
+      "cartas": 79
+    },
+    {
+      "nome": "Play Contempladas",
+      "url": "https://playcontempladas.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "iConsórcios",
+      "url": "https://iconsorcios.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "Tramontana Consórcios",
+      "url": "https://tramontanaconsorcios.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "LuME Consórcios",
+      "url": "https://lumeconsorcios.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "ConsorcioCred",
+      "url": "https://consorciocred.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "Finprime",
+      "url": "https://contempladas.finprime.com.br",
+      "status": "sucesso",
+      "cartas": 427
+    },
+    {
+      "nome": "Contemplados RS",
+      "url": "https://contempladosrs.com.br",
+      "status": "sucesso",
+      "cartas": 60
+    },
+    {
+      "nome": "Cotas Contempladas",
+      "url": "https://www.cotascontempladas.com.br",
+      "status": "sucesso",
+      "cartas": 93
+    },
+    {
+      "nome": "Consórcio Market",
+      "url": "https://www.consorciomarket.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "Prime Cotas Contempladas",
+      "url": "https://primecotascontempladas.com.br",
+      "status": "vazio",
+      "cartas": 0
+    },
+    {
+      "nome": "Contempladas Brasil",
+      "url": "https://contempladas.contempladasbrasil.com.br",
+      "status": "sucesso",
+      "cartas": 715
+    },
+    {
+      "nome": "Contemplados SP",
+      "url": "https://www.contempladosp.com.br",
+      "status": "sucesso",
+      "cartas": 149
+    },
+    {
+      "nome": "Lizzy Prime Financial",
+      "url": "https://lizzyprime.com.br",
+      "status": "sucesso",
+      "cartas": 928
+    }
+  ]
+}

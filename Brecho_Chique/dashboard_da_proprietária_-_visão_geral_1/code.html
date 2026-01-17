@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chic Thrift - Dashboard da Proprietária</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e21258",
+                        "primary-light": "#fce7ee",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221016",
+                        "text-main": "#181113",
+                        "text-secondary": "#89616f",
+                        "card-bg": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white h-screen flex overflow-hidden font-display">
+<!-- Sidebar -->
+<aside class="w-64 h-full bg-card-bg border-r border-[#e6dbdf] flex flex-col shrink-0 transition-all duration-300">
+<div class="p-6 flex flex-col gap-6 h-full">
+<!-- Brand -->
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 shrink-0 shadow-sm" data-alt="Chic Thrift Logo abstract pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5dxhkAlw4qb__hxYdcbF0f7C2xKqsDzxg5m2xe4Sf1vqlnoyzc9rsUnBNst_k0Lit9-F1gY5FoJykx4u5ISYUL73Pgv08pr5Mb584Fpv8-bqVlYI028ZaIqMwruURaxi_uCnugLP9rOTq5m4zjDgpe6g5loX-06cEHsNOVAgkbj9GhAaV5OJDl7wKRt3VTOGCuj66Peyy8gWDXmfD5Usz6IaLAfLY19XO_X2TQUBKo_AzgGDTlc9lT30MTr9RlU0yKo4mKu5_8LsQ");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-main text-lg font-bold leading-tight">Chic Thrift</h1>
+<p class="text-text-secondary text-xs font-medium">Painel Admin</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary group transition-colors" href="#">
+<span class="material-symbols-outlined filled">dashboard</span>
+<span class="text-sm font-bold">Visão Geral</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-main hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">checkroom</span>
+<span class="text-sm font-medium">Produtos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-main hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-sm font-medium">Pedidos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-main hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Clientes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-main hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-medium">Relatórios</span>
+</a>
+</nav>
+<!-- Bottom Settings -->
+<div class="mt-auto border-t border-[#e6dbdf] pt-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-main hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Configurações</span>
+</a>
+<div class="flex items-center gap-3 px-3 py-2 mt-2">
+<div class="h-8 w-8 rounded-full bg-gray-200 bg-cover bg-center" data-alt="User profile picture of Sofia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBOvWfLf3yvYXESRuk-jhZMVNQQaifmssuIHnsaiGqylBTmFcLO4oWgKa0SDexv2_AmPn8GZtjrNjNwA0ACLOtuyznClJIEWsgni6-WSTFpXQyXvIFZFZZSCL-1SBTXt76oiQ4yezHRtnICSOrwcEOnl2X_5Mm9Ik3-3MQ1dWrXoeqLbImTc-c74hSbRR3zfcPY5YMmRe8LZnyIVSCvVrQWYLiMVpK7lZKERHAjUM3iE1Ma4_gmr2tLRDPxaNFneC0_hyXbxW34EyTn");'></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-text-main">Sofia M.</p>
+<p class="text-xs text-text-secondary">Proprietária</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Header -->
+<header class="h-20 bg-card-bg/80 backdrop-blur-md border-b border-[#e6dbdf] px-8 flex items-center justify-between sticky top-0 z-20">
+<div>
+<p class="text-text-secondary text-sm">Quarta-feira, 24 de Outubro</p>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search -->
+<div class="relative hidden md:block">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary material-symbols-outlined text-[20px]">search</span>
+<input class="h-10 pl-10 pr-4 bg-background-light rounded-lg border-none text-sm w-64 focus:ring-2 focus:ring-primary/20 placeholder:text-text-secondary/70" placeholder="Buscar..." type="text"/>
+</div>
+<!-- Actions -->
+<button class="relative p-2 rounded-full hover:bg-background-light text-text-main transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-primary border-2 border-white"></span>
+</button>
+<button class="flex items-center justify-center gap-2 h-10 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-lg shadow-sm shadow-primary/30 transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="hidden sm:inline">Novo Item</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 scrollbar-hide">
+<div class="max-w-7xl mx-auto flex flex-col gap-8">
+<!-- Welcome Section -->
+<div class="flex flex-col gap-1">
+<h2 class="text-3xl font-black text-text-main tracking-tight">Bem-vinda de volta, Sofia</h2>
+<p class="text-text-secondary">Aqui está o que está acontecendo na sua loja hoje.</p>
+</div>
+<!-- KPI Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat 1 -->
+<div class="bg-card-bg p-5 rounded-xl border border-[#e6dbdf] shadow-sm flex flex-col gap-1 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">Total de Vendas</p>
+<span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">+12%</span>
+</div>
+<p class="text-2xl font-black text-text-main mt-2">R$ 12.450,00</p>
+<p class="text-xs text-text-secondary">vs. R$ 11.100 mês anterior</p>
+</div>
+<!-- Stat 2 -->
+<div class="bg-card-bg p-5 rounded-xl border border-[#e6dbdf] shadow-sm flex flex-col gap-1 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">Itens Vendidos</p>
+<span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">+5%</span>
+</div>
+<p class="text-2xl font-black text-text-main mt-2">84</p>
+<p class="text-xs text-text-secondary">vs. 80 mês anterior</p>
+</div>
+<!-- Stat 3 -->
+<div class="bg-card-bg p-5 rounded-xl border border-[#e6dbdf] shadow-sm flex flex-col gap-1 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">Ticket Médio</p>
+<span class="bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">-2%</span>
+</div>
+<p class="text-2xl font-black text-text-main mt-2">R$ 148,00</p>
+<p class="text-xs text-text-secondary">vs. R$ 151,00 mês anterior</p>
+</div>
+<!-- Stat 4 -->
+<div class="bg-card-bg p-5 rounded-xl border border-[#e6dbdf] shadow-sm flex flex-col gap-1 hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">Novos Clientes</p>
+<span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">+8%</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<p class="text-2xl font-black text-text-main">12</p>
+<div class="flex -space-x-2 ml-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 bg-cover" data-alt="New customer portrait 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhLIouiX3aQ8PK84T8OIuomkVPaUpLlfgKTFeKLIdppzz5Zlu6b5YLH1RW6yuqaq1KuI85tds_-2d-1iqH9M-ndGN4xtisvdd_K_H-Pf1lDuM0yf82yK56Z_hhD0Zrg30cuM5EE4Kijsh6K_0k1YalJx6RHH-jw6Uo7dachK3Q9RqRa4UGLarQ1Z1sGc9dLPEIPt68OVe5cgVJ4NF4KPWG-zZN_EJDIF2ulLDys-vXfH2JpWzj-G9Kb0FNE1BSl1e9XpmD9j6DuwP6");'></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 bg-cover" data-alt="New customer portrait 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDm_CZaqAg7UNEGhvO7qMX-NanGT4npQDFj7ll_wnKfGw6xwvuppYXAfZN26vkrSzZA7fOzRjFb1wTYjs4eDIZy0u8v8qnEdakMLYLkuuzbykA9wZtnE-yuKPwIPyaTHCgm5bGJgkXi-QxnOGQTgdiK-b9PIstSouzwlQ7CAv3a3syZEhDxMoFAtLqC7jSYxmVacYx-KSJEQ6C208NA-S36nXw8PD6GtYXsFhq9h0ZJvgpAJ6Q_b9RSP6PuPfSG3Y7jB_O48qkKK9B");'></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 bg-cover" data-alt="New customer portrait 3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbjFdxZx_6JPKcz0fObZwz8l9RPUbuteF3PY9kcX-YlOJ4lmBH8kiLNrOy6HCN4YXTgV7MFkGeMPAoB9_AQMNGoSzyjqimHimEtNvHPtY7uROnFOB2hYwkhSpEqOYEjwZBF06WHwZPuEtOuOmwckuhMQgqbZA4_o1Ad-Q_LT6WmAoGGm0iviZohjpfF0ayYAqpGLpmkyk2KWxHHGFP3fet-KWf3rOSMbLss0YwEkluTuC-tbowUVm7MWfpeZFy76flvePovuDnRcRF");'></div>
+</div>
+</div>
+<p class="text-xs text-text-secondary">Novos cadastros este mês</p>
+</div>
+</div>
+<!-- Main Chart Section -->
+<div class="bg-card-bg rounded-xl border border-[#e6dbdf] shadow-sm p-6">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+<div>
+<h3 class="text-lg font-bold text-text-main">Desempenho de Vendas</h3>
+<p class="text-sm text-text-secondary">Comparativo últimos 30 dias</p>
+</div>
+<div class="flex gap-2">
+<select class="form-select bg-background-light border-none rounded-lg text-sm text-text-main focus:ring-0 cursor-pointer py-2 pl-3 pr-8">
+<option>Últimos 30 dias</option>
+<option>Últimos 7 dias</option>
+<option>Este ano</option>
+</select>
+<button class="p-2 bg-background-light rounded-lg text-text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+<!-- SVG Chart -->
+<div class="w-full h-64 relative">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#e21258" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#e21258" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines -->
+<line stroke="#f0f0f0" stroke-width="1" x1="0" x2="1000" y1="0" y2="0"></line>
+<line stroke="#f0f0f0" stroke-width="1" x1="0" x2="1000" y1="75" y2="75"></line>
+<line stroke="#f0f0f0" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+<line stroke="#f0f0f0" stroke-width="1" x1="0" x2="1000" y1="225" y2="225"></line>
+<line stroke="#f0f0f0" stroke-width="1" x1="0" x2="1000" y1="300" y2="300"></line>
+<!-- The Chart Line -->
+<path d="M0,250 C100,240 150,180 200,190 C250,200 300,100 400,120 C500,140 550,60 600,80 C650,100 700,150 800,110 C900,70 950,20 1000,40" fill="none" stroke="#e21258" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<!-- Area under curve (simplified for visual) -->
+<path d="M0,250 C100,240 150,180 200,190 C250,200 300,100 400,120 C500,140 550,60 600,80 C650,100 700,150 800,110 C900,70 950,20 1000,40 L1000,300 L0,300 Z" fill="url(#chartGradient)"></path>
+<!-- Points -->
+<circle cx="200" cy="190" fill="#fff" r="4" stroke="#e21258" stroke-width="2"></circle>
+<circle cx="400" cy="120" fill="#fff" r="4" stroke="#e21258" stroke-width="2"></circle>
+<circle cx="600" cy="80" fill="#e21258" r="6" stroke="#fff" stroke-width="2"></circle>
+<circle cx="800" cy="110" fill="#fff" r="4" stroke="#e21258" stroke-width="2"></circle>
+</svg>
+<!-- Tooltip mockup -->
+<div class="absolute top-[20%] left-[60%] -translate-x-1/2 bg-text-main text-white text-xs py-1 px-2 rounded pointer-events-none">
+                            R$ 4.200
+                            <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-text-main"></div>
+</div>
+</div>
+<div class="flex justify-between text-xs text-text-secondary mt-2">
+<span>01 Out</span>
+<span>07 Out</span>
+<span>14 Out</span>
+<span>21 Out</span>
+<span>28 Out</span>
+</div>
+</div>
+<!-- Bottom Grid: Best Sellers & Low Stock -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-8">
+<!-- Best Sellers (Takes up 2 cols) -->
+<div class="lg:col-span-2 bg-card-bg rounded-xl border border-[#e6dbdf] shadow-sm flex flex-col">
+<div class="p-5 border-b border-[#e6dbdf] flex justify-between items-center">
+<h3 class="font-bold text-text-main">Produtos Mais Vendidos</h3>
+<a class="text-xs font-bold text-primary hover:text-primary/80" href="#">Ver Todos</a>
+</div>
+<div class="p-0 overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-xs text-text-secondary border-b border-gray-100">
+<th class="px-5 py-3 font-medium">Produto</th>
+<th class="px-5 py-3 font-medium">Categoria</th>
+<th class="px-5 py-3 font-medium">Preço</th>
+<th class="px-5 py-3 font-medium text-right">Vendas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group hover:bg-background-light/50 transition-colors">
+<td class="px-5 py-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded bg-gray-100 bg-cover bg-center" data-alt="Vintage Beige Trench Coat thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKVO-FTRi_Yv_fyr9sWV2aBcN6tErYJSlDrM6HK_wSVlaxN1PTJ_AZEQthGX4L0mppuWlamehHc7vSqnx9VSQZAhcSbo4ROqItC_Rde9XEWa9KzaeAkVcT2udOD4XWfqoRcLK9YQOo0kuNXO4bIP4tM5KT1IJTdVwy2CCPd6MC-jH1j9h7EZvqo579hWf1Wkpdhv9pFj57dQuJ91ZGlglI1nCz-3n81uaaVLnPG63IgZzL60YDkriApKM9_wMBFj9bzlqeg7X99rTV");'></div>
+<span class="text-sm font-semibold text-text-main">Trench Coat Bege</span>
+</div>
+</td>
+<td class="px-5 py-3 text-sm text-text-secondary">Casacos</td>
+<td class="px-5 py-3 text-sm font-medium text-text-main">R$ 280,00</td>
+<td class="px-5 py-3 text-sm font-bold text-text-main text-right">24</td>
+</tr>
+<tr class="group hover:bg-background-light/50 transition-colors">
+<td class="px-5 py-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded bg-gray-100 bg-cover bg-center" data-alt="Black Leather Handbag thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtK9PqMFUtllUn45CUJKiu8RExTNiNdzMoukBbmfAaRJz6dsveXVCT67bYf0RxGPeD2SWLfDo72uG84ZUVeNNnK7cQQ5vfnEZv7Z-qXoGGh_6eqi_OMKrQwFNIaAyCIqTNwLIC05vPU3USGsB6BIYLNpAm4LlAjEyHD_eOR-RAVyelaklNNBBrwy8x-zGwQhQskbPE-nMVQOicSqSBHpuEhYnjxfwtJXxmCNZ5NujiiC_gc_mCNBGdMdEP-2_ipGW_2mtCPWu7z4m4");'></div>
+<span class="text-sm font-semibold text-text-main">Bolsa Couro Vintage</span>
+</div>
+</td>
+<td class="px-5 py-3 text-sm text-text-secondary">Acessórios</td>
+<td class="px-5 py-3 text-sm font-medium text-text-main">R$ 150,00</td>
+<td class="px-5 py-3 text-sm font-bold text-text-main text-right">18</td>
+</tr>
+<tr class="group hover:bg-background-light/50 transition-colors">
+<td class="px-5 py-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded bg-gray-100 bg-cover bg-center" data-alt="Silk Scarf Patterned thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9-xpsM4ScBEVOI6r4bJcn0dBFgVfLVRAruaFdMp71fK8PFqF3ai74-eZQZ1M6E0ML_3dewQwNMFJlQ8nVkhwmmY9JBIKnFcLwUDvao-eHYXWu3Z6RpEFd8trbqJcb2zO3WWT9fMgwpE9rrYV-OBNn5XXHk1LN0T4FLzq5cetRbLl5_4o0HOW4MoTPsc6xcd26OQmBuP28tKOZUumt2NY-GumHBs27iBV2yylluV59XMK3huMKmutzJC_yZVpM_HIWgYi3Hyw6008U");'></div>
+<span class="text-sm font-semibold text-text-main">Lenço de Seda</span>
+</div>
+</td>
+<td class="px-5 py-3 text-sm text-text-secondary">Acessórios</td>
+<td class="px-5 py-3 text-sm font-medium text-text-main">R$ 45,00</td>
+<td class="px-5 py-3 text-sm font-bold text-text-main text-right">15</td>
+</tr>
+<tr class="group hover:bg-background-light/50 transition-colors">
+<td class="px-5 py-3">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded bg-gray-100 bg-cover bg-center" data-alt="High waisted denim jeans thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCv_2tWq6_wAEbmhioc3UXqZoYhipLG0cEmlmTgaJOjM5tac3hWSIvPp4oZuk-9LH_KxMKXYiVRBYnjPAR3Jd-xihwSvTrPwTqMA4XOnZqIgTUGafqRe2AH7Z7OyM3eLSs-ZQtRaMZblRXYO2fde1002ZCIicUQv5n4ebHjbc43GKS0wBvbvVYNXRhdyZaKHM5__PU_rDmHwW2kAKeR3Ec8J5IWxNX67Vj-XpoJz-Gi_SLgBp53rGY0Xjavb6zPz0-3dZZ5Z-wfhcen");'></div>
+<span class="text-sm font-semibold text-text-main">Jeans Cintura Alta</span>
+</div>
+</td>
+<td class="px-5 py-3 text-sm text-text-secondary">Calças</td>
+<td class="px-5 py-3 text-sm font-medium text-text-main">R$ 120,00</td>
+<td class="px-5 py-3 text-sm font-bold text-text-main text-right">12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Low Stock Alerts (Takes up 1 col) -->
+<div class="lg:col-span-1 bg-card-bg rounded-xl border border-[#e6dbdf] shadow-sm flex flex-col">
+<div class="p-5 border-b border-[#e6dbdf] flex justify-between items-center">
+<h3 class="font-bold text-text-main flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500 text-[20px]">warning</span>
+                                Estoque Baixo
+                            </h3>
+</div>
+<div class="p-4 flex flex-col gap-4">
+<!-- Item 1 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded bg-gray-100 bg-cover bg-center" data-alt="Red velvet dress thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIHsZJHXjr-1EkAFIjbEQyQw6pxo0q8fRmWTqGJ22sN8B0ouY4lPISLpwnd2RIr6ZH3CC_o3fseelpmgiuAimbNujPkjPUSmGI5sjPhQ8HOEfway7m6W4fJKtdj5f48VpJyf9zd-nyz9D5ry0IYNYBOl_AWDsYY4IhiEPxJusnRLx7RjID5YLf7-dpDrVoFCqBvcSahFHOwE2SsN0yAX2eVD47Cg6Qvhut3H8SFMXhYmajHfVJ7fVjE0OlMu339DyhFpVivwad_7NQ");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main">Vestido Veludo</span>
+<span class="text-xs text-text-secondary">Tam: M</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-sm font-bold text-primary">1 un.</span>
+<span class="text-[10px] text-text-secondary">Restante</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded bg-gray-100 bg-cover bg-center" data-alt="White boots thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAw_L8RB-FEo81tSglwSOLP63eEoinPtQI2tIXGB-puItYMt63PuTnyI5CjkDZmqkSrfRyAU_pV16zNcI6lUGiwSBHlDaSjuuQ7-kN-b0Rg2nTJOgFGy-H9KMZnfgUuGe3AFBWtxNE8fKGtJi53W3OlySkmgDnMw2TVfFGHX-4LFBbReFcXSGIJxcceD-ExTsm2sGW_fbttHdx0Gt8ERk1Y4mAYSxF64fnbiUo5AAnzq8_2oUPlwiXSFnMeGYj-QxYO3j6T5xAQXY8G");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main">Bota Branca</span>
+<span class="text-xs text-text-secondary">Tam: 37</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-sm font-bold text-primary">2 un.</span>
+<span class="text-[10px] text-text-secondary">Restante</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded bg-gray-100 bg-cover bg-center" data-alt="Vintage hat thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6bx7ac0ZGiVFzuhasOEOcPMiTpK2fii_0cvFyT6-Jgx1HkkgA7IMbVKBo89fVMD7xw1LZWo6_kJIPwMuG1iVyU8g36FTXR9AJ3Qu1fxC4rYu3d9ppJjq1TPRGHmFRjE3nboTnrZ2cGlzaTfqrqAjDPe4RnPRolKyEg5c_pWMlKyS6xMksLkZJ6RjqHVQD96w_xh_ylSqW9mwbUHmJ-jXKLMQmDi5xFXrhVXoA444t6U9VxWykjIsWQZfsCSM-Mm-kyHdyf8I0Vblx");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-text-main">Chapéu Feltro</span>
+<span class="text-xs text-text-secondary">Único</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-sm font-bold text-primary">1 un.</span>
+<span class="text-[10px] text-text-secondary">Restante</span>
+</div>
+</div>
+<button class="w-full mt-2 py-2 text-sm font-semibold text-text-secondary bg-background-light rounded hover:bg-gray-200 transition-colors">
+                                Gerenciar Estoque
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
