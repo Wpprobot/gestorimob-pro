@@ -1,0 +1,31 @@
+# Render Blueprint
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: cartas-contempladas
+    runtime: node
+    region: oregon  # ou frankfurt para menor latência no Brasil
+    plan: free  # ou starter para melhor performance
+    
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PUPPETEER_EXECUTABLE_PATH
+        value: /usr/bin/chromium-browser
+      - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        value: "true"
+    
+    # Instala dependências para Puppeteer
+    buildFilter:
+      paths:
+        - "**"
+    
+    # Disk para persistir SQLite
+    disk:
+      name: data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
