@@ -1,8 +1,10 @@
 import { Handler, HandlerEvent } from "@netlify/functions";
 import { createClient } from "@supabase/supabase-js";
 
-const SUPABASE_URL = process.env.SUPABASE_URL || "";
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || "";
+// Use service key if set, otherwise fall back to the anon key (RLS is disabled on payments table)
+const SUPABASE_URL = process.env.SUPABASE_URL || "https://umuazkklbwvoxwbyraxi.supabase.co";
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY ||
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVtdWF6a2tsYnd2b3h3YnlyYXhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1NDU4NDYsImV4cCI6MjA4MTEyMTg0Nn0.emBkqMb456D-yYXweqVPSLfxtwMR3_AcUD4QcDVP1hY";
 const OPENPIX_APP_ID = process.env.OPENPIX_APP_ID || "";
 
 // Woovi/OpenPix sends a webhook with this event name when a PIX is received
