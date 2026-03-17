@@ -35,7 +35,8 @@ export const handler: Handler = async (
 
   try {
     const body: ChatRequestBody = JSON.parse(event.body || "{}");
-    const { message, history = [], images = [] } = body;
+    const { message, images = [] } = body;
+    const history = body.history || [];
 
     if (!message) {
       return {

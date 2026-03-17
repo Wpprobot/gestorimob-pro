@@ -29,7 +29,8 @@ export default async function handler(
 
   try {
     const body = req.body as ChatRequestBody;
-    const { message, history = [], images = [] } = body;
+    const { message, images = [] } = body;
+    const history = body.history || [];
 
     if (!message) {
       return res.status(400).json({ error: "Message is required" });

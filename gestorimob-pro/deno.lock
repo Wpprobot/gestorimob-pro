@@ -15,6 +15,7 @@
         "npm:@netlify/functions@^2.8.2",
         "npm:@supabase/supabase-js@2.39.3",
         "npm:@types/node@^22.14.0",
+        "npm:@vercel/node@3",
         "npm:@vitejs/plugin-react@5",
         "npm:lucide-react@0.561",
         "npm:react-dom@^19.2.3",
