@@ -30,8 +30,14 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
     const eventType = body.event || body.type;
 
+    if (eventType === "webhook_test") {
+      // Woovi sends this when the user clicks 'Test Webhook' in their panel
+      console.log("✅ Received Woovi Webhook Test");
+      return { statusCode: 200, body: JSON.stringify({ success: true, message: "Webhook is working correctly!" }) };
+    }
+
     if (eventType !== CHARGE_COMPLETED_EVENT) {
-      // Not a payment completed event — ignore silently
+      // Not a payment completed event — ignore silently but return 200 so Woovi doesn't retry
       return { statusCode: 200, body: JSON.stringify({ ignored: true, eventType }) };
     }
 
