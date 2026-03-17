@@ -62,20 +62,53 @@ export const handler: Handler = async (event: HandlerEvent) => {
     let matchedPropertyId = "";
     let matchedTenantId = "";
 
-    if (propRows && propRows.length > 0) {
-      // Find the property whose rent amount is closest to the PIX amount
-      const match = propRows.reduce((best: any, row: any) => {
-        const prop = row.data;
-        const diff = Math.abs((prop.rentAmount || 0) - amountBRL);
-        const bestDiff = Math.abs((best?.data?.rentAmount || 0) - amountBRL);
-        return diff < bestDiff ? row : best;
-      }, propRows[0]);
+    // The payer name from Woovi's payload
+    const payerName = (charge.customer?.name || charge.payer?.name || "").toLowerCase();
+    
+    // First: Load all tenants to attempt a name match
+    const { data: tenantRows, error: tenantErr } = await supabase
+      .from("tenants")
+      .select("id, data");
+      
+    if (tenantErr) {
+        console.error("Failed to load tenants:", tenantErr.message);
+    }
+    
+    let foundTenantByPayer = null;
+    if (tenantRows && tenantRows.length > 0 && payerName) {
+        // Try to match the payer name to a tenant name
+        foundTenantByPayer = tenantRows.find((row: any) => {
+            const tName = (row.data.name || "").toLowerCase();
+            // Match if the payer name contains the tenant's first/last name or vice versa
+            return tName && (payerName.includes(tName) || tName.includes(payerName));
+        });
+    }
 
-      const matchedProp = match?.data;
-      // Only match if within 5% of the rent amount (to avoid false matches)
-      if (matchedProp && Math.abs(matchedProp.rentAmount - amountBRL) / matchedProp.rentAmount < 0.05) {
-        matchedPropertyId = matchedProp.id || match.id;
-        matchedTenantId = matchedProp.currentTenantId || "";
+    if (propRows && propRows.length > 0) {
+      if (foundTenantByPayer) {
+         // Found tenant by name! Find which property they are currently renting
+         matchedTenantId = foundTenantByPayer.id;
+         const prop = propRows.find((row: any) => row.data.currentTenantId === matchedTenantId);
+         if (prop) {
+            matchedPropertyId = prop.id;
+            console.log(`🎯 Matched PIX exactly by Payer Name: ${foundTenantByPayer.data.name} -> Prop: ${prop.data.nickname}`);
+         }
+      } else {
+          // Fallback: Find the property whose rent amount is closest to the PIX amount
+          const match = propRows.reduce((best: any, row: any) => {
+            const prop = row.data;
+            const diff = Math.abs((prop.rentAmount || 0) - amountBRL);
+            const bestDiff = Math.abs((best?.data?.rentAmount || 0) - amountBRL);
+            return diff < bestDiff ? row : best;
+          }, propRows[0]);
+    
+          const matchedProp = match?.data;
+          // Only match if within 5% of the rent amount (to avoid false matches)
+          if (matchedProp && Math.abs(matchedProp.rentAmount - amountBRL) / matchedProp.rentAmount < 0.05) {
+            matchedPropertyId = matchedProp.id || match.id;
+            matchedTenantId = matchedProp.currentTenantId || "";
+            console.log(`🎯 Matched PIX by Rent Amount Fallback: R$${amountBRL} -> Prop: ${matchedProp.nickname}`);
+          }
       }
     }
 

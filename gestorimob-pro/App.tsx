@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Home, Users, FileText, Settings, MessageSquare, 
   Plus, Trash2, Save, Upload, Camera, DollarSign, Eye,
-  CheckCircle, AlertCircle, Loader2, Sparkles, X, File, Image as ImageIcon, Calendar, Clock, TrendingUp, ArrowUp, ArrowDown, Download, UserPlus, Check, XCircle, History, Cloud, LogOut, AlertTriangle
+  CheckCircle, AlertCircle, Loader2, Sparkles, X, File, Image as ImageIcon, Calendar, Clock, TrendingUp, ArrowUp, ArrowDown, Download, UserPlus, Check, XCircle, History, Phone, Mail, RefreshCcw, Cloud, LogOut, AlertTriangle
 } from 'lucide-react';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Cell 
@@ -1027,18 +1027,21 @@ const TenantManager = ({
   tenants, 
   setTenants, 
   properties, 
-  setProperties 
+  setProperties,
+  payments
 }: { 
   tenants: Tenant[], 
   setTenants: React.Dispatch<React.SetStateAction<Tenant[]>>,
   properties: Property[],
-  setProperties: React.Dispatch<React.SetStateAction<Property[]>>
+  setProperties: React.Dispatch<React.SetStateAction<Property[]>>,
+  payments: Payment[]
 }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [currentTenant, setCurrentTenant] = useState<Partial<Tenant>>({});
   const [activeTab, setActiveTab] = useState<'active' | 'prospect'>('active');
   const [viewHistory, setViewHistory] = useState<string | null>(null);
   const [viewFile, setViewFile] = useState<{ url: string, name: string, type: 'image' | 'pdf' } | null>(null);
+  const [viewDetails, setViewDetails] = useState<Tenant | null>(null);
 
   // Confirmation State
   const [confirmModal, setConfirmModal] = useState<{ isOpen: boolean, title: string, message: string, onConfirm: () => void, type: 'danger' | 'warning' | 'info' }>({ isOpen: false, title: '', message: '', onConfirm: () => {}, type: 'info' });
@@ -1556,7 +1559,10 @@ const TenantManager = ({
                   </td>
                   <td className="py-3 px-3 text-right">
                      <div className="flex justify-end gap-2 items-center">
-                        <button onClick={() => setViewHistory(t.id)} className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg" title="Ver Histórico">
+                        <button onClick={() => setViewDetails(t)} className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg" title="Ver Detalhes do Contrato">
+                           <Eye size={18} />
+                        </button>
+                        <button onClick={() => setViewHistory(t.id)} className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg" title="Ver Histórico de Logs">
                            <History size={18} />
                         </button>
                         {activeTab === 'prospect' && (
@@ -1606,6 +1612,149 @@ const TenantManager = ({
           </div>
         )}
       </div>
+      {/* Tenant Details Modal */}
+      {viewDetails && (
+         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+            <div className="bg-white rounded-xl shadow-xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
+               <div className="flex justify-between items-center p-6 border-b border-slate-100 bg-slate-50">
+                  <div>
+                     <h2 className="text-2xl font-bold text-slate-800">{viewDetails.name}</h2>
+                     <div className="flex items-center gap-4 text-sm text-slate-500 mt-1">
+                        <span className="flex items-center gap-1"><Phone size={14} /> {viewDetails.phone || 'Sem telefone'}</span>
+                        <span className="flex items-center gap-1"><Mail size={14} /> {viewDetails.email || 'Sem e-mail'}</span>
+                     </div>
+                  </div>
+                  <button onClick={() => setViewDetails(null)} className="text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-200 transition-colors">
+                     <X size={24}/>
+                  </button>
+               </div>
+               
+               <div className="p-6 overflow-y-auto space-y-6 flex-1">
+                  {/* Contract Data */}
+                  <div>
+                     <h3 className="text-lg font-semibold text-slate-800 mb-3 border-b pb-2">Dados do Contrato</h3>
+                     {(() => {
+                        const prop = properties.find(p => p.id === viewDetails.interestedPropertyId || p.currentTenantId === viewDetails.id);
+                        if (!prop) {
+                           return <p className="text-slate-500 italic text-sm">Nenhum imóvel vinculado atualmente.</p>;
+                        }
+                        
+                        // Function to calculate contract remaining time safely
+                        const getContractStatus = () => {
+                           if (!prop.details.contractStart || !prop.details.contractEnd) return 'Período não definido';
+                           
+                           const end = new Date(prop.details.contractEnd);
+                           const today = new Date();
+                           
+                           if (isNaN(end.getTime())) return 'Data inválida';
+                           
+                           if (end < today) return <span className="text-red-600 font-medium">Vencido</span>;
+                           
+                           const diffTime = Math.abs(end.getTime() - today.getTime());
+                           const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                           
+                           if (diffDays <= 30) return <span className="text-orange-600 font-medium">Vence em {diffDays} dias</span>;
+                           return <span className="text-green-600">Vigente (vence em {diffDays} dias)</span>;
+                        };
+
+                        return (
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                              <div>
+                                 <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Imóvel</p>
+                                 <p className="text-slate-800 font-medium">{prop.nickname}</p>
+                                 <p className="text-xs text-slate-600 mt-1">{prop.address}</p>
+                              </div>
+                              <div className="grid grid-cols-2 gap-y-4">
+                                 <div>
+                                    <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Aluguel Base</p>
+                                    <p className="text-slate-800 font-medium">{prop.rentAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                                 </div>
+                                 <div>
+                                    <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Taxas (Cond/IPTU)</p>
+                                    <p className="text-slate-800 font-medium">
+                                       {((prop.fees?.condo || 0) + (prop.fees?.iptu || 0) + (prop.fees?.water || 0)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                    </p>
+                                 </div>
+                                 <div>
+                                    <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Vencimento</p>
+                                    <p className="text-slate-800 font-medium">Dia {prop.paymentDay}</p>
+                                 </div>
+                                 <div className="col-span-2">
+                                    <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Status do Contrato</p>
+                                    <p className="text-sm">{getContractStatus()}</p>
+                                 </div>
+                              </div>
+                           </div>
+                        );
+                     })()}
+                  </div>
+
+                  {/* Payment History */}
+                  <div>
+                     <h3 className="text-lg font-semibold text-slate-800 mb-3 border-b pb-2">Histórico de Pagamentos PIX</h3>
+                     {(() => {
+                        const tenantPayments = payments.filter(p => p.tenantId === viewDetails.id).sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+                        
+                        if (tenantPayments.length === 0) {
+                           return (
+                              <div className="text-center py-8 bg-slate-50 rounded border border-dashed text-sm text-slate-500">
+                                 Nenhum pagamento registrado para {viewDetails.name} ainda.
+                              </div>
+                           );
+                        }
+
+                        return (
+                           <div className="border border-slate-200 rounded-lg overflow-hidden">
+                              <table className="w-full text-left text-sm">
+                                 <thead className="bg-slate-50">
+                                    <tr>
+                                       <th className="py-2 px-3 font-medium text-slate-600">Data</th>
+                                       <th className="py-2 px-3 font-medium text-slate-600">Ref</th>
+                                       <th className="py-2 px-3 font-medium text-slate-600">Valor</th>
+                                       <th className="py-2 px-3 font-medium text-slate-600">Origem</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody className="divide-y divide-slate-100 bg-white">
+                                    {tenantPayments.map((payment) => (
+                                       <tr key={payment.id} className="hover:bg-slate-50">
+                                          <td className="py-3 px-3">
+                                             {new Date(payment.date).toLocaleDateString('pt-BR')}
+                                             <div className="text-xs text-slate-400">{new Date(payment.date).toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'})}</div>
+                                          </td>
+                                          <td className="py-3 px-3">
+                                             <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium capitalize ${
+                                                payment.type === 'rent' ? 'bg-blue-100 text-blue-700' :
+                                                payment.type === 'fee' ? 'bg-orange-100 text-orange-700' :
+                                                'bg-purple-100 text-purple-700'
+                                             }`}>
+                                                {payment.type === 'rent' ? 'Aluguel' : payment.type === 'fee' ? 'Taxa' : 'Reparo'}
+                                             </span>
+                                          </td>
+                                          <td className="py-3 px-3 font-medium text-slate-800">
+                                             {payment.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                          </td>
+                                          <td className="py-3 px-3">
+                                             {payment.source === 'pix_auto' ? (
+                                                <div className="flex items-center gap-1 text-green-600 bg-green-50 w-fit px-2 py-1 rounded border border-green-200 text-xs font-semibold" title={payment.observation}>
+                                                   <RefreshCcw size={12} /> PIX Auto
+                                                </div>
+                                             ) : (
+                                                <span className="text-slate-500 text-xs">Manual</span>
+                                             )}
+                                          </td>
+                                       </tr>
+                                    ))}
+                                 </tbody>
+                              </table>
+                           </div>
+                        );
+                     })()}
+                  </div>
+               </div>
+            </div>
+         </div>
+      )}
+
       {viewFile && <FileViewerModal file={viewFile} onClose={() => setViewFile(null)} />}
     </div>
   );
@@ -2566,7 +2715,7 @@ const App = () => {
         {/* Dynamic View Rendering */}
         {view === 'dashboard' && <Dashboard properties={properties} payments={payments} tenants={tenants} settings={settings} />}
         {view === 'properties' && <PropertiesManager properties={properties} setProperties={setProperties} tenants={tenants} />}
-        {view === 'tenants' && <TenantManager tenants={tenants} setTenants={setTenants} properties={properties} setProperties={setProperties} />}
+        {view === 'tenants' && <TenantManager tenants={tenants} setTenants={setTenants} properties={properties} setProperties={setProperties} payments={payments} />}
         {view === 'documents' && <DocumentGenerator properties={properties} tenants={tenants} settings={settings} setTenants={setTenants} />}
         {view === 'settings' && <SettingsForm settings={settings} setSettings={setSettings} />}
         {view === 'ai-assistant' && <AIAssistant />}

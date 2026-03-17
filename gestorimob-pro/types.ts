@@ -56,6 +56,8 @@ export interface Property {
     laundry: number; // Lavanderia
     area: number;
     furniture: string[]; // List of furniture items
+    contractStart?: string; // ISO date
+    contractEnd?: string; // ISO date
   };
   fees: {
     iptu: number;
