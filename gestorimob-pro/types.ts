@@ -7,6 +7,9 @@ export interface OwnerSettings {
   maritalStatus: string;
   address: string;
   email: string;
+  // PIX Integration
+  pixKey?: string;
+  openpixAppId?: string;
 }
 
 export interface TenantDocument {
@@ -74,6 +77,9 @@ export interface Payment {
   amount: number;
   paid: boolean;
   type: 'rent' | 'fee' | 'repair';
+  source?: 'manual' | 'pix_auto'; // 'pix_auto' = detected via OpenPix webhook
+  pixTransactionId?: string; // OpenPix transaction ID
+  observation?: string;
 }
 
 export interface ChatMessage {

@@ -25,18 +25,28 @@ CREATE TABLE IF NOT EXISTS tenants (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- 4. Criar índices para melhor performance
+-- 4. Tabela de Pagamentos (Payments) - inclui PIX automáticos
+CREATE TABLE IF NOT EXISTS payments (
+  id TEXT PRIMARY KEY,
+  data JSONB NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- 5. Criar índices para melhor performance
 CREATE INDEX IF NOT EXISTS idx_properties_created ON properties(created_at);
 CREATE INDEX IF NOT EXISTS idx_tenants_created ON tenants(created_at);
+CREATE INDEX IF NOT EXISTS idx_payments_created ON payments(created_at);
 
--- 5. DESABILITAR Row Level Security (RLS) para simplicidade
+-- 6. DESABILITAR Row Level Security (RLS) para simplicidade
 -- IMPORTANTE: Em produção, você deve configurar políticas adequadas
 ALTER TABLE owner_settings DISABLE ROW LEVEL SECURITY;
 ALTER TABLE properties DISABLE ROW LEVEL SECURITY;
 ALTER TABLE tenants DISABLE ROW LEVEL SECURITY;
+ALTER TABLE payments DISABLE ROW LEVEL SECURITY;
 
 -- Mensagem de confirmação
 DO $$
 BEGIN
-  RAISE NOTICE 'Schema criado com sucesso! Tabelas: owner_settings, properties, tenants';
+  RAISE NOTICE 'Schema criado com sucesso! Tabelas: owner_settings, properties, tenants, payments';
 END $$;
+

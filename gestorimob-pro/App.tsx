@@ -364,7 +364,9 @@ const Dashboard = ({ properties, payments, tenants, settings }: { properties: Pr
                           </td>
                           <td className="px-3 py-2 text-center">
                             {p.paid ? (
-                              <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Pago</span>
+                              <span className={`text-xs px-2 py-1 rounded-full font-medium ${(p as any).source === 'pix_auto' ? 'bg-emerald-100 text-emerald-700' : 'bg-green-100 text-green-700'}`}>
+                                {(p as any).source === 'pix_auto' ? '🔄 PIX Auto' : 'Pago'}
+                              </span>
                             ) : (
                               <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Pendente</span>
                             )}
@@ -440,14 +442,19 @@ const PaymentModal = ({
       amount: selectedProperty.rentAmount,
       date: paymentDate,
       paid: true,
-      type: 'rent'
+      type: 'rent',
+      source: 'manual',
+      observation: observation || undefined
     };
 
     // Add to state
     setPayments([...payments, newPayment]);
 
-    // TODO: Save to Supabase when payments table is created
-    // For now just local
+    // Persist to Supabase
+    const result = await SupabaseService.savePayment(newPayment);
+    if (!result.success) {
+      console.warn('Failed to save payment to Supabase:', result.error);
+    }
     
     alert('✅ Pagamento registrado com sucesso!');
     onClose();
@@ -1745,6 +1752,47 @@ const DocumentGenerator = ({ properties, tenants, settings, setTenants }: { prop
         `;
         const content = await GeminiService.chat(prompt, [], []);
         setGeneratedContent(content);
+    } else if (docType === 'distrato') {
+        const localData = `${getLocalCidade()}, ${getDateExtenso()}`;
+        prompt = `GERE APENAS O DOCUMENTO FINAL FORMATADO. NÃO ADICIONE EXPLICAÇÕES OU COMENTÁRIOS.
+        
+        Use fonte Times New Roman. Formato pronto para exportação em PDF.
+        
+        DISTRATO DE CONTRATO DE LOCAÇÃO RESIDENCIAL
+        
+        LOCADOR (Proprietário):
+        Nome: ${settings.name}
+        CPF: ${settings.cpf}
+        RG: ${settings.rg}
+        Profissão: ${settings.profession}
+        Estado Civil: ${settings.maritalStatus}
+        Endereço: ${settings.address}
+        
+        LOCATÁRIO (Inquilino):
+        Nome: ${tenant.name}
+        CPF: ${tenant.cpf}
+        RG: ${tenant.rg || 'N/A'}
+        Profissão: ${tenant.profession || 'N/A'}
+        
+        IMÓVEL LOCADO:
+        Endereço: ${prop?.address || 'ENDEREÇO DO IMÓVEL'}
+        Valor do Aluguel Vigente: R$ ${prop?.rentAmount || '0,00'}
+        
+        Local e Data de Encerramento: ${localData}
+        
+        Gere um Distrato completo e juridicamente válido segundo a Lei 8.245/91 incluindo:
+        1. Identificação completa das partes e do imóvel
+        2. Declaração mútua de rescisão amigável do contrato
+        3. Data efetiva de devolução das chaves
+        4. Cláusula de quitação mútua e inexistência de débitos pendentes
+        5. Cláusula sobre estado de conservação do imóvel na devolução
+        6. Devolução de caução/garantia (se houver)
+        7. Cláusula de multa rescisória (se aplicável)
+        8. Foro de eleição para resolução de eventuais litígios
+        9. Linhas de assinatura para Locador, Locatário e 2 testemunhas
+        `;
+        const content = await GeminiService.chat(prompt, [], []);
+        setGeneratedContent(content);
     } else {
         const localData = `${getLocalCidade()}, ${getDateExtenso()}`;
         const task = 'Laudo de Vistoria de Entrada';
@@ -1782,7 +1830,8 @@ const DocumentGenerator = ({ properties, tenants, settings, setTenants }: { prop
     const element = document.createElement("a");
     const file = new Blob([generatedContent], {type: 'text/plain'});
     element.href = URL.createObjectURL(file);
-    const fileName = `${docType === 'contract' ? 'Contrato' : docType === 'proposal' ? 'Ficha_Proposta' : 'Doc'} - ${new Date().toLocaleDateString('pt-BR')}.txt`;
+    const docNames: Record<string, string> = { contract: 'Contrato', distrato: 'Distrato', proposal: 'Ficha_Proposta', receipt: 'Recibo', inspection: 'Vistoria' };
+    const fileName = `${docNames[docType] || 'Doc'} - ${new Date().toLocaleDateString('pt-BR')}.txt`;
     element.download = fileName;
     document.body.appendChild(element);
     element.click();
@@ -1801,7 +1850,8 @@ const DocumentGenerator = ({ properties, tenants, settings, setTenants }: { prop
     reader.onload = async (e) => {
        if (e.target?.result) {
           const docUrl = e.target.result as string;
-          const fileName = `${docType === 'contract' ? 'Contrato' : docType === 'proposal' ? 'Ficha_Proposta' : 'Doc'} - ${new Date().toLocaleDateString('pt-BR')}.txt`;
+          const docNames: Record<string, string> = { contract: 'Contrato', distrato: 'Distrato', proposal: 'Ficha_Proposta', receipt: 'Recibo', inspection: 'Vistoria' };
+    const fileName = `${docNames[docType] || 'Doc'} - ${new Date().toLocaleDateString('pt-BR')}.txt`;
           
           const newDoc: TenantDocument = {
              id: Date.now().toString(),
@@ -1847,6 +1897,7 @@ const DocumentGenerator = ({ properties, tenants, settings, setTenants }: { prop
               onChange={(e) => setDocType(e.target.value)}
             >
               <option value="contract">Contrato de Aluguel (IA Avançada)</option>
+              <option value="distrato">Distrato de Contrato de Aluguel</option>
               <option value="proposal">Ficha de Proposta de Locação</option>
               <option value="receipt">Recibo de Pagamento</option>
               <option value="inspection">Termo de Vistoria</option>
@@ -2293,6 +2344,42 @@ const SettingsForm = ({ settings, setSettings }: { settings: OwnerSettings, setS
            <><Cloud size={20} /> Salvar Configurações</>
         )}
       </button>
+
+      {/* PIX Integration Section */}
+      <div className="mt-8 border-t border-slate-200 pt-6">
+        <h3 className="text-lg font-bold text-slate-800 mb-1 flex items-center gap-2">
+          <DollarSign size={20} className="text-green-500" /> Integração PIX Automático
+        </h3>
+        <p className="text-sm text-slate-500 mb-4">
+          Configure sua conta Woovi/OpenPix para detectar pagamentos PIX automaticamente no dashboard.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className={LABEL_CLASS}>Sua Chave PIX</label>
+            <input
+              className={INPUT_CLASS}
+              value={localSettings.pixKey || ''}
+              onChange={e => setLocalSettings({...localSettings, pixKey: e.target.value})}
+              placeholder="CPF, CNPJ, e-mail ou chave aleatória"
+            />
+          </div>
+          <div>
+            <label className={LABEL_CLASS}>App ID da Woovi/OpenPix</label>
+            <input
+              className={INPUT_CLASS}
+              value={localSettings.openpixAppId || ''}
+              onChange={e => setLocalSettings({...localSettings, openpixAppId: e.target.value})}
+              placeholder="Cole o App ID gerado na Woovi"
+            />
+          </div>
+        </div>
+        <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs text-blue-700">
+          <strong>URL do Webhook para configurar na Woovi:</strong><br />
+          <code className="font-mono select-all bg-blue-100 px-2 py-1 rounded mt-1 inline-block break-all">
+            https://gestorimob-pro.netlify.app/api/openpix-webhook
+          </code>
+        </div>
+      </div>
     </div>
   );
 };
@@ -2430,6 +2517,9 @@ const App = () => {
 
             const t = await SupabaseService.loadTenants();
             setTenants(t);
+
+            const pay = await SupabaseService.loadPayments();
+            setPayments(pay);
         };
         loadData();
     }

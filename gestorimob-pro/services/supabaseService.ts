@@ -1,5 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { OwnerSettings, Property, Tenant } from '../types';
+import { OwnerSettings, Property, Tenant, Payment } from '../types';
 
 let supabase: SupabaseClient | null = null;
 
@@ -229,6 +229,45 @@ export const SupabaseService = {
     } catch (e: any) {
        console.error('Delete tenant error:', e);
        return { success: false, error: e.message };
+    }
+  },
+
+  // --- Payments ---
+  async loadPayments(): Promise<Payment[]> {
+    if (!supabase) {
+      console.error('❌ Supabase client not initialized');
+      return [];
+    }
+    try {
+      const result = await retryOperation(async () => {
+        const { data, error } = await supabase!.from('payments').select('data').order('created_at', { ascending: false });
+        if (error) throw error;
+        return data;
+      });
+      console.log(`✅ ${result.length} pagamentos carregados`);
+      return result.map((row: any) => row.data);
+    } catch (error: any) {
+      console.error('❌ Erro ao carregar pagamentos:', error.message);
+      return [];
+    }
+  },
+
+  async savePayment(payment: Payment): Promise<{ success: boolean; error?: string }> {
+    if (!supabase) {
+      return { success: false, error: 'Supabase não inicializado' };
+    }
+    try {
+      await retryOperation(async () => {
+        const { error } = await supabase!
+          .from('payments')
+          .upsert({ id: payment.id, data: payment }, { onConflict: 'id' });
+        if (error) throw error;
+      });
+      console.log(`✅ Pagamento salvo: R$${payment.amount}`);
+      return { success: true };
+    } catch (error: any) {
+      console.error('❌ Erro ao salvar pagamento:', error.message);
+      return { success: false, error: error.message || 'Erro desconhecido' };
     }
   }
 };
