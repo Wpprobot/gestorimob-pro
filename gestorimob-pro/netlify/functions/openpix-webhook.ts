@@ -32,7 +32,24 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
     if (eventType === "webhook_test") {
       // Woovi sends this when the user clicks 'Test Webhook' in their panel
-      console.log("✅ Received Woovi Webhook Test");
+      console.log("✅ Received Woovi Webhook Test - Generating visual feedback");
+      
+      const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+      const testPayment = {
+        id: `test-${Date.now()}`,
+        propertyId: "",
+        tenantId: "",
+        amount: 0.01,
+        date: new Date().toISOString(),
+        paid: true,
+        type: "rent",
+        source: "pix_auto",
+        pixTransactionId: `teste-woovi-${Date.now()}`,
+        observation: "✅ Teste de Webhook Woovi recebido com sucesso!"
+      };
+
+      await supabase.from("payments").upsert({ id: testPayment.id, data: testPayment }, { onConflict: "id" });
+
       return { statusCode: 200, body: JSON.stringify({ success: true, message: "Webhook is working correctly!" }) };
     }
 
