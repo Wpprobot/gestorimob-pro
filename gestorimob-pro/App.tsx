@@ -2522,6 +2522,14 @@ const App = () => {
             setPayments(pay);
         };
         loadData();
+
+        // Poll for new PIX payments every 30 seconds
+        const pollInterval = setInterval(async () => {
+            const pay = await SupabaseService.loadPayments();
+            setPayments(pay);
+        }, 30000);
+
+        return () => clearInterval(pollInterval);
     }
   }, [isAuthenticated]);
 
